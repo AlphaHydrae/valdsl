@@ -15,6 +15,10 @@ gulp.task('spec', function() {
     .pipe(mocha());
 });
 
+gulp.task('watch', function() {
+  gulp.watch([ 'index.js', 'lib/**/*.js', 'spec/**/*.js' ], [ 'default' ]);
+});
+
 gulp.task('default', function(callback) {
   return runSequence('lint', 'spec', callback);
 });

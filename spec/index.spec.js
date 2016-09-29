@@ -1,4 +1,5 @@
-var chai = require('chai'),
+var _ = require('lodash'),
+    chai = require('chai'),
     expect = chai.expect,
     valdsl = require('../'),
     ValidationError = valdsl.ValidationError;
@@ -6,34 +7,38 @@ var chai = require('chai'),
 describe('valdsl', function() {
   it('should validate an HTTP request', function(done) {
 
-    var fakeHeaders = {
-      Authorization: 'foo',
-      Accept: 'application/json'
-    };
-
-    var fakeRequest = {
+    var request = fakeHttpRequest({
       body: {
         email: 'foo',
-        password: 'letmein'
+        password: 'letmein',
+        role: 'god'
       },
 
-      get: function(headerName) {
-        return fakeHeaders[headerName];
+      headers: {
+        Authorization: 'foo',
+        Accept: 'application/json'
       }
-    };
+    });
 
     valdsl(function() {
 
       // Validate an HTTP request.
-      return this.validate(this.value(fakeRequest), function() {
+      return this.validate(this.value(request), function() {
         return this.parallel(
 
           // Validate headers.
-          this.validate(this.header('Pagination'), this.presence()),
+          this.validate(this.header('Authorization'), this.format(/^Bearer .+$/)),
+          this.validate(this.header('Pagination-Offset'), this.presence()),
 
           // Validate the JSON request body.
-          this.validate(this.get('body'), function() {
-            return this.validate(this.json('/name'), this.presence());
+          // If a validation fails for a property, do not perform other validations for that property.
+          this.validate(this.get('body'), this.unlessError(this.atCurrentLocation()), function() {
+            return this.parallel(
+              // Validate each property.
+              this.validate(this.json('/name'), this.presence(), this.stringLength(1, 50)),
+              this.validate(this.json('/password'), this.presence(), this.stringLength(8)),
+              this.validate(this.json('/role'), this.inclusion('user', 'admin'))
+            );
           })
         );
       });
@@ -45,6 +50,24 @@ describe('valdsl', function() {
       expect(err.errors).to.be.an('array');
 
       expect(err.errors).to.include({
+        type: 'header',
+        location: 'Authorization',
+        code: 'validation.format.invalid',
+        message: 'Value does not match the expected format.',
+        value: 'foo',
+        valueSet: true
+      });
+
+      expect(err.errors).to.include({
+        type: 'header',
+        location: 'Pagination-Offset',
+        code: 'validation.presence.missing',
+        message: 'Value is required.',
+        value: undefined,
+        valueSet: false
+      });
+
+      expect(err.errors).to.include({
         type: 'json',
         location: '/name',
         code: 'validation.presence.missing',
@@ -54,15 +77,24 @@ describe('valdsl', function() {
       });
 
       expect(err.errors).to.include({
-        type: 'header',
-        location: 'Pagination',
-        code: 'validation.presence.missing',
-        message: 'Value is required.',
-        value: undefined,
-        valueSet: false
+        type: 'json',
+        location: '/password',
+        code: 'validation.stringLength.tooShort',
+        message: 'Value must be a string at least 8 characters long. The supplied string is 7 characters long.',
+        value: 'letmein',
+        valueSet: true
       });
 
-      expect(err.errors).to.have.lengthOf(2);
+      expect(err.errors).to.include({
+        type: 'json',
+        location: '/role',
+        code: 'validation.inclusion.notIncluded',
+        message: 'Value must be one of user, admin.',
+        value: 'god',
+        valueSet: true
+      });
+
+      expect(err.errors).to.have.lengthOf(5);
 
     }).then(done, done);
   });
@@ -70,4 +102,18 @@ describe('valdsl', function() {
 
 function failOnSuccess() {
   throw new Error('Expected validation to fail but no errors were found');
+}
+
+function fakeHttpRequest(options) {
+  options = _.extend({}, options);
+
+  var headers = options.headers || {};
+
+  return {
+    body: options.body || {},
+
+    get: function(header) {
+      return headers[header];
+    }
+  };
 }
