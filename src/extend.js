@@ -1,9 +1,10 @@
-var _ = require('lodash');
+import _ from 'lodash';
 
 var names = [];
 
-module.exports = function() {
-  var proto = this.prototype;
+export default function() {
+
+  const proto = this.prototype;
   _.each(_.toArray(arguments), function(extensions) {
     _.each(extensions, function(value, key) {
       if (_.has(proto, key)) {
@@ -16,7 +17,7 @@ module.exports = function() {
   });
 };
 
-module.exports.unextend = function() {
+export function unextend() {
 
   var toRemove = _.toArray(arguments);
   if (!toRemove.length) {

@@ -1,9 +1,18 @@
-var _ = require('lodash'),
-    valib = require('valib');
+import _ from 'lodash';
+import valib from 'valib';
 
 var availableTypes = [ 'string', 'number', 'object', 'array', 'boolean' ];
 
-exports.type = function() {
+export default {
+  type: type,
+  presence: presence,
+  email: email,
+  stringLength: stringLength,
+  format: format,
+  inclusion: inclusion
+}
+
+export function type() {
 
   var types = _.uniq(_.toArray(arguments));
   _.each(types, function(type) {
@@ -43,7 +52,7 @@ exports.type = function() {
   };
 };
 
-exports.presence = function() {
+export function presence() {
   return function(context) {
     if (!context.state.valueSet || !context.state.value) {
       context.addError({
@@ -54,7 +63,7 @@ exports.presence = function() {
   }
 };
 
-exports.email = function() {
+export function email() {
   return function(context) {
     if (!_.isString(context.state.value) || !valib.String.isEmailLike(context.state.value)) {
       context.addError({
@@ -65,7 +74,7 @@ exports.email = function() {
   };
 }
 
-exports.stringLength = function(min, max, options) {
+export function stringLength(min, max, options) {
   if (_.isObject(min)) {
     options = min;
   } else {
@@ -125,7 +134,7 @@ function buildStringLengthErrorMessage(context, options, errorDescription) {
   return message + ' ' + errorDescription;
 }
 
-exports.format = function(regexp, formatDescription) {
+export function format(regexp, formatDescription) {
   return function(context) {
     var value = context.state.value;
     if (!_.isString(value) || !value.match(regexp)) {
@@ -137,7 +146,7 @@ exports.format = function(regexp, formatDescription) {
   };
 };
 
-exports.inclusion = function(options) {
+export function inclusion(options) {
 
   var allowedValues;
   if (_.isObject(options)) {

@@ -1,40 +1,37 @@
-var _ = require('lodash'),
-    extend = require('./extend'),
-    Promise = require('bluebird'),
-    ValidationError = require('./validation-error');
+import _ from 'lodash';
+import extend from './extend';
+import Promise from 'bluebird';
+import ValidationError from './validation-error';
 
-function ValidationContext(options) {
+export default class ValidationContext {
 
-  options = _.extend({}, options);
-  if (_.has(options, 'state') && !_.isObject(options.state)) {
-    throw new Error('Validation context `state` option must be an object');
+  static use(callback) {
+    callback(ValidationContext);
+    return ValidationContext;
   }
 
-  this.errors = [];
-  this.history = [];
-  this.state = options.state || {};
+  constructor(options) {
+    options = _.extend({}, options);
+    if (_.has(options, 'state') && !_.isObject(options.state)) {
+      throw new Error('Validation context `state` option must be an object');
+    }
 
-  this.initialize();
-}
+    this.errors = [];
+    this.history = [];
+    this.state = options.state || {};
 
-ValidationContext.extend = extend;
-ValidationContext.unextend = extend.unextend;
+    this.initialize();
+  }
 
-ValidationContext.use = function(callback) {
-  callback(ValidationContext);
-  return ValidationContext;
-};
+  initialize() {
+  }
 
-_.extend(ValidationContext.prototype, {
-
-  initialize: _.noop,
-
-  addError: function(error) {
+  addError(error) {
     this.errors.push(_.extend(error, this.state));
     return this;
-  },
+  }
 
-  hasError: function(filter) {
+  hasError(filter) {
     if (!this.errors.length) {
       return false;
     }
@@ -52,33 +49,33 @@ _.extend(ValidationContext.prototype, {
     }
 
     return _.find(this.errors, predicate) !== undefined;
-  },
+  }
 
-  validate: function() {
+  validate() {
 
     var newContext = this.copy(),
         actions = _.toArray(arguments);
 
     return recursivelyValidate(newContext, actions);
-  },
+  }
 
-  changeState: function(changes) {
+  changeState(changes) {
     this.history.push(this.state);
     this.state = _.extend({}, this.state, changes);
-  },
+  }
 
-  setState: function(newState) {
+  setState(newState) {
     this.history.push(this.state);
     this.state = newState;
-  },
+  }
 
-  popState: function() {
+  popState() {
     this.state = _.last(this.history);
     this.history.pop();
     return this;
-  },
+  }
 
-  ensureValid: function(callback) {
+  ensureValid(callback) {
     var context = this;
     return Promise.resolve(this).then(_.bind(callback || _.noop, this)).then(function() {
       if (!context.errors.length) {
@@ -89,24 +86,28 @@ _.extend(ValidationContext.prototype, {
       error.errors = _.map(context.errors, _.bind(context.serializeError, context));
       throw error;
     });
-  },
+  }
 
-  shouldPerformNextAction: function(action) {
+  shouldPerformNextAction(action) {
     return true;
-  },
+  }
 
-  serializeError: function(error) {
+  serializeError(error) {
     return error;
-  },
+  }
 
-  copy: function() {
+  copy() {
+    // TODO: prototypal inheritance?
     var newContext = new this.constructor();
     newContext.state = _.clone(this.state);
     newContext.history = this.history.slice();
     newContext.errors = this.errors;
     return newContext;
   }
-});
+}
+
+ValidationContext.extend = extend;
+ValidationContext.unextend = extend.unextend;
 
 function recursivelyValidate(context, actions, promise) {
   if (!promise) {
@@ -126,5 +127,3 @@ function recursivelyValidate(context, actions, promise) {
     }
   });
 }
-
-module.exports = ValidationContext;

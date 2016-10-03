@@ -1,6 +1,6 @@
-var _ = require('lodash');
+import _ from 'lodash';
 
-module.exports = function(ValidationContext) {
+export default function(ValidationContext) {
 
   var proto = ValidationContext.prototype,
       initialize = proto.initialize,

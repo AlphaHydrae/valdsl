@@ -1,15 +1,15 @@
-var _ = require('lodash'),
-    jsonPointer = require('json-pointer');
+import _ from 'lodash';
+import jsonPointer from 'json-pointer';
 
-module.exports = {
-  get: extractValue,
-  header: extractHeader,
-  json: extractJsonValue,
-  value: changeContextValue,
-  atCurrentLocation: atCurrentLocationFilter
-};
+export default {
+  get: get,
+  header: header,
+  json: json,
+  value: value,
+  atCurrentLocation: atCurrentLocation
+}
 
-function extractValue(path) {
+export function get(path) {
   return function(context) {
     context.changeState({
       value: _.get(context.state.value, path),
@@ -18,7 +18,7 @@ function extractValue(path) {
   };
 }
 
-function extractHeader(name) {
+export function header(name) {
   return function(context) {
     context.changeState({
       type: 'header',
@@ -29,7 +29,7 @@ function extractHeader(name) {
   };
 }
 
-function extractJsonValue(pointer, value, valueSet) {
+export function json(pointer, value, valueSet) {
   return function(context) {
 
     var baseLocation = '';
@@ -57,7 +57,7 @@ function extractJsonValue(pointer, value, valueSet) {
   };
 }
 
-function changeContextValue(value) {
+export function value(value) {
   return function(context) {
     context.changeState({
       value: value,
@@ -66,7 +66,7 @@ function changeContextValue(value) {
   };
 }
 
-function atCurrentLocationFilter() {
+export function atCurrentLocation() {
   return function(error, context) {
     if (!context.state.type || !context.state.location) {
       return false;
