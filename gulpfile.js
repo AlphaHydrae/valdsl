@@ -55,9 +55,7 @@ gulp.task('watch', function() {
   });
 });
 
-gulp.task('default', function(callback) {
-  return runSequence('lint', 'spec', callback);
-});
+gulp.task('default', [ 'test' ]);
 
 function compileBabel() {
   return babel({
