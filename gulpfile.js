@@ -15,13 +15,13 @@ var srcDir = path.resolve('src');
 gulp.task('babel', function() {
   return gulp
     .src('src/**/*.js')
-    .pipe()
+    .pipe(compileBabel())
     .pipe(gulp.dest('lib'));
 });
 
 gulp.task('lint', function() {
   return gulp
-    .src([ 'gulpfile.js', 'index.js', 'lib/**/*.js', 'spec/**/*.js' ])
+    .src([ 'gulpfile.js', 'index.js', 'src/**/*.js', 'spec/**/*.js' ])
     .pipe(lint());
 });
 
