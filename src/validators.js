@@ -1,7 +1,31 @@
 import _ from 'lodash';
+import MessageFormat from 'messageformat';
 import valib from 'valib';
 
-var availableTypes = [ 'string', 'number', 'object', 'array', 'boolean' ];
+var mf = new MessageFormat('en'),
+    availableTypes = [ 'string', 'number', 'object', 'array', 'boolean' ];
+
+var translations = {
+  email: '{DESCRIPTION} must be a valid e-mail address.',
+  format: '{DESCRIPTION} does not match the expected format{FORMAT_DESCRIPTION, select, undefined{} other{{FORMAT_DESCRIPTION}}}.',
+  inclusion: '{DESCRIPTION} must be one of {ALLOWED_VALUES}.',
+  presence: '{DESCRIPTION} is required.',
+  stringLength: '{DESCRIPTION} must be a string '
+    + '{VALIDATION_TYPE, select,'
+    + ' exactly{exactly {MIN} {MIN, plural, one{character} other{characters}} long}'
+    + ' atLeast{at least {MIN} {MIN, plural, one{character} other{characters}} long}'
+    + ' atMost{at most {MAX} {MAX, plural, one{character} other{characters}} long}'
+    + ' other{between {MIN} and {MAX} {MAX, plural, one{character} other{characters}} long}}'
+    + '. '
+    + '{ERROR, select,'
+    + ' tooShort{The supplied string is too short ({COUNT} {COUNT, plural, one{character} other{characters}} long).}'
+    + ' tooLong{The supplied string is {COUNT} {COUNT, plural, one{character} other{characters}} long.}'
+    + ' other{The supplied value is of the wrong type ({VALUE_TYPE}).}}',
+  type: '{DESCRIPTION} must be of type {TYPE}.',
+  value: 'Value'
+};
+
+var compiledTranslations = mf.compile(translations);
 
 export default {
   type: type,
@@ -46,7 +70,9 @@ export function type() {
     if (!valid) {
       context.addError({
         code: 'validation.type.invalid',
-        message: (context.state.valueDescription || 'Value') + ' must be of type ' + typeDescription + '.'
+        message: compiledTranslations.type({
+          DESCRIPTION: context.state.valueDescription || compiledTranslations.value()
+        })
       });
     }
   };
@@ -57,7 +83,7 @@ export function presence() {
     if (!context.state.valueSet || !context.state.value) {
       context.addError({
         code: 'validation.presence.missing',
-        message: (context.state.valueDescription || 'Value') + ' is required.'
+        message: compiledTranslations.presence({ DESCRIPTION: context.state.valueDescription || compiledTranslations.value() })
       });
     }
   }
@@ -68,7 +94,9 @@ export function email() {
     if (!_.isString(context.state.value) || !valib.String.isEmailLike(context.state.value)) {
       context.addError({
         code: 'validation.email.invalid',
-        message: (context.state.valueDescription || 'Value') + ' must be a valid e-mail address.'
+        message: compiledTranslations.email({
+          DESCRIPTION: context.state.valueDescription || compiledTranslations.value()
+        })
       });
     }
   };
@@ -90,6 +118,29 @@ export function stringLength(min, max, options) {
     throw new Error('String length validator `max` option must be a number, got ' + typeof(options.max));
   }
 
+  var validationType;
+  if (options.min !== undefined && options.min === options.max) {
+    validationType = 'exactly';
+  } else if (options.min !== undefined && options.max !== undefined) {
+    validationType = 'between';
+  } else if (options.min !== undefined) {
+    validationType = 'atLeast';
+  } else {
+    validationType = 'atMost';
+  }
+
+  function getMessage(context, errorType) {
+    return compiledTranslations.stringLength({
+      VALIDATION_TYPE: validationType,
+      MIN: options.min,
+      MAX: options.max,
+      ERROR: errorType,
+      COUNT: _.isString(context.state.value) ? context.state.value.length : undefined,
+      VALUE_TYPE: typeof(context.state.value),
+      DESCRIPTION: context.state.valueDescription || compiledTranslations.value()
+    });
+  }
+
   return function(context) {
 
     var code,
@@ -98,13 +149,13 @@ export function stringLength(min, max, options) {
 
     if (!_.isString(value)) {
       code = 'validation.stringLength.wrongType';
-      message = buildStringLengthErrorMessage(context, options, 'The supplied value is of type ' + typeof(value) + '.');
+      message = getMessage(context, 'wrongType');
     } else if (options.min !== undefined && value.length < options.min) {
       code = 'validation.stringLength.tooShort';
-      message = buildStringLengthErrorMessage(context, options, 'The supplied string is ' + value.length + ' characters long.');
+      message = getMessage(context, 'tooShort');
     } else if (options.max !== undefined && value.length < options.max) {
       code = 'validation.stringLength.tooLong';
-      message = buildStringLengthErrorMessage(context, options, 'The supplied string is ' + value.length + ' characters long.');
+      message = getMessage(context, 'tooLong');
     }
 
     if (message) {
@@ -116,31 +167,16 @@ export function stringLength(min, max, options) {
   };
 };
 
-function buildStringLengthErrorMessage(context, options, errorDescription) {
-
-  var description = (context.state.valueDescription || 'Value'),
-      message = description + ' must be a string ';
-
-  if (options.min !== undefined && options.min === options.max) {
-    message += 'exactly ' + options.min + ' characters long.';
-  } else if (options.min !== undefined && options.max !== undefined) {
-    message += 'between ' + options.min + ' and ' + options.max + ' characters long.';
-  } else if (options.min !== undefined) {
-    message += 'at least ' + options.min + ' characters long.';
-  } else if (options.max !== undefined) {
-    message += 'at most ' + options.max + ' characters long.';
-  }
-
-  return message + ' ' + errorDescription;
-}
-
 export function format(regexp, formatDescription) {
   return function(context) {
     var value = context.state.value;
     if (!_.isString(value) || !value.match(regexp)) {
       context.addError({
         code: 'validation.format.invalid',
-        message: (context.state.valueDescription || 'Value') + ' does not match the expected format' + (formatDescription ? '(' + formatDescription + ')' : '') + '.'
+        message: compiledTranslations.format({
+          DESCRIPTION: context.state.valueDescription || compiledTranslations.value(),
+          FORMAT_DESCRIPTION: formatDescription
+        })
       });
     }
   };
@@ -159,7 +195,10 @@ export function inclusion(options) {
     if (!_.includes(allowedValues, context.state.value)) {
       context.addError({
         code: 'validation.inclusion.notIncluded',
-        message: (context.state.valueDescription || 'Value') + ' must be one of ' + allowedValues.join(', ') + '.'
+        message: compiledTranslations.inclusion({
+          DESCRIPTION: context.state.valueDescription || compiledTranslations.value(),
+          ALLOWED_VALUES: allowedValues.join(', ')
+        })
       });
     }
   };

@@ -85,7 +85,7 @@ describe('valdsl', function() {
         type: 'json',
         location: '/password',
         code: 'validation.stringLength.tooShort',
-        message: 'Value must be a string at least 8 characters long. The supplied string is 7 characters long.',
+        message: 'Value must be a string at least 8 characters long. The supplied string is too short (7 characters long).',
         value: 'letmein',
         valueSet: true
       });

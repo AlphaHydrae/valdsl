@@ -2,11 +2,18 @@ import _ from 'lodash';
 import jsonPointer from 'json-pointer';
 
 export default {
+  desc: desc,
   get: get,
   header: header,
   json: json,
   value: value,
   atCurrentLocation: atCurrentLocation
+}
+
+export function desc(description) {
+  return function(context) {
+    context.state.valueDescription = _.compact([ context.state.valueDescription, description ]).join(' ');
+  };
 }
 
 export function get(path) {
