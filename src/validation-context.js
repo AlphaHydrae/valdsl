@@ -1,13 +1,12 @@
 import _ from 'lodash';
-import extend from './extend';
+import extendDsl from './extend-dsl';
 import Promise from 'bluebird';
 import ValidationError from './validation-error';
 
 export default class ValidationContext {
 
-  static use(callback) {
-    callback(ValidationContext);
-    return ValidationContext;
+  static extendDsl() {
+    return extendDsl.apply(this, arguments);
   }
 
   constructor(options) {
@@ -104,9 +103,6 @@ export default class ValidationContext {
     return newContext;
   }
 }
-
-ValidationContext.extend = extend;
-ValidationContext.unextend = extend.unextend;
 
 function recursivelyValidate(context, actions, promise) {
   if (!promise) {

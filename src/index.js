@@ -6,21 +6,33 @@ import ValidationContext from './validation-context';
 import ValidationError from './validation-error';
 import Validators from './validators';
 
-ValidationContext.extend(Actions);
-ValidationContext.extend(Utils);
-ValidationContext.extend(Validators);
-ValidationContext.use(Conditionals);
+export default function() {
 
-function validate(options, callback) {
-  if (_.isFunction(options)) {
-    callback = options;
-    options = undefined;
+  class CustomValidationContext extends ValidationContext {
   }
 
-  return new ValidationContext(options).ensureValid(callback);
+  var dsl = function validate(options, callback) {
+    if (_.isFunction(options)) {
+      callback = options;
+      options = undefined;
+    }
+
+    return new CustomValidationContext(options).ensureValid(callback);
+  };
+
+  dsl.ValidationContext = CustomValidationContext;
+  dsl.ValidationError = ValidationError;
+
+  dsl.plugin = function(callback) {
+    callback(dsl);
+    return dsl;
+  };
+
+  CustomValidationContext.extendDsl(Actions);
+  CustomValidationContext.extendDsl(Utils);
+  CustomValidationContext.extendDsl(Validators);
+
+  dsl.plugin(Conditionals);
+
+  return dsl;
 }
-
-validate.ValidationContext = ValidationContext;
-validate.ValidationError = ValidationError;
-
-export default validate;

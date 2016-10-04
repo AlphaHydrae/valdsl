@@ -1,10 +1,15 @@
 var _ = require('lodash'),
     chai = require('chai'),
     expect = chai.expect,
-    valdsl = require('../'),
-    ValidationError = valdsl.ValidationError;
+    valdsl = require('../');
 
 describe('valdsl', function() {
+
+  var validate;
+  beforeEach(function() {
+    validate = valdsl();
+  });
+
   it('should validate an HTTP request', function(done) {
 
     var request = fakeHttpRequest({
@@ -20,7 +25,7 @@ describe('valdsl', function() {
       }
     });
 
-    valdsl(function() {
+    validate(function() {
 
       // Validate an HTTP request.
       return this.validate(this.value(request), function() {
@@ -43,7 +48,7 @@ describe('valdsl', function() {
         );
       });
     }).then(failOnSuccess).catch(function(err) {
-      if (!(err instanceof ValidationError)) {
+      if (!(err instanceof validate.ValidationError)) {
         throw err;
       }
 

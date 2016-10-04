@@ -35,6 +35,10 @@ gulp.task('test', function(callback) {
   return runSequence('lint', 'babel', 'spec', callback);
 });
 
+gulp.task('test:watch', function(callback) {
+  return runSequence('test', 'watch', callback);
+});
+
 gulp.task('watch', function() {
   return watch([ 'index.js', 'spec/**/*.js', 'src/**/*.js' ], function(file) {
     if (file.path.indexOf(srcDir + '/') === 0) {

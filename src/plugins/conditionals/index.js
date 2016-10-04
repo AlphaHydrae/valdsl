@@ -1,8 +1,8 @@
 import _ from 'lodash';
 
-export default function(ValidationContext) {
+export default function(valdsl) {
 
-  var proto = ValidationContext.prototype,
+  var proto = valdsl.ValidationContext.prototype,
       createChild = proto.createChild,
       initialize = proto.initialize,
       shouldPerformNextAction = proto.shouldPerformNextAction;
@@ -37,7 +37,7 @@ export default function(ValidationContext) {
     });
   };
 
-  ValidationContext.extend({
+  valdsl.ValidationContext.extendDsl({
     unlessError: function(filter) {
       return function(context) {
         context.conditions.push(function(context) {
