@@ -3,8 +3,8 @@ import _ from 'lodash';
 export default function(ValidationContext) {
 
   var proto = ValidationContext.prototype,
+      createChild = proto.createChild,
       initialize = proto.initialize,
-      copy = proto.copy,
       shouldPerformNextAction = proto.shouldPerformNextAction;
 
   proto.initialize = function() {
@@ -12,8 +12,8 @@ export default function(ValidationContext) {
     this.conditions = [];
   };
 
-  proto.copy = function() {
-    var newContext = copy.apply(this, arguments);
+  proto.createChild = function() {
+    var newContext = createChild.apply(this, arguments);
     newContext.conditions = this.conditions.slice();
     return newContext;
   };

@@ -39,7 +39,7 @@ gulp.task('watch', function() {
   return watch([ 'index.js', 'spec/**/*.js', 'src/**/*.js' ], function(file) {
     if (file.path.indexOf(srcDir + '/') === 0) {
       gulp
-        .src(file.path)
+        .src(file.path, { base: 'src' })
         .pipe(compileBabel())
         .pipe(gulp.dest('lib'))
         .pipe(clear())

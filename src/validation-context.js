@@ -53,7 +53,7 @@ export default class ValidationContext {
 
   validate() {
 
-    var newContext = this.copy(),
+    var newContext = this.createChild(),
         actions = _.toArray(arguments);
 
     return recursivelyValidate(newContext, actions);
@@ -96,9 +96,8 @@ export default class ValidationContext {
     return error;
   }
 
-  copy() {
-    // TODO: prototypal inheritance?
-    var newContext = new this.constructor();
+  createChild() {
+    var newContext = Object.create(this);
     newContext.state = _.clone(this.state);
     newContext.history = this.history.slice();
     newContext.errors = this.errors;
