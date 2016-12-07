@@ -38,12 +38,39 @@ export default function(valdsl) {
   };
 
   valdsl.ValidationContext.extendDsl({
-    unlessError: function(filter) {
-      return function(context) {
-        context.conditions.push(function(context) {
-          return !context.hasError(filter);
-        });
+    ifSet: ifSet,
+    ifChanged: ifChanged,
+    unlessError: unlessError
+  });
+
+  function ifSet() {
+    return function(context) {
+      context.conditions.push(function(context) {
+        return context.state.valueSet;
+      });
+    };
+  }
+
+  function ifChanged(changed) {
+    if (!_.isFunction(changed)) {
+      var previousValue = changed;
+      changed = function(value) {
+        return value !== previousValue;
       };
     }
-  });
+
+    return function(context) {
+      context.conditions.push(function(context) {
+        return context.state.valueSet && changed(context.state.value);
+      });
+    };
+  }
+
+  function unlessError(filter) {
+    return function(context) {
+      context.conditions.push(function(context) {
+        return !context.hasError(filter);
+      });
+    };
+  }
 };
