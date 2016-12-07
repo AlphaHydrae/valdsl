@@ -22,6 +22,7 @@ var translations = {
     + ' tooLong{The supplied string is {COUNT} {COUNT, plural, one{character} other{characters}} long.}'
     + ' other{The supplied value is of the wrong type ({VALUE_TYPE}).}}',
   type: '{DESCRIPTION} must be of type {TYPE}.',
+  resource: '{DESCRIPTION} {ID} not found.',
   value: 'Value'
 };
 
@@ -33,7 +34,8 @@ export default {
   email: email,
   stringLength: stringLength,
   format: format,
-  inclusion: inclusion
+  inclusion: inclusion,
+  resource: resource
 }
 
 export function type() {
@@ -153,7 +155,7 @@ export function stringLength(min, max, options) {
     } else if (options.min !== undefined && value.length < options.min) {
       code = 'validation.stringLength.tooShort';
       message = getMessage(context, 'tooShort');
-    } else if (options.max !== undefined && value.length < options.max) {
+    } else if (options.max !== undefined && value.length > options.max) {
       code = 'validation.stringLength.tooLong';
       message = getMessage(context, 'tooLong');
     }
@@ -202,4 +204,45 @@ export function inclusion(options) {
       });
     }
   };
+};
+
+export function resource(loader, options) {
+  options = _.extend({}, options);
+
+  var action = function(context) {
+    return Promise.resolve(loader(context.state.value)).then(function(resource) {
+      if (!resource) {
+        return context.addError({
+          code: 'validation.resource.notFound',
+          message: compiledTranslations.resource({
+            ID: context.state.value,
+            DESCRIPTION: context.state.valueDescription || compiledTranslations.value()
+          })
+        });
+      }
+
+      if (_.get(options, 'replace', true) && _.isFunction(context.state.location.setValue)) {
+        context.state.location.setValue(resource);
+      }
+
+      if (options.moveTo) {
+        if (!context.state.location) {
+          throw new Error('Moving the value requires a location');
+        } else if (!_.isFunction(context.state.location.move)) {
+          throw new Error('Moving the value requires the location to provide a `move` function');
+        }
+
+        context.changeState({
+          location: context.state.location.move(options.moveTo)
+        });
+      }
+    });
+  };
+
+  action.moveTo = function(to) {
+    options.moveTo = to;
+    return action;
+  };
+
+  return action;
 };

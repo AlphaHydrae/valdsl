@@ -44,10 +44,6 @@ export class JsonPointerLocation {
     this.type = 'jsonPointer';
   }
 
-  at(relativePointer, source) {
-    return new JsonPointerLocation(this.pointer + relativePointer, relativePointer, jsonPointer.get(source, this.relativePointer));
-  }
-
   get pointer() {
     return this.basePointer + this.relativePointer;
   }
@@ -60,6 +56,14 @@ export class JsonPointerLocation {
     }
 
     return new JsonPointerLocation(this.basePointer, newPointer, this.source);
+  }
+
+  isValueSet() {
+    return jsonPointer.has(this.source, this.relativePointer);
+  }
+
+  getValue() {
+    return jsonPointer.get(this.source, this.relativePointer);
   }
 
   setValue(value) {
@@ -83,28 +87,20 @@ export function json(pointer, options) {
       basePointer = '';
     }
 
-    var previousValue = context.state.value,
-        valueSet = _.has(options, 'valueSet') ? options.valueSet : jsonPointer.has(previousValue, pointer);
+    var location = new JsonPointerLocation(basePointer, pointer, context.state.value);
+
+    var valueSet = _.has(options, 'valueSet') ? options.valueSet : location.isValueSet();
 
     var value = options.value;
     if (!_.has(options, 'value') && valueSet) {
-      value = jsonPointer.get(previousValue, pointer);
-    }
-
-    function setValue(newValue, newPointer) {
-      if (newPointer) {
-        jsonPointer.remove(previousValue, pointer);
-      }
-
-      jsonPointer.set(previousValue, newPointer || pointer, newValue);
+      value = location.getValue();
     }
 
     context.changeState({
       type: 'json',
-      location: newLocation,
+      location: location,
       value: value,
-      valueSet: valueSet,
-      setValue: setValue
+      valueSet: valueSet
     });
   };
 }
