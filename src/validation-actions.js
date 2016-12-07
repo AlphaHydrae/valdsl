@@ -36,30 +36,75 @@ export function header(name) {
   };
 }
 
-export function json(pointer, value, valueSet) {
+export class JsonPointerLocation {
+  constructor(basePointer, relativePointer, source) {
+    this.basePointer = basePointer || '';
+    this.relativePointer = relativePointer;
+    this.source = source;
+    this.type = 'jsonPointer';
+  }
+
+  at(relativePointer, source) {
+    return new JsonPointerLocation(this.pointer + relativePointer, relativePointer, jsonPointer.get(source, this.relativePointer));
+  }
+
+  get pointer() {
+    return this.basePointer + this.relativePointer;
+  }
+
+  move(newPointer) {
+    if (jsonPointer.has(this.source, this.relativePointer)) {
+      var value = jsonPointer.get(this.source, this.relativePointer);
+      jsonPointer.remove(this.source, this.relativePointer);
+      jsonPointer.set(this.source, newPointer, value);
+    }
+
+    return new JsonPointerLocation(this.basePointer, newPointer, this.source);
+  }
+
+  setValue(value) {
+    jsonPointer.set(this.source, this.relativePointer, value);
+  }
+
+  toString() {
+    return this.pointer;
+  }
+}
+
+export function json(pointer, options) {
+  options = _.extend({}, options);
+
   return function(context) {
 
-    var baseLocation = '';
-    if (context.state.type == 'json' && context.state.location) {
-      baseLocation = context.state.location;
+    var basePointer;
+    if (_.get(context.state, 'location.type') == 'jsonPointer') {
+      basePointer = context.state.location.pointer;
+    } else {
+      basePointer = '';
     }
 
-    var newLocation = baseLocation;
-    if (pointer) {
-      newLocation += pointer;
+    var previousValue = context.state.value,
+        valueSet = _.has(options, 'valueSet') ? options.valueSet : jsonPointer.has(previousValue, pointer);
+
+    var value = options.value;
+    if (!_.has(options, 'value') && valueSet) {
+      value = jsonPointer.get(previousValue, pointer);
     }
 
-    valueSet = valueSet !== undefined ? valueSet : jsonPointer.has(context.state.value, pointer);
+    function setValue(newValue, newPointer) {
+      if (newPointer) {
+        jsonPointer.remove(previousValue, pointer);
+      }
 
-    if (value === undefined && valueSet) {
-      value = jsonPointer.get(context.state.value, pointer);
+      jsonPointer.set(previousValue, newPointer || pointer, newValue);
     }
 
     context.changeState({
       type: 'json',
       location: newLocation,
       value: value,
-      valueSet: valueSet
+      valueSet: valueSet,
+      setValue: setValue
     });
   };
 }
