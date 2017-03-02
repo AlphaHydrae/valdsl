@@ -1,6 +1,29 @@
 {
   "name": "valdsl",
   "version": "0.2.1",
+  "description": "Extensible validation DSL",
+  "keywords": [
+    "dsl",
+    "valid",
+    "validate",
+    "validation"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "Simon Oulevay (Alpha Hydrae)",
+    "email": "npm@alphahydrae.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AlphaHydrae/valdsl.git"
+  },
+  "homepage": "https://github.com/AlphaHydrae/valdsl",
+  "bugs": "https://github.com/AlphaHydrae/valdsl/issues",
+  "main": "./index.js",
+  "files": [
+    "index.js",
+    "lib"
+  ],
   "scripts": {
     "build": "rimraf lib && npm run src:build",
     "prepublish": "npm run build",
@@ -30,5 +53,8 @@
     "rimraf": "^2.6.1",
     "run-sequence": "^1.2.2",
     "through2": "^2.0.1"
+  },
+  "engines": {
+    "node": ">= 4.0.0"
   }
 }
