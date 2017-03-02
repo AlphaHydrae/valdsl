@@ -18,6 +18,7 @@ export default class ValidationContext {
     this.errors = [];
     this.history = [];
     this.state = options.state || {};
+    this.dsl = options.dsl || {};
 
     this.initialize();
   }
@@ -99,7 +100,6 @@ export default class ValidationContext {
     var newContext = Object.create(this);
     newContext.state = _.clone(this.state);
     newContext.history = this.history.slice();
-    newContext.errors = this.errors;
     return newContext;
   }
 }
@@ -114,7 +114,8 @@ function recursivelyValidate(context, actions, promise) {
   var nextAction = actions.shift();
   return Promise.resolve(context.shouldPerformNextAction(nextAction)).then(function(yes) {
     if (yes) {
-      return promise.return(context).then(_.bind(nextAction, context)).then(function() {
+      var dsl = _.extend(Object.create(context), context.dsl);
+      return promise.return(context).then(_.bind(nextAction, dsl)).then(function() {
         return recursivelyValidate(context, actions);
       });
     } else {

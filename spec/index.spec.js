@@ -39,7 +39,7 @@ describe('valdsl', function() {
 
           // Validate the JSON request body.
           // If a validation fails for a property, do not perform other validations for that property.
-          this.validate(this.get('body'), this.unlessError(this.atCurrentLocation()), function() {
+          this.validate(this.get('body'), this.breakIf(this.hasError(this.atCurrentLocation())), function() {
             return this.parallel(
               // Validate each property.
               this.validate(this.json('/name'), this.presence(), this.stringLength(1, 50)),

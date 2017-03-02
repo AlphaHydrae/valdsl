@@ -11,28 +11,33 @@ export default function() {
   class CustomValidationContext extends ValidationContext {
   }
 
-  var dsl = function validate(options, callback) {
+  var dsl = {};
+
+  var valdsl = function validate(options, callback) {
     if (_.isFunction(options)) {
       callback = options;
-      options = undefined;
+      options = {};
     }
+
+    options.dsl = dsl;
 
     return new CustomValidationContext(options).ensureValid(callback);
   };
 
-  dsl.ValidationContext = CustomValidationContext;
-  dsl.ValidationError = ValidationError;
+  valdsl.dsl = dsl;
+  valdsl.ValidationContext = CustomValidationContext;
+  valdsl.ValidationError = ValidationError;
 
-  dsl.plugin = function(callback) {
-    callback(dsl);
-    return dsl;
+  valdsl.plugin = function(callback) {
+    callback(valdsl);
+    return valdsl;
   };
 
-  CustomValidationContext.extendDsl(Actions);
-  CustomValidationContext.extendDsl(Utils);
-  CustomValidationContext.extendDsl(Validators);
+  _.extend(dsl, Actions);
+  _.extend(dsl, Utils);
+  _.extend(dsl, Validators);
 
-  dsl.plugin(Conditionals);
+  valdsl.plugin(Conditionals);
 
-  return dsl;
+  return valdsl;
 }
