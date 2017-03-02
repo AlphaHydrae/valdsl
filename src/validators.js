@@ -221,8 +221,8 @@ export function resource(loader, options) {
         });
       }
 
-      if (_.get(options, 'replace', true) && _.isFunction(context.state.location.setValue)) {
-        context.state.location.setValue(resource);
+      if (options.replace && _.isFunction(context.state.location.setValue)) {
+        context.state.location.setValue(_.isFunction(options.replace) ? options.replace(resource) : resource);
       }
 
       if (options.moveTo) {
@@ -237,6 +237,11 @@ export function resource(loader, options) {
         });
       }
     });
+  };
+
+  action.replace = function(by) {
+    options.replace = by;
+    return action;
   };
 
   action.moveTo = function(to) {

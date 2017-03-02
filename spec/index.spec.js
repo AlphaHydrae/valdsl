@@ -140,7 +140,7 @@ describe('valdsl', function() {
             return this.parallel(
               // Validate each property.
               this.validate(this.json('/street'), this.presence(), this.stringLength(1, 50)),
-              this.validate(this.json('/cityId'), this.presence(), this.resource(findCity).moveTo('/city'))
+              this.validate(this.json('/cityId'), this.presence(), this.resource(findCity).replace(true).moveTo('/city'))
             );
           })
         );
