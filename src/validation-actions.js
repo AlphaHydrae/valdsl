@@ -8,7 +8,7 @@ export default {
   json: json,
   value: value,
   atCurrentLocation: atCurrentLocation
-}
+};
 
 export function desc(description) {
   return function(context) {

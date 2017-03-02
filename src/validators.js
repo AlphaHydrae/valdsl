@@ -10,17 +10,17 @@ var translations = {
   format: '{DESCRIPTION} does not match the expected format{FORMAT_DESCRIPTION, select, undefined{} other{{FORMAT_DESCRIPTION}}}.',
   inclusion: '{DESCRIPTION} must be one of {ALLOWED_VALUES}.',
   presence: '{DESCRIPTION} is required.',
-  stringLength: '{DESCRIPTION} must be a string '
-    + '{VALIDATION_TYPE, select,'
-    + ' exactly{exactly {MIN} {MIN, plural, one{character} other{characters}} long}'
-    + ' atLeast{at least {MIN} {MIN, plural, one{character} other{characters}} long}'
-    + ' atMost{at most {MAX} {MAX, plural, one{character} other{characters}} long}'
-    + ' other{between {MIN} and {MAX} {MAX, plural, one{character} other{characters}} long}}'
-    + '. '
-    + '{ERROR, select,'
-    + ' tooShort{The supplied string is too short ({COUNT} {COUNT, plural, one{character} other{characters}} long).}'
-    + ' tooLong{The supplied string is {COUNT} {COUNT, plural, one{character} other{characters}} long.}'
-    + ' other{The supplied value is of the wrong type ({VALUE_TYPE}).}}',
+  stringLength: '{DESCRIPTION} must be a string ' +
+    '{VALIDATION_TYPE, select,' +
+    ' exactly{exactly {MIN} {MIN, plural, one{character} other{characters}} long}' +
+    ' atLeast{at least {MIN} {MIN, plural, one{character} other{characters}} long}' +
+    ' atMost{at most {MAX} {MAX, plural, one{character} other{characters}} long}' +
+    ' other{between {MIN} and {MAX} {MAX, plural, one{character} other{characters}} long}}' +
+    '. ' +
+    '{ERROR, select,' +
+    ' tooShort{The supplied string is too short ({COUNT} {COUNT, plural, one{character} other{characters}} long).}' +
+    ' tooLong{The supplied string is {COUNT} {COUNT, plural, one{character} other{characters}} long.}' +
+    ' other{The supplied value is of the wrong type ({VALUE_TYPE}).}}',
   type: '{DESCRIPTION} must be of type {TYPE}.',
   resource: '{DESCRIPTION} {ID} not found.',
   value: 'Value'
@@ -36,7 +36,7 @@ export default {
   format: format,
   inclusion: inclusion,
   resource: resource
-}
+};
 
 export function type() {
 
@@ -50,7 +50,7 @@ export function type() {
   var typeDescription = _.reduce(types, function(memo, type, i) {
     if (i > 0 && i == types.length - 1) {
       return memo + ' or ' + type;
-    } else if (i != 0) {
+    } else if (i !== 0) {
       return memo + ', ' + type;
     } else {
       return type;
@@ -78,7 +78,7 @@ export function type() {
       });
     }
   };
-};
+}
 
 export function presence() {
   return function(context) {
@@ -88,8 +88,8 @@ export function presence() {
         message: compiledTranslations.presence({ DESCRIPTION: context.state.valueDescription || compiledTranslations.value() })
       });
     }
-  }
-};
+  };
+}
 
 export function email() {
   return function(context) {
@@ -167,7 +167,7 @@ export function stringLength(min, max, options) {
       });
     }
   };
-};
+}
 
 export function format(regexp, formatDescription) {
   return function(context) {
@@ -182,7 +182,7 @@ export function format(regexp, formatDescription) {
       });
     }
   };
-};
+}
 
 export function inclusion(options) {
 
@@ -204,7 +204,7 @@ export function inclusion(options) {
       });
     }
   };
-};
+}
 
 export function resource(loader, options) {
   options = _.extend({}, options);
@@ -250,4 +250,4 @@ export function resource(loader, options) {
   };
 
   return action;
-};
+}

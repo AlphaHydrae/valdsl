@@ -15,7 +15,7 @@ export default function() {
       proto[key] = value;
     });
   });
-};
+}
 
 export function unextend() {
 
@@ -28,4 +28,4 @@ export function unextend() {
   _.each(toRemove, function(name) {
     delete proto[name];
   });
-};
+}
