@@ -19,9 +19,8 @@
   },
   "homepage": "https://github.com/AlphaHydrae/valdsl",
   "bugs": "https://github.com/AlphaHydrae/valdsl/issues",
-  "main": "./index.js",
+  "main": "./lib",
   "files": [
-    "index.js",
     "lib"
   ],
   "scripts": {
@@ -45,6 +44,7 @@
   },
   "devDependencies": {
     "babel-cli": "^6.23.0",
+    "babel-plugin-add-module-exports": "^0.2.1",
     "babel-preset-es2015": "^6.16.0",
     "chai": "^3.5.0",
     "jshint": "^2.9.3",

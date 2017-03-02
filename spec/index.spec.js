@@ -2,7 +2,7 @@ var _ = require('lodash'),
     chai = require('chai'),
     expect = chai.expect,
     Promise = require('bluebird'),
-    valdsl = require('../');
+    valdsl = require('../lib');
 
 describe('valdsl', function() {
 
