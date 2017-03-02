@@ -29,7 +29,7 @@
     "src:build": "npm run src:lint && npm run src:compile",
     "src:compile": "babel src -d lib",
     "src:lint": "jshint src",
-    "src:watch": "onchange \"src/**/*.js\" -- npm run test:src",
+    "src:watch": "onchange \"spec/**/*.spec.js\" \"src/**/*.js\" -- npm run test:src",
     "start": "npm run build && npm run src:watch",
     "test": "mocha spec",
     "test:src": "npm run src:build && npm test"
