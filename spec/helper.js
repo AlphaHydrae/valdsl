@@ -2,7 +2,7 @@ const _ = require('lodash');
 const chai = require('chai');
 
 chai.use(function(_chai, utils) {
-  utils.addChainableMethod(chai.Assertion.prototype, 'haveErrors', function() {
+  utils.addChainableMethod(chai.Assertion.prototype, 'haveErrors', function(...expectedErrors) {
 
     const obj = utils.flag(this, 'object');
 
@@ -13,7 +13,7 @@ chai.use(function(_chai, utils) {
       error.location = error.location.toString();
     });
 
-    const expectedErrors = _.flatten(_.toArray(arguments));
+    expectedErrors = _.flatten(expectedErrors);
     const missingErrors = expectedErrors.slice();
     const extraErrors = actualErrors.slice();
 

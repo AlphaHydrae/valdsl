@@ -184,8 +184,7 @@ describe('valdsl', function() {
     });
   });
 
-  function expectValidationErrors() {
-    const errors = _.toArray(arguments);
+  function expectValidationErrors(...errors) {
     return function(err) {
 
       if (!(err instanceof valdsl.ValidationError)) {
