@@ -1,13 +1,8 @@
 import _ from 'lodash';
-import extendDsl from './extend-dsl';
 import BPromise from 'bluebird';
 import ValidationError from './error';
 
 export default class ValidationContext {
-
-  static extendDsl() {
-    return extendDsl.apply(this, arguments);
-  }
 
   constructor(options) {
     options = _.extend({}, options);
