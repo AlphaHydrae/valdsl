@@ -191,7 +191,7 @@ describe('valdsl', function() {
         throw err;
       }
 
-      expect(err).to.haveErrors(_.toArray(errors));
+      expect(err).to.haveErrors(_.toArray(arguments));
     };
   }
 
