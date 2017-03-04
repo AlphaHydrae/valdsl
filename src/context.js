@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import extendDsl from './extend-dsl';
-import Promise from 'bluebird';
+import BPromise from 'bluebird';
 import ValidationError from './error';
 
 export default class ValidationContext {
@@ -114,13 +114,13 @@ export default class ValidationContext {
 
 function recursivelyValidate(context, actions, promise) {
   if (!promise) {
-    return recursivelyValidate(context, actions, Promise.resolve());
+    return recursivelyValidate(context, actions, BPromise.resolve());
   } else if (!actions.length) {
     return promise;
   }
 
   var nextAction = actions.shift();
-  return Promise.resolve(context.shouldPerformNextAction(nextAction)).then(function(yes) {
+  return BPromise.resolve(context.shouldPerformNextAction(nextAction)).then(function(yes) {
     if (yes) {
       var dsl = _.extend(Object.create(context), context.dsl);
       return promise.return(context).then(_.bind(nextAction, dsl)).then(function() {

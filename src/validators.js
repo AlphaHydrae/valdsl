@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import BPromise from 'bluebird';
 import MessageFormat from 'messageformat';
 import valib from 'valib';
 
@@ -210,7 +211,7 @@ export function resource(loader, options) {
   options = _.extend({}, options);
 
   var action = function(context) {
-    return Promise.resolve(loader(context.state.value)).then(function(resource) {
+    return BPromise.resolve(loader(context.state.value)).then(function(resource) {
       if (!resource) {
         return context.addError({
           code: 'validation.resource.notFound',

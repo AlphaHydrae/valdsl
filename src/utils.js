@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import Promise from 'bluebird';
+import BPromise from 'bluebird';
 
 export default {
   series: series,
@@ -7,13 +7,13 @@ export default {
 };
 
 export function series() {
-  return Promise.mapSeries(_.flatten(_.toArray(arguments)), _.identity);
+  return BPromise.mapSeries(_.flatten(_.toArray(arguments)), _.identity);
 }
 
 export function parallel() {
-  return Promise.all(_.flatten(_.toArray(arguments)));
+  return BPromise.all(_.flatten(_.toArray(arguments)));
 }
 
 export function resolve(value, ...args) {
-  return Promise.resolve(_.isFunction(value) ? value.apply(undefined, args) : value);
+  return BPromise.resolve(_.isFunction(value) ? value.apply(undefined, args) : value);
 }

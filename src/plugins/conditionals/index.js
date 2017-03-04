@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import Promise from 'bluebird';
+import BPromise from 'bluebird';
 import { resolve } from '../../utils';
 
 export function validateIf(condition, ...handlers) {
@@ -9,7 +9,7 @@ export function validateIf(condition, ...handlers) {
         return;
       }
 
-      let promise = Promise.resolve();
+      let promise = BPromise.resolve();
       handlers.forEach(handler => promise = promise.return(context).then(handler));
 
       return promise;
@@ -112,7 +112,7 @@ export default function(valdsl) {
 
   proto.shouldPerformNextAction = function() {
     var context = this;
-    return Promise.resolve(shouldPerformNextAction.apply(this, arguments)).then(function(yes) {
+    return BPromise.resolve(shouldPerformNextAction.apply(this, arguments)).then(function(yes) {
       if (!yes) {
         return false;
       }
@@ -121,7 +121,7 @@ export default function(valdsl) {
         return _.isFunction(condition) ? condition(context) : condition;
       });
 
-      return Promise.all(pendingConditions).then(function(results) {
+      return BPromise.all(pendingConditions).then(function(results) {
         return _.reduce(results, function(memo, result) {
           return memo && result;
         }, true);
