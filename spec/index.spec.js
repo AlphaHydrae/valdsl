@@ -185,13 +185,14 @@ describe('valdsl', function() {
   });
 
   function expectValidationErrors() {
+    const errors = _.toArray(arguments);
     return function(err) {
 
       if (!(err instanceof valdsl.ValidationError)) {
         throw err;
       }
 
-      expect(err).to.haveErrors(_.toArray(arguments));
+      expect(err).to.haveErrors(errors);
     };
   }
 
