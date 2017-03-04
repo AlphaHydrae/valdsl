@@ -15,10 +15,23 @@ export default class ValidationContext {
       throw new Error('Validation context `state` option must be an object');
     }
 
+    const dsl = options.dsl || {};
+
+    const reservedKeys = [];
+    for (let name in dsl) {
+      if (this[name] !== undefined) {
+        reservedKeys.push(name);
+      }
+    }
+
+    if (reservedKeys.length) {
+      throw new Error(`The following names are reserved and cannot be used in the validation DSL: ${reservedKeys.join(', ')}`);
+    }
+
     this.errors = [];
     this.history = [];
     this.state = options.state || {};
-    this.dsl = options.dsl || {};
+    this.dsl = dsl;
 
     this.initialize();
   }
@@ -51,12 +64,8 @@ export default class ValidationContext {
     return _.find(this.errors, predicate) !== undefined;
   }
 
-  validate() {
-
-    var newContext = this.createChild(),
-        actions = _.toArray(arguments);
-
-    return recursivelyValidate(newContext, actions);
+  validate(...actions) {
+    return recursivelyValidate(this.createChild(), actions);
   }
 
   changeState(changes) {
@@ -76,14 +85,13 @@ export default class ValidationContext {
   }
 
   ensureValid(callback) {
-    var context = this;
-    return Promise.resolve(this).then(_.bind(callback || _.noop, this)).then(function() {
-      if (!context.errors.length) {
-        return context;
+    return this.validate(callback || _.noop).then(() => {
+      if (!this.errors.length) {
+        return this;
       }
 
       var error = new ValidationError('A validation error occurred.');
-      error.errors = _.map(context.errors, _.bind(context.serializeError, context));
+      error.errors = _.map(this.errors, _.bind(this.serializeError, this));
       throw error;
     });
   }

@@ -13,3 +13,7 @@ export function series() {
 export function parallel() {
   return Promise.all(_.flatten(_.toArray(arguments)));
 }
+
+export function resolve(value, ...args) {
+  return Promise.resolve(_.isFunction(value) ? value.apply(undefined, args) : value);
+}

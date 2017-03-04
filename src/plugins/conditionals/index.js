@@ -1,5 +1,88 @@
 import _ from 'lodash';
 import Promise from 'bluebird';
+import { resolve } from '../../validation-utils';
+
+export function validateIf(condition, ...handlers) {
+  return function(context) {
+    return resolve(condition, context).then(result => {
+      if (!result) {
+        return;
+      }
+
+      let promise = Promise.resolve();
+      handlers.forEach(handler => promise = promise.return(context).then(handler));
+
+      return promise;
+    });
+  };
+}
+
+export function validateIfElse(condition, ifHandler, elseHandler) {
+  if (ifHandler !== undefined && ifHandler !== null && ifHandler !== false && !_.isFunction(ifHandler)) {
+    throw new Error('If handler must be a function');
+  } else if (elseHandler !== undefined && elseHandler !== null && elseHandler !== false && !_.isFunction(elseHandler)) {
+    throw new Error('Else handler must be a function');
+  }
+
+  return function(context) {
+    return resolve(condition, context).then(result => {
+      if (result && ifHandler) {
+        return ifHandler(context);
+      } else if (!result && elseHandler) {
+        return elseHandler(context);
+      }
+    });
+  };
+}
+
+export function hasError(filter) {
+  return function(context) {
+    return context.hasError(filter);
+  };
+}
+
+export function hasNoError(filter) {
+  return function(context) {
+    return !context.hasError(filter);
+  };
+}
+
+export function valueIsSet() {
+  return function(context) {
+    return context.state.valueSet;
+  };
+}
+
+export function valueHasChanged(changed) {
+  if (!_.isFunction(changed)) {
+    var previousValue = changed;
+    changed = function(value) {
+      return value !== previousValue;
+    };
+  }
+
+  return function(context) {
+    return context.state.valueSet && changed(context.state.value);
+  };
+}
+
+export function breakValidation() {
+  return function(context) {
+    context.conditions.push(() => false);
+  };
+}
+
+export function validateWhile(condition) {
+  return function(context) {
+    context.conditions.push(ctx => resolve(condition, ctx));
+  };
+}
+
+export function validateUntil(condition) {
+  return function(context) {
+    context.conditions.push(ctx => resolve(condition, ctx).then(result => !result));
+  };
+}
 
 export default function(valdsl) {
 
@@ -39,91 +122,14 @@ export default function(valdsl) {
   };
 
   _.extend(valdsl.dsl, {
-    if: ifFunc,
-    ifElse: ifElse,
-    break: breakFunc,
-    breakIf: breakIf,
-    breakUnless: continueIf,
-    continueIf: continueIf,
-    continueUnless: breakIf,
-    isSet: isSet,
-    hasChanged: hasChanged,
-    hasError: hasError
+    if: validateIf,
+    ifElse: validateIfElse,
+    break: breakValidation,
+    while: validateWhile,
+    until: validateUntil,
+    set: valueIsSet,
+    changed: valueHasChanged,
+    error: hasError,
+    noError: hasNoError
   });
-
-  function ifFunc(condition, ...handlers) {
-    return function(context) {
-      Promise.resolve(_.isFunction(condition) ? condition() : condition).then(result => {
-        if (!result) {
-          return;
-        }
-
-        let promise = Promise.resolve();
-        handlers.forEach(handler => promise = promise.return(context).then(handler));
-
-        return promise;
-      });
-    };
-  }
-
-  function ifElse(condition, ifHandler, elseHandler) {
-    if (ifHandler !== undefined && ifHandler !== null && ifHandler !== false && !_.isFunction(ifHandler)) {
-      throw new Error('If handler must be a function');
-    } else if (elseHandler !== undefined && elseHandler !== null && elseHandler !== false && !_.isFunction(elseHandler)) {
-      throw new Error('Else handler must be a function');
-    }
-
-    return function(context) {
-      Promise.resolve(_.isFunction(condition) ? condition() : condition).then(result => {
-        if (result && ifHandler) {
-          return ifHandler(context);
-        } else if (!result && elseHandler) {
-          return elseHandler(context);
-        }
-      });
-    };
-  }
-
-  function breakFunc() {
-    return function(context) {
-      context.conditions.push(() => false);
-    };
-  }
-
-  function continueIf(condition) {
-    return function(context) {
-      context.conditions.push(ctx => Promise.resolve(_.isFunction(condition) ? condition(ctx) : condition));
-    };
-  }
-
-  function breakIf(condition) {
-    return function(context) {
-      context.conditions.push(ctx => Promise.resolve(_.isFunction(condition) ? condition(ctx) : condition).then(result => !result));
-    };
-  }
-
-  function isSet() {
-    return function(context) {
-      return context.state.valueSet;
-    };
-  }
-
-  function hasChanged(changed) {
-    if (!_.isFunction(changed)) {
-      var previousValue = changed;
-      changed = function(value) {
-        return value !== previousValue;
-      };
-    }
-
-    return function(context) {
-      return context.state.valueSet && changed(context.state.value);
-    };
-  }
-
-  function hasError(filter) {
-    return function(context) {
-      return context.hasError(filter);
-    };
-  }
 }

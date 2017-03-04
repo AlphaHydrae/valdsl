@@ -2,13 +2,13 @@ var _ = require('lodash'),
     chai = require('chai'),
     expect = chai.expect,
     Promise = require('bluebird'),
-    valdsl = require('../lib');
+    valdslFactory = require('../lib');
 
 describe('valdsl', function() {
 
-  var validate;
+  var valdsl;
   beforeEach(function() {
-    validate = valdsl();
+    valdsl = valdslFactory();
   });
 
   it('should find errors in an HTTP request', function(done) {
@@ -27,7 +27,7 @@ describe('valdsl', function() {
       }
     });
 
-    validate(function() {
+    valdsl(function() {
 
       // Validate an HTTP request.
       return this.validate(this.value(request), function() {
@@ -39,7 +39,7 @@ describe('valdsl', function() {
 
           // Validate the JSON request body.
           // If a validation fails for a property, do not perform other validations for that property.
-          this.validate(this.get('body'), this.breakIf(this.hasError(this.atCurrentLocation())), function() {
+          this.validate(this.get('body'), this.while(this.noError(this.atCurrentLocation())), function() {
             return this.parallel(
               // Validate each property.
               this.validate(this.json('/name'), this.presence(), this.stringLength(1, 50)),
@@ -50,7 +50,7 @@ describe('valdsl', function() {
         );
       });
     }).then(failOnSuccess).catch(function(err) {
-      if (!(err instanceof validate.ValidationError)) {
+      if (!(err instanceof valdsl.ValidationError)) {
         throw err;
       }
 
@@ -129,7 +129,7 @@ describe('valdsl', function() {
       return Promise.delay(5).return(city);
     }
 
-    return validate(function() {
+    return valdsl(function() {
 
       // Validate an HTTP request.
       return this.validate(this.value(request), function() {
