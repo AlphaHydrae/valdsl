@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import extendDsl from './extend-dsl';
 import Promise from 'bluebird';
-import ValidationError from './validation-error';
+import ValidationError from './error';
 
 export default class ValidationContext {
 

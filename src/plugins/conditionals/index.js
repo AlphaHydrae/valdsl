@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import Promise from 'bluebird';
-import { resolve } from '../../validation-utils';
+import { resolve } from '../../utils';
 
 export function validateIf(condition, ...handlers) {
   return function(context) {

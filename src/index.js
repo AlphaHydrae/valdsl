@@ -1,9 +1,9 @@
 import _ from 'lodash';
 import Actions from './validation-actions';
 import Conditionals from './plugins/conditionals';
-import Utils from './validation-utils';
-import ValidationContext from './validation-context';
-import ValidationError from './validation-error';
+import Utils from './utils';
+import ValidationContext from './context';
+import ValidationError from './error';
 import Validators from './validators';
 
 export default function() {
