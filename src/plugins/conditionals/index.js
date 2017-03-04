@@ -53,16 +53,24 @@ export function valueIsSet() {
   };
 }
 
+export function previousValue(value) {
+  return function(context) {
+    context.changeState({
+      previousValue: value
+    });
+  };
+}
+
 export function valueHasChanged(changed) {
   if (!_.isFunction(changed)) {
     var previousValue = changed;
-    changed = function(value) {
-      return value !== previousValue;
+    changed = function(value, context) {
+      return value !== (previousValue !== undefined ? previousValue : context.state.previousValue);
     };
   }
 
   return function(context) {
-    return context.state.valueSet && changed(context.state.value);
+    return context.state.valueSet && changed(context.state.value, context);
   };
 }
 
@@ -129,6 +137,7 @@ export default function(valdsl) {
     until: validateUntil,
     set: valueIsSet,
     changed: valueHasChanged,
+    previous: previousValue,
     error: hasError,
     noError: hasNoError
   });
