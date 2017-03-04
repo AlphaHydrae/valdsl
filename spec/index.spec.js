@@ -1,8 +1,10 @@
-var _ = require('lodash'),
-    chai = require('chai'),
-    expect = chai.expect,
-    Promise = require('bluebird'),
-    valdslFactory = require('../lib');
+const _ = require('lodash');
+const BPromise = require('bluebird');
+const chai = require('chai');
+const expect = chai.expect;
+const valdslFactory = require('../lib');
+
+require('./helper');
 
 describe('valdsl', function() {
 
@@ -11,7 +13,7 @@ describe('valdsl', function() {
     valdsl = valdslFactory();
   });
 
-  it('should find errors in an HTTP request', function(done) {
+  it('should find errors in an HTTP request', function() {
 
     var request = fakeHttpRequest({
       body: {
@@ -27,7 +29,7 @@ describe('valdsl', function() {
       }
     });
 
-    valdsl(function() {
+    return valdsl(function() {
 
       // Validate an HTTP request.
       return this.validate(this.value(request), function() {
@@ -38,8 +40,7 @@ describe('valdsl', function() {
           this.validate(this.header('Pagination-Offset'), this.presence()),
 
           // Validate the JSON request body.
-          // If a validation fails for a property, do not perform other validations for that property.
-          this.validate(this.get('body'), this.while(this.noError(this.atCurrentLocation())), function() {
+          this.validate(this.get('body'), function() {
             return this.parallel(
               // Validate each property.
               this.validate(this.json('/name'), this.presence(), this.stringLength(1, 50)),
@@ -49,65 +50,96 @@ describe('valdsl', function() {
           })
         );
       });
-    }).then(failOnSuccess).catch(function(err) {
-      if (!(err instanceof valdsl.ValidationError)) {
-        throw err;
-      }
-
-      expect(err.errors).to.be.an('array');
-
-      _.each(err.errors, function(error) {
-        error.location = error.location.toString();
-      });
-
-      expect(err.errors).to.include({
+    }).then(fail).catch(expectValidationErrors(
+      {
         type: 'header',
         location: 'Authorization',
         code: 'validation.format.invalid',
         message: 'Value does not match the expected format.',
         value: 'foo',
         valueSet: true
-      });
-
-      expect(err.errors).to.include({
+      },
+      {
         type: 'header',
         location: 'Pagination-Offset',
         code: 'validation.presence.missing',
         message: 'Value is required.',
         value: undefined,
         valueSet: false
-      });
-
-      expect(err.errors).to.include({
+      },
+      {
         type: 'json',
         location: '/name',
         code: 'validation.presence.missing',
         message: 'Value is required.',
         value: undefined,
         valueSet: false
-      });
-
-      expect(err.errors).to.include({
+      },
+      {
+        type: 'json',
+        location: '/name',
+        code: 'validation.stringLength.wrongType',
+        message: 'Value must be a string between 1 and 50 characters long. The supplied value is of the wrong type (undefined).',
+        value: undefined,
+        valueSet: false
+      },
+      {
         type: 'json',
         location: '/password',
         code: 'validation.stringLength.tooShort',
         message: 'Value must be a string at least 8 characters long. The supplied string is too short (7 characters long).',
         value: 'letmein',
         valueSet: true
-      });
-
-      expect(err.errors).to.include({
+      },
+      {
         type: 'json',
         location: '/role',
         code: 'validation.inclusion.notIncluded',
         message: 'Value must be one of user, admin.',
         value: 'god',
         valueSet: true
+      }
+    ));
+  });
+
+  it('should validate conditionnally', function() {
+
+    var user = {
+      email: 'foo'
+    };
+
+    var newUser = {
+      email: 'foo',
+      password: 'letmein',
+      role: 'god',
+      cityId: 24
+    };
+
+    return valdsl(function() {
+
+      // Validate an HTTP request.
+      return this.validate(this.value(newUser), this.while(this.set()), this.while(this.changed()), this.while(this.noError(this.atCurrentLocation())), function() {
+        return this.parallel(
+          // The name is not validated because it's not in the object and `this.while(this.set())` was specified
+          this.validate(this.json('/name'), this.presence(), this.stringLength(1, 50)),
+          // The e-mail is not validated because it hasn't changed compared to its previous value and `this.while(this.changed())` was specified
+          this.validate(this.json('/email'), this.previous(user.email), this.presence(), this.stringLength(5)),
+          // The password is not validated because the condition around it is not fulfilled
+          this.validate(this.json('/password'), this.presence(), this.if(false, this.stringLength(8))),
+          // Only the inclusion validation is performed because the if/else condition is not fulfilled
+          this.validate(this.json('/role'), this.ifElse(false, this.type('number'), this.inclusion('user', 'admin')))
+        );
       });
-
-      expect(err.errors).to.have.lengthOf(5);
-
-    }).then(done, done);
+    }).then(fail).catch(expectValidationErrors(
+      {
+        code: 'validation.inclusion.notIncluded',
+        message: 'Value must be one of user, admin.',
+        value: 'god',
+        valueSet: true,
+        type: 'json',
+        location: '/role'
+      }
+    ));
   });
 
   it('should help transform request data', function() {
@@ -126,7 +158,7 @@ describe('valdsl', function() {
     };
 
     function findCity(id) {
-      return Promise.delay(5).return(city);
+      return BPromise.delay(5).return(city);
     }
 
     return valdsl(function() {
@@ -151,22 +183,33 @@ describe('valdsl', function() {
       expect(request.body).to.have.all.keys('street', 'city');
     });
   });
+
+  function expectValidationErrors(...errors) {
+    return function(err) {
+
+      if (!(err instanceof valdsl.ValidationError)) {
+        throw err;
+      }
+
+      expect(err).to.haveErrors(errors);
+    };
+  }
+
+  function fakeHttpRequest(options) {
+    options = _.extend({}, options);
+
+    var headers = options.headers || {};
+
+    return {
+      body: options.body || {},
+
+      get: function(header) {
+        return headers[header];
+      }
+    };
+  }
 });
 
-function failOnSuccess() {
+function fail() {
   throw new Error('Expected validation to fail but no errors were found');
-}
-
-function fakeHttpRequest(options) {
-  options = _.extend({}, options);
-
-  var headers = options.headers || {};
-
-  return {
-    body: options.body || {},
-
-    get: function(header) {
-      return headers[header];
-    }
-  };
 }
