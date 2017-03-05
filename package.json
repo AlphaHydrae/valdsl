@@ -32,7 +32,7 @@
     "src:watch": "onchange \"spec/**/*.js\" \"src/**/*.js\" -- npm run test:src",
     "start": "npm run build && npm run src:watch",
     "test": "mocha --compilers js:babel-core/register spec",
-    "test:src": "npm run src:build && npm test"
+    "test:src": "npm run build && npm test"
   },
   "dependencies": {
     "bluebird": "^3.4.6",
