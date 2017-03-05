@@ -40,10 +40,11 @@ describe('valdsl', function() {
           this.validate(this.header('Pagination-Offset'), this.presence()),
 
           // Validate the JSON request body.
-          this.validate(this.get('body'), function(c) {
+          this.validate(this.get('body'), function() {
             return this.parallel(
               // Validate each property.
               this.validate(this.json('/name'), this.presence(), this.stringLength(1, 50)),
+              this.validate(this.json('/email'), this.email()),
               this.validate(this.json('/password'), this.presence(), this.stringLength(8)),
               this.validate(this.json('/role'), this.inclusion('user', 'admin')),
               this.validate(this.json('/cityId'), this.resource(_.noop))
@@ -89,6 +90,14 @@ describe('valdsl', function() {
         message: 'must be a string between 1 and 50 characters long (the supplied value is of the wrong type)',
         value: undefined,
         valueSet: false
+      },
+      {
+        type: 'json',
+        location: '/email',
+        validator: 'email',
+        message: 'must be a valid e-mail address',
+        value: 'foo',
+        valueSet: true
       },
       {
         type: 'json',
