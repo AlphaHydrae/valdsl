@@ -66,6 +66,7 @@ describe('valdsl', function() {
         type: 'header',
         location: 'Pagination-Offset',
         validator: 'presence',
+        cause: 'missing',
         message: 'is required',
         value: undefined,
         valueSet: false
@@ -74,6 +75,7 @@ describe('valdsl', function() {
         type: 'json',
         location: '/name',
         validator: 'presence',
+        cause: 'missing',
         message: 'is required',
         value: undefined,
         valueSet: false

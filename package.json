@@ -64,6 +64,7 @@
     "onchange": "^3.2.1",
     "rimraf": "^2.6.1",
     "run-sequence": "^1.2.2",
+    "sinon": "^1.17.7",
     "through2": "^2.0.1"
   },
   "engines": {

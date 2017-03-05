@@ -1,5 +1,13 @@
-const _ = require('lodash');
-const chai = require('chai');
+import _ from 'lodash';
+import chai from 'chai';
+import sinon from 'sinon';
+
+export function mockContext(state) {
+  const context = {};
+  context.addError = sinon.spy();
+  context.get = _.get.bind(_, state);
+  return context;
+}
 
 chai.use(function(_chai, utils) {
   utils.addChainableMethod(chai.Assertion.prototype, 'haveErrors', function(...expectedErrors) {
