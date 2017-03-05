@@ -8,6 +8,7 @@ const ERRORS = Symbol('errors');
 const STATE = Symbol('state');
 const ERROR_CLASS = Symbol('error-class');
 const ERROR_BUNDLE_CLASS = Symbol('error-bundle-class');
+const INITIALIZED = Symbol('initialized');
 
 export default class ValidationContext {
 
@@ -24,9 +25,13 @@ export default class ValidationContext {
     this[ERROR_BUNDLE_CLASS] = options.ValidationErrorBundle || ValidationErrorBundle;
 
     this.initialize();
+    if (!this[INITIALIZED]) {
+      throw new Error('A plugin overrode initialize but did not call the original function');
+    }
   }
 
   initialize() {
+    this[INITIALIZED] = true;
   }
 
   set(key, value) {
