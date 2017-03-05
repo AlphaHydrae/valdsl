@@ -12,26 +12,26 @@ export default {
 
 export function desc(description) {
   return function(context) {
-    context.state.valueDescription = _.compact([ context.state.valueDescription, description ]).join(' ');
+    context.set('valueDescription', _.compact([ context.get('valueDescription'), description ]).join(' '));
   };
 }
 
 export function get(path) {
   return function(context) {
-    context.changeState({
-      value: _.get(context.state.value, path),
-      valueSet: _.has(context.state.value, path)
+    context.set({
+      value: _.get(context.get('value'), path),
+      valueSet: _.has(context.get('value'), path)
     });
   };
 }
 
 export function header(name) {
   return function(context) {
-    context.changeState({
+    context.set({
       type: 'header',
       location: name,
-      value: context.state.value.get(name),
-      valueSet: context.state.value.get(name) !== undefined
+      value: context.get('value').get(name),
+      valueSet: context.get('value').get(name) !== undefined
     });
   };
 }
@@ -81,13 +81,13 @@ export function json(pointer, options) {
   return function(context) {
 
     var basePointer;
-    if (_.get(context.state, 'location.type') == 'jsonPointer') {
-      basePointer = context.state.location.pointer;
+    if (context.get('location.type') == 'jsonPointer') {
+      basePointer = context.get('location.pointer');
     } else {
       basePointer = '';
     }
 
-    var location = new JsonPointerLocation(basePointer, pointer, context.state.value);
+    var location = new JsonPointerLocation(basePointer, pointer, context.get('value'));
 
     var valueSet = _.has(options, 'valueSet') ? options.valueSet : location.isValueSet();
 
@@ -96,7 +96,7 @@ export function json(pointer, options) {
       value = location.getValue();
     }
 
-    context.changeState({
+    context.set({
       type: 'json',
       location: location,
       value: value,
@@ -107,7 +107,7 @@ export function json(pointer, options) {
 
 export function value(value) {
   return function(context) {
-    context.changeState({
+    context.set({
       value: value,
       valueSet: value !== undefined
     });
@@ -116,10 +116,10 @@ export function value(value) {
 
 export function atCurrentLocation() {
   return function(error, context) {
-    if (!context.state.type || !context.state.location) {
+    if (!context.has('type') || !context.has('location')) {
       return false;
     }
 
-    return _.isMatch(error, _.pick(context.state, 'type', 'location'));
+    return _.isMatch(error, context.pick('type', 'location'));
   };
 }

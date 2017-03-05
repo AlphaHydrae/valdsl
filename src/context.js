@@ -2,6 +2,9 @@ import _ from 'lodash';
 import BPromise from 'bluebird';
 import ValidationError from './error';
 
+const ERRORS = Symbol('errors');
+const STATE = Symbol('state');
+
 export default class ValidationContext {
 
   constructor(options) {
@@ -10,23 +13,10 @@ export default class ValidationContext {
       throw new Error('Validation context `state` option must be an object');
     }
 
-    const dsl = options.dsl || {};
+    this.dsl = options.dsl || {};
 
-    const reservedKeys = [];
-    for (let name in dsl) {
-      if (this[name] !== undefined) {
-        reservedKeys.push(name);
-      }
-    }
-
-    if (reservedKeys.length) {
-      throw new Error(`The following names are reserved and cannot be used in the validation DSL: ${reservedKeys.join(', ')}`);
-    }
-
-    this.errors = [];
-    this.history = [];
-    this.state = options.state || {};
-    this.dsl = dsl;
+    this[ERRORS] = [];
+    this[STATE] = options.state || {};
 
     this.initialize();
   }
@@ -34,13 +24,44 @@ export default class ValidationContext {
   initialize() {
   }
 
+  set(key, value) {
+    if (_.isString(key) || _.isArray(key)) {
+      _.set(this[STATE], key, value);
+    } else if (_.isObject(key)) {
+      for (var property in key) {
+        this.set(property, key[property]);
+      }
+    } else {
+      throw new Error('First argument must be a string, array or object');
+    }
+
+    return this;
+  }
+
+  get(key) {
+    return _.get(this[STATE], key);
+  }
+
+  has(key) {
+    return _.has(this[STATE], key);
+  }
+
+  pick(...properties) {
+    return _.pick(this[STATE], properties);
+  }
+
+  remove(key) {
+    _.unset(this[STATE], key);
+    return this;
+  }
+
   addError(error) {
-    this.errors.push(_.extend(error, this.state));
+    this[ERRORS].push(_.extend(error, this[STATE]));
     return this;
   }
 
   hasError(filter) {
-    if (!this.errors.length) {
+    if (!this[ERRORS].length) {
       return false;
     }
 
@@ -56,37 +77,21 @@ export default class ValidationContext {
       predicate = _.constant(true);
     }
 
-    return _.find(this.errors, predicate) !== undefined;
+    return _.find(this[ERRORS], predicate) !== undefined;
   }
 
   validate(...actions) {
-    return recursivelyValidate(this.createChild(), actions);
+    return recursivelyValidate(this.createChild(), _.flatten(actions));
   }
 
-  changeState(changes) {
-    this.history.push(this.state);
-    this.state = _.extend({}, this.state, changes);
-  }
-
-  setState(newState) {
-    this.history.push(this.state);
-    this.state = newState;
-  }
-
-  popState() {
-    this.state = _.last(this.history);
-    this.history.pop();
-    return this;
-  }
-
-  ensureValid(callback) {
-    return this.validate(callback || _.noop).then(() => {
-      if (!this.errors.length) {
+  ensureValid(...actions) {
+    return this.validate(actions).then(() => {
+      if (!this[ERRORS].length) {
         return this;
       }
 
       var error = new ValidationError('A validation error occurred.');
-      error.errors = _.map(this.errors, _.bind(this.serializeError, this));
+      error.errors = _.map(this[ERRORS], _.bind(this.serializeError, this));
       throw error;
     });
   }
@@ -101,8 +106,7 @@ export default class ValidationContext {
 
   createChild() {
     var newContext = Object.create(this);
-    newContext.state = _.clone(this.state);
-    newContext.history = this.history.slice();
+    newContext[STATE] = Object.create(this[STATE]);
     return newContext;
   }
 }
@@ -117,7 +121,7 @@ function recursivelyValidate(context, actions, promise) {
   var nextAction = actions.shift();
   return BPromise.resolve(context.shouldPerformNextAction(nextAction)).then(function(yes) {
     if (yes) {
-      var dsl = _.extend(Object.create(context), context.dsl);
+      var dsl = _.defaults({ validate: context.validate.bind(context) }, context.dsl);
       return promise.return(context).then(_.bind(nextAction, dsl)).then(function() {
         return recursivelyValidate(context, actions);
       });

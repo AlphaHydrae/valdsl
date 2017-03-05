@@ -49,15 +49,13 @@ export function hasNoError(filter) {
 
 export function valueIsSet() {
   return function(context) {
-    return context.state.valueSet;
+    return context.get('valueSet');
   };
 }
 
 export function previousValue(value) {
   return function(context) {
-    context.changeState({
-      previousValue: value
-    });
+    context.set('previousValue', value);
   };
 }
 
@@ -65,12 +63,12 @@ export function valueHasChanged(changed) {
   if (!_.isFunction(changed)) {
     var previousValue = changed;
     changed = function(value, context) {
-      return value !== (previousValue !== undefined ? previousValue : context.state.previousValue);
+      return value !== (previousValue !== undefined ? previousValue : context.get('previousValue'));
     };
   }
 
   return function(context) {
-    return context.state.valueSet && changed(context.state.value, context);
+    return changed(context.get('value'), context);
   };
 }
 

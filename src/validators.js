@@ -60,7 +60,7 @@ export function type() {
 
   return function(context) {
 
-    var value = context.state.value;
+    var value = context.get('value');
     if (value === undefined || value === null) {
       return;
     }
@@ -74,7 +74,7 @@ export function type() {
       context.addError({
         code: 'validation.type.invalid',
         message: compiledTranslations.type({
-          DESCRIPTION: context.state.valueDescription || compiledTranslations.value()
+          DESCRIPTION: context.get('valueDescription') || compiledTranslations.value()
         })
       });
     }
@@ -83,10 +83,10 @@ export function type() {
 
 export function presence() {
   return function(context) {
-    if (!context.state.valueSet || !context.state.value) {
+    if (!context.get('valueSet') || !context.get('value')) {
       context.addError({
         code: 'validation.presence.missing',
-        message: compiledTranslations.presence({ DESCRIPTION: context.state.valueDescription || compiledTranslations.value() })
+        message: compiledTranslations.presence({ DESCRIPTION: context.get('valueDescription') || compiledTranslations.value() })
       });
     }
   };
@@ -94,11 +94,11 @@ export function presence() {
 
 export function email() {
   return function(context) {
-    if (!_.isString(context.state.value) || !valib.String.isEmailLike(context.state.value)) {
+    if (!_.isString(context.get('value')) || !valib.String.isEmailLike(context.get('value'))) {
       context.addError({
         code: 'validation.email.invalid',
         message: compiledTranslations.email({
-          DESCRIPTION: context.state.valueDescription || compiledTranslations.value()
+          DESCRIPTION: context.get('valueDescription') || compiledTranslations.value()
         })
       });
     }
@@ -138,9 +138,9 @@ export function stringLength(min, max, options) {
       MIN: options.min,
       MAX: options.max,
       ERROR: errorType,
-      COUNT: _.isString(context.state.value) ? context.state.value.length : undefined,
-      VALUE_TYPE: typeof(context.state.value),
-      DESCRIPTION: context.state.valueDescription || compiledTranslations.value()
+      COUNT: _.isString(context.get('value')) ? context.get('value').length : undefined,
+      VALUE_TYPE: typeof(context.get('value')),
+      DESCRIPTION: context.get('valueDescription') || compiledTranslations.value()
     });
   }
 
@@ -148,7 +148,7 @@ export function stringLength(min, max, options) {
 
     var code,
         message,
-        value = context.state.value;
+        value = context.get('value');
 
     if (!_.isString(value)) {
       code = 'validation.stringLength.wrongType';
@@ -172,12 +172,12 @@ export function stringLength(min, max, options) {
 
 export function format(regexp, formatDescription) {
   return function(context) {
-    var value = context.state.value;
+    var value = context.get('value');
     if (!_.isString(value) || !value.match(regexp)) {
       context.addError({
         code: 'validation.format.invalid',
         message: compiledTranslations.format({
-          DESCRIPTION: context.state.valueDescription || compiledTranslations.value(),
+          DESCRIPTION: context.get('valueDescription') || compiledTranslations.value(),
           FORMAT_DESCRIPTION: formatDescription
         })
       });
@@ -195,11 +195,11 @@ export function inclusion(options) {
   }
 
   return function(context) {
-    if (!_.includes(allowedValues, context.state.value)) {
+    if (!_.includes(allowedValues, context.get('value'))) {
       context.addError({
         code: 'validation.inclusion.notIncluded',
         message: compiledTranslations.inclusion({
-          DESCRIPTION: context.state.valueDescription || compiledTranslations.value(),
+          DESCRIPTION: context.get('valueDescription') || compiledTranslations.value(),
           ALLOWED_VALUES: allowedValues.join(', ')
         })
       });
@@ -211,31 +211,29 @@ export function resource(loader, options) {
   options = _.extend({}, options);
 
   var action = function(context) {
-    return BPromise.resolve(loader(context.state.value)).then(function(resource) {
+    return BPromise.resolve(loader(context.get('value'))).then(function(resource) {
       if (!resource) {
         return context.addError({
           code: 'validation.resource.notFound',
           message: compiledTranslations.resource({
-            ID: context.state.value,
-            DESCRIPTION: context.state.valueDescription || compiledTranslations.value()
+            ID: context.get('value'),
+            DESCRIPTION: context.get('valueDescription') || compiledTranslations.value()
           })
         });
       }
 
-      if (options.replace && _.isFunction(context.state.location.setValue)) {
-        context.state.location.setValue(_.isFunction(options.replace) ? options.replace(resource) : resource);
+      if (options.replace && _.isFunction(context.get('location').setValue)) {
+        context.get('location').setValue(_.isFunction(options.replace) ? options.replace(resource) : resource);
       }
 
       if (options.moveTo) {
-        if (!context.state.location) {
+        if (!context.has('location')) {
           throw new Error('Moving the value requires a location');
-        } else if (!_.isFunction(context.state.location.move)) {
+        } else if (!_.isFunction(context.get('location').move)) {
           throw new Error('Moving the value requires the location to provide a `move` function');
         }
 
-        context.changeState({
-          location: context.state.location.move(options.moveTo)
-        });
+        context.set('location', context.get('location').move(options.moveTo));
       }
     });
   };
