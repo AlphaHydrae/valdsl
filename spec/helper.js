@@ -18,7 +18,7 @@ chai.use(function(_chai, utils) {
     const extraErrors = actualErrors.slice();
 
     _.each(expectedErrors, expectedError => {
-      const matchingError = _.find(actualErrors, error => _.isEqual(error, expectedError));
+      const matchingError = _.find(extraErrors, error => _.isEqual(error, expectedError));
       if (matchingError) {
         extraErrors.splice(extraErrors.indexOf(matchingError), 1);
         missingErrors.splice(missingErrors.indexOf(matchingError), 1);
