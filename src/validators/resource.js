@@ -1,22 +1,18 @@
-const _ = require('lodash');
-const BPromise = require('bluebird');
-const MessageFormat = require('messageformat');
+import _ from 'lodash';
+import BPromise from 'bluebird';
+import { dynamicMessage } from '../utils';
 
-const mf = new MessageFormat('en');
-const defaultMessage = mf.compile('{ID} not found');
+const defaultMessage = dynamicMessage('{value} not found');
 
 export default function resource(loader, options) {
   options = _.extend({}, options);
 
-  var action = function(context) {
+  const action = function(context) {
     return BPromise.resolve(loader(context.get('value'))).then(function(resource) {
       if (!resource) {
         return context.addError({
           validator: 'resource',
-          message: defaultMessage,
-          messageParameters: {
-            ID: context.get('value')
-          }
+          message: defaultMessage
         });
       }
 

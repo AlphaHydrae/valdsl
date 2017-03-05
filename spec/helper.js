@@ -9,11 +9,7 @@ chai.use(function(_chai, utils) {
     let actualErrors = obj.errors;
     new chai.Assertion(actualErrors).to.be.an('array');
 
-    actualErrors = actualErrors.map(error => {
-      let tmp = _.extend({}, error, { message: error.message, location: error.location.toString() });
-      delete tmp.messageParameters;
-      return tmp;
-    });
+    actualErrors = actualErrors.map(serializeError);
 
     expectedErrors = _.flatten(expectedErrors);
     const missingErrors = expectedErrors.slice();
@@ -45,4 +41,11 @@ chai.use(function(_chai, utils) {
 
 function describeErrors(errors) {
   return errors.map(error => JSON.stringify(error)).join('\n');
+}
+
+function serializeError(error) {
+  return _.reduce(error, function(memo, value, key) {
+    memo[key] = value;
+    return memo;
+  }, {});
 }

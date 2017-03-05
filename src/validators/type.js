@@ -1,20 +1,19 @@
-const _ = require('lodash');
-const MessageFormat = require('messageformat');
+import _ from 'lodash';
+import { dynamicMessage } from '../utils';
 
-const mf = new MessageFormat('en');
-const defaultMessage = mf.compile('must be of type {TYPE}');
+const defaultMessage = dynamicMessage('must be of type {typeDescription}');
 const availableTypes = [ 'string', 'number', 'object', 'array', 'boolean' ];
 
 export default function type() {
 
-  var types = _.uniq(_.toArray(arguments));
+  const types = _.uniq(_.toArray(arguments));
   _.each(types, function(type) {
     if (!_.includes(availableTypes, type)) {
       throw new Error('Unknown validator type ' + JSON.stringify(type));
     }
   });
 
-  var typeDescription = _.reduce(types, function(memo, type, i) {
+  const typeDescription = _.reduce(types, function(memo, type, i) {
     if (i > 0 && i == types.length - 1) {
       return memo + ' or ' + type;
     } else if (i !== 0) {
@@ -26,12 +25,12 @@ export default function type() {
 
   return function(context) {
 
-    var value = context.get('value');
+    const value = context.get('value');
     if (value === undefined || value === null) {
       return;
     }
 
-    var valid = _.includes(types, typeof(value));
+    let valid = _.includes(types, typeof(value));
     if (types.length == 1 && types[0] == 'array') {
       valid = _.isArray(value);
     }
@@ -39,10 +38,8 @@ export default function type() {
     if (!valid) {
       context.addError({
         validator: 'type',
-        message: defaultMessage,
-        messageParameters: {
-          TYPE: typeDescription
-        }
+        typeDescription: typeDescription,
+        message: defaultMessage
       });
     }
   };

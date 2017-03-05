@@ -3,8 +3,11 @@ import BPromise from 'bluebird';
 import ValidationError from './error';
 import ValidationErrorBundle from './error-bundle';
 
+const DSL = Symbol('dsl');
 const ERRORS = Symbol('errors');
 const STATE = Symbol('state');
+const ERROR_CLASS = Symbol('error-class');
+const ERROR_BUNDLE_CLASS = Symbol('error-bundle-class');
 
 export default class ValidationContext {
 
@@ -14,10 +17,11 @@ export default class ValidationContext {
       throw new Error('Validation context `state` option must be an object');
     }
 
-    this.dsl = options.dsl || {};
-
     this[ERRORS] = [];
-    this[STATE] = options.state || {};
+    this[DSL] = options.dsl ? Object.create(options.dsl) : {};
+    this[STATE] = options.state ? Object.create(options.state) : {};
+    this[ERROR_CLASS] = options.ValidationError || ValidationError;
+    this[ERROR_BUNDLE_CLASS] = options.ValidationErrorBundle || ValidationErrorBundle;
 
     this.initialize();
   }
@@ -29,7 +33,7 @@ export default class ValidationContext {
     if (_.isString(key) || _.isArray(key)) {
       _.set(this[STATE], key, value);
     } else if (_.isObject(key)) {
-      for (var property in key) {
+      for (let property in key) {
         this.set(property, key[property]);
       }
     } else {
@@ -56,19 +60,23 @@ export default class ValidationContext {
     return this;
   }
 
-  addError(error) {
-    this[ERRORS].push(this.createError(error));
+  addError(properties) {
+    this[ERRORS].push(this.createError(properties, Object.create(this[STATE])));
     return this;
   }
 
-  createError(error) {
+  createError(properties, state) {
+    return new this[ERROR_CLASS](this.createErrorMessage(properties, state));
+  }
 
-    let message = error.message;
+  createErrorMessage(properties, state) {
+
+    let message = properties.message || state.message || 'A validation error occurred';
     if (_.isFunction(message)) {
-      message = message(error.messageParameters || {});
+      message = message(_.merge({}, properties, state));
     }
 
-    return _.extend(new ValidationError(message), _.omit(error, 'message'), this[STATE]);
+    return message;
   }
 
   hasError(filter) {
@@ -76,12 +84,9 @@ export default class ValidationContext {
       return false;
     }
 
-    var predicate;
+    let predicate;
     if (_.isFunction(filter)) {
-      var context = this;
-      predicate = function(error) {
-        return filter(error, context);
-      };
+      predicate = error => filter(error, this);
     } else if (filter) {
       predicate = filter;
     } else {
@@ -101,7 +106,7 @@ export default class ValidationContext {
         return this;
       }
 
-      throw new ValidationErrorBundle('A validation error occurred.', this[ERRORS].slice());
+      throw new this[ERROR_BUNDLE_CLASS]('A validation error occurred.', this[ERRORS].slice());
     });
   }
 
@@ -110,7 +115,7 @@ export default class ValidationContext {
   }
 
   createChild() {
-    var newContext = Object.create(this);
+    const newContext = Object.create(this);
     newContext[STATE] = Object.create(this[STATE]);
     return newContext;
   }
@@ -123,10 +128,10 @@ function recursivelyValidate(context, actions, promise) {
     return promise;
   }
 
-  var nextAction = actions.shift();
+  const nextAction = actions.shift();
   return BPromise.resolve(context.shouldPerformNextAction(nextAction)).then(function(yes) {
     if (yes) {
-      var dsl = _.defaults({ validate: context.validate.bind(context) }, context.dsl);
+      const dsl = _.defaults({ validate: context.validate.bind(context) }, context[DSL]);
       return promise.return(context).then(_.bind(nextAction, dsl)).then(function() {
         return recursivelyValidate(context, actions);
       });

@@ -2,6 +2,8 @@ import _ from 'lodash';
 import BPromise from 'bluebird';
 import { resolve } from '../utils';
 
+const CONDITIONS = Symbol('conditions');
+
 export function validateIf(condition, ...handlers) {
   return function(context) {
     return resolve(condition, context).then(result => {
@@ -61,7 +63,7 @@ export function previousValue(value) {
 
 export function valueHasChanged(changed) {
   if (!_.isFunction(changed)) {
-    var previousValue = changed;
+    const previousValue = changed;
     changed = function(value, context) {
       return value !== (previousValue !== undefined ? previousValue : context.get('previousValue'));
     };
@@ -74,69 +76,71 @@ export function valueHasChanged(changed) {
 
 export function breakValidation() {
   return function(context) {
-    context.conditions.push(() => false);
+    context[CONDITIONS].push(() => false);
   };
 }
 
 export function validateWhile(condition) {
   return function(context) {
-    context.conditions.push(ctx => resolve(condition, ctx));
+    context[CONDITIONS].push(ctx => resolve(condition, ctx));
   };
 }
 
 export function validateUntil(condition) {
   return function(context) {
-    context.conditions.push(ctx => resolve(condition, ctx).then(result => !result));
+    context[CONDITIONS].push(ctx => resolve(condition, ctx).then(result => !result));
   };
 }
 
-export default function(valdsl) {
+export default function conditionalsPlugin() {
+  return function(valdsl) {
 
-  var proto = valdsl.ValidationContext.prototype,
-      createChild = proto.createChild,
-      initialize = proto.initialize,
-      shouldPerformNextAction = proto.shouldPerformNextAction;
+    valdsl.override('initialize', function(original) {
+      return function initialize() {
+        original.apply(this, arguments);
+        this[CONDITIONS] = [];
+      };
+    });
 
-  proto.initialize = function() {
-    initialize.apply(this, arguments);
-    this.conditions = [];
-  };
+    valdsl.override('createChild', function(original) {
+      return function createChild() {
+        const newContext = original.apply(this, arguments);
+        newContext[CONDITIONS] = this[CONDITIONS].slice();
+        return newContext;
+      };
+    });
 
-  proto.createChild = function() {
-    var newContext = createChild.apply(this, arguments);
-    newContext.conditions = this.conditions.slice();
-    return newContext;
-  };
+    valdsl.override('shouldPerformNextAction', function(original) {
+      return function shouldPerformNextAction() {
+        return BPromise.resolve(original.apply(this, arguments)).then(yes => {
+          if (!yes) {
+            return false;
+          }
 
-  proto.shouldPerformNextAction = function() {
-    var context = this;
-    return BPromise.resolve(shouldPerformNextAction.apply(this, arguments)).then(function(yes) {
-      if (!yes) {
-        return false;
-      }
+          const pendingConditions = _.map(this[CONDITIONS] || [], condition => {
+            return _.isFunction(condition) ? condition(this) : condition;
+          });
 
-      var pendingConditions = _.map(context.conditions || [], function(condition) {
-        return _.isFunction(condition) ? condition(context) : condition;
-      });
+          return BPromise.all(pendingConditions).then(function(results) {
+            return _.reduce(results, function(memo, result) {
+              return memo && result;
+            }, true);
+          });
+        });
+      };
+    });
 
-      return BPromise.all(pendingConditions).then(function(results) {
-        return _.reduce(results, function(memo, result) {
-          return memo && result;
-        }, true);
-      });
+    valdsl.dsl.extend({
+      if: validateIf,
+      ifElse: validateIfElse,
+      break: breakValidation,
+      while: validateWhile,
+      until: validateUntil,
+      isSet: valueIsSet,
+      hasChanged: valueHasChanged,
+      previous: previousValue,
+      hasError: hasError,
+      hasNoError: hasNoError
     });
   };
-
-  _.extend(valdsl.dsl, {
-    if: validateIf,
-    ifElse: validateIfElse,
-    break: breakValidation,
-    while: validateWhile,
-    until: validateUntil,
-    set: valueIsSet,
-    changed: valueHasChanged,
-    previous: previousValue,
-    error: hasError,
-    noError: hasNoError
-  });
 }

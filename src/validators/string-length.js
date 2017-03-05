@@ -1,17 +1,16 @@
-const _ = require('lodash');
-const MessageFormat = require('messageformat');
+import _ from 'lodash';
+import { dynamicMessage } from '../utils';
 
-const mf = new MessageFormat('en');
-const defaultMessage = mf.compile('must be a string ' +
-  '{VALIDATION_TYPE, select,' +
-  ' exactly{exactly {MIN} {MIN, plural, one{character} other{characters}} long}' +
-  ' atLeast{at least {MIN} {MIN, plural, one{character} other{characters}} long}' +
-  ' atMost{at most {MAX} {MAX, plural, one{character} other{characters}} long}' +
-  ' other{between {MIN} and {MAX} {MAX, plural, one{character} other{characters}} long}}' +
+const defaultMessage = dynamicMessage('must be a string ' +
+  '{validation, select,' +
+  ' exactly{exactly {minLength} {minLength, plural, one{character} other{characters}} long}' +
+  ' atLeast{at least {minLength} {minLength, plural, one{character} other{characters}} long}' +
+  ' atMost{at most {maxLength} {maxLength, plural, one{character} other{characters}} long}' +
+  ' other{between {minLength} and {maxLength} {maxLength, plural, one{character} other{characters}} long}}' +
   ' ' +
-  '({CAUSE, select,' +
-  ' tooShort{the supplied string is too short: {COUNT} {COUNT, plural, one{character} other{characters}} long}' +
-  ' tooLong{the supplied string is too long: {COUNT} {COUNT, plural, one{character} other{characters}} long}' +
+  '({cause, select,' +
+  ' tooShort{the supplied string is too short: {actualLength} {actualLength, plural, one{character} other{characters}} long}' +
+  ' tooLong{the supplied string is too long: {actualLength} {actualLength, plural, one{character} other{characters}} long}' +
   ' other{the supplied value is of the wrong type}})');
 
 export default function stringLength(min, max, options) {
@@ -30,51 +29,39 @@ export default function stringLength(min, max, options) {
     throw new Error('String length validator `max` option must be a number, got ' + typeof(options.max));
   }
 
-  var validationType;
+  let validation;
   if (options.min !== undefined && options.min === options.max) {
-    validationType = 'exactly';
+    validation = 'exactly';
   } else if (options.min !== undefined && options.max !== undefined) {
-    validationType = 'between';
+    validation = 'between';
   } else if (options.min !== undefined) {
-    validationType = 'atLeast';
+    validation = 'atLeast';
   } else {
-    validationType = 'atMost';
-  }
-
-  function getMessageParameters(context, cause) {
-    return {
-      VALIDATION_TYPE: validationType,
-      MIN: options.min,
-      MAX: options.max,
-      CAUSE: cause,
-      COUNT: _.isString(context.get('value')) ? context.get('value').length : undefined,
-      VALUE_TYPE: typeof(context.get('value'))
-    };
+    validation = 'atMost';
   }
 
   return function(context) {
 
-    var cause,
-        messageParameters,
-        value = context.get('value');
+    const value = context.get('value');
 
+    let cause;
     if (!_.isString(value)) {
       cause = 'wrongType';
-      messageParameters = getMessageParameters(context, 'wrongType');
     } else if (options.min !== undefined && value.length < options.min) {
       cause = 'tooShort';
-      messageParameters = getMessageParameters(context, 'tooShort');
     } else if (options.max !== undefined && value.length > options.max) {
       cause = 'tooLong';
-      messageParameters = getMessageParameters(context, 'tooLong');
     }
 
-    if (messageParameters) {
+    if (cause) {
       context.addError({
         validator: 'stringLength',
+        validation: validation,
+        minLength: options.min,
+        maxLength: options.max,
+        actualLength: _.isString(value) ? value.length : undefined,
         cause: cause,
-        message: defaultMessage,
-        messageParameters: messageParameters
+        message: defaultMessage
       });
     }
   };

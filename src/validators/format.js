@@ -1,19 +1,16 @@
-const _ = require('lodash');
-const MessageFormat = require('messageformat');
+import _ from 'lodash';
+import { dynamicMessage } from '../utils';
 
-const mf = new MessageFormat('en');
-const defaultMessage = mf.compile('does not match the expected format{FORMAT, select, undefined{} other{: {FORMAT}}}');
+const defaultMessage = dynamicMessage('does not match the expected format{format, select, undefined{} other{: {format}}}');
 
 export default function format(regexp, formatDescription) {
   return function(context) {
-    var value = context.get('value');
+    const value = context.get('value');
     if (!_.isString(value) || !value.match(regexp)) {
       context.addError({
         validator: 'format',
-        message: defaultMessage,
-        messageParameters: {
-          FORMAT: formatDescription
-        }
+        format: formatDescription,
+        message: defaultMessage
       });
     }
   };

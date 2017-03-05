@@ -4,6 +4,7 @@
   "description": "Extensible validation DSL",
   "keywords": [
     "dsl",
+    "messageformat",
     "valid",
     "validate",
     "validation"

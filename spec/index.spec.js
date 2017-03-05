@@ -40,12 +40,13 @@ describe('valdsl', function() {
           this.validate(this.header('Pagination-Offset'), this.presence()),
 
           // Validate the JSON request body.
-          this.validate(this.get('body'), function() {
+          this.validate(this.get('body'), function(c) {
             return this.parallel(
               // Validate each property.
               this.validate(this.json('/name'), this.presence(), this.stringLength(1, 50)),
               this.validate(this.json('/password'), this.presence(), this.stringLength(8)),
-              this.validate(this.json('/role'), this.inclusion('user', 'admin'))
+              this.validate(this.json('/role'), this.inclusion('user', 'admin')),
+              this.validate(this.json('/cityId'), this.resource(_.noop))
             );
           })
         );
@@ -55,6 +56,7 @@ describe('valdsl', function() {
         type: 'header',
         location: 'Authorization',
         validator: 'format',
+        format: undefined,
         message: 'does not match the expected format',
         value: 'foo',
         valueSet: true
@@ -79,6 +81,10 @@ describe('valdsl', function() {
         type: 'json',
         location: '/name',
         validator: 'stringLength',
+        validation: 'between',
+        minLength: 1,
+        maxLength: 50,
+        actualLength: undefined,
         cause: 'wrongType',
         message: 'must be a string between 1 and 50 characters long (the supplied value is of the wrong type)',
         value: undefined,
@@ -88,6 +94,10 @@ describe('valdsl', function() {
         type: 'json',
         location: '/password',
         validator: 'stringLength',
+        validation: 'atLeast',
+        minLength: 8,
+        maxLength: undefined,
+        actualLength: 7,
         cause: 'tooShort',
         message: 'must be a string at least 8 characters long (the supplied string is too short: 7 characters long)',
         value: 'letmein',
@@ -97,8 +107,18 @@ describe('valdsl', function() {
         type: 'json',
         location: '/role',
         validator: 'inclusion',
+        allowedValues: [ 'user', 'admin' ],
+        allowedValuesDescription: 'user, admin',
         message: 'must be one of user, admin',
         value: 'god',
+        valueSet: true
+      },
+      {
+        type: 'json',
+        location: '/cityId',
+        validator: 'resource',
+        message: '24 not found',
+        value: 24,
         valueSet: true
       }
     ));
@@ -120,7 +140,7 @@ describe('valdsl', function() {
     return valdsl(function() {
 
       // Validate an HTTP request.
-      return this.validate(this.value(newUser), this.while(this.set()), this.while(this.changed()), this.while(this.noError(this.atCurrentLocation())), function() {
+      return this.validate(this.value(newUser), this.while(this.isSet()), this.while(this.hasChanged()), this.until(this.hasError(this.atCurrentLocation())), function() {
         return this.parallel(
           // The name is not validated because it's not in the object and `this.while(this.set())` was specified
           this.validate(this.json('/name'), this.presence(), this.stringLength(1, 50)),
@@ -128,14 +148,17 @@ describe('valdsl', function() {
           this.validate(this.json('/email'), this.previous(user.email), this.presence(), this.stringLength(5)),
           // The password is not validated because the condition around it is not fulfilled
           this.validate(this.json('/password'), this.presence(), this.if(false, this.stringLength(8))),
-          // Only the inclusion validation is performed because the if/else condition is not fulfilled
-          this.validate(this.json('/role'), this.ifElse(false, this.type('number'), this.inclusion('user', 'admin')))
+          // Only the type validation is performed because the if/else condition is fulfilled
+          this.validate(this.json('/role'), this.ifElse(true, this.type('number'), this.inclusion('user', 'admin'))),
+          // No validation is performed after this.break()
+          this.validate(this.json('/cityId'), this.break(), this.type('string'))
         );
       });
     }).then(fail).catch(expectValidationErrors(
       {
-        validator: 'inclusion',
-        message: 'must be one of user, admin',
+        validator: 'type',
+        typeDescription: 'number',
+        message: 'must be of type number',
         value: 'god',
         valueSet: true,
         type: 'json',

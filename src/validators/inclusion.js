@@ -1,12 +1,11 @@
-const _ = require('lodash');
-const MessageFormat = require('messageformat');
+import _ from 'lodash';
+import { dynamicMessage } from '../utils';
 
-const mf = new MessageFormat('en');
-const defaultMessage = mf.compile('must be one of {ALLOWED_VALUES}');
+const defaultMessage = dynamicMessage('must be one of {allowedValuesDescription}');
 
 export default function inclusion(options) {
 
-  var allowedValues;
+  let allowedValues;
   if (_.isObject(options)) {
     allowedValues = options.in;
   } else {
@@ -17,10 +16,9 @@ export default function inclusion(options) {
     if (!_.includes(allowedValues, context.get('value'))) {
       context.addError({
         validator: 'inclusion',
-        message: defaultMessage,
-        messageParameters: {
-          ALLOWED_VALUES: allowedValues.join(', ')
-        }
+        allowedValues: allowedValues,
+        allowedValuesDescription: allowedValues.join(', '),
+        message: defaultMessage
       });
     }
   };
