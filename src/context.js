@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import BPromise from 'bluebird';
 import ValidationError from './error';
+import ValidationErrorBundle from './error-bundle';
 
 const ERRORS = Symbol('errors');
 const STATE = Symbol('state');
@@ -56,8 +57,18 @@ export default class ValidationContext {
   }
 
   addError(error) {
-    this[ERRORS].push(_.extend(error, this[STATE]));
+    this[ERRORS].push(this.createError(error));
     return this;
+  }
+
+  createError(error) {
+
+    let message = error.message;
+    if (_.isFunction(message)) {
+      message = message(error.messageParameters || {});
+    }
+
+    return _.extend(new ValidationError(message), _.omit(error, 'message'), this[STATE]);
   }
 
   hasError(filter) {
@@ -90,18 +101,12 @@ export default class ValidationContext {
         return this;
       }
 
-      var error = new ValidationError('A validation error occurred.');
-      error.errors = _.map(this[ERRORS], _.bind(this.serializeError, this));
-      throw error;
+      throw new ValidationErrorBundle('A validation error occurred.', this[ERRORS].slice());
     });
   }
 
   shouldPerformNextAction(action) {
     return true;
-  }
-
-  serializeError(error) {
-    return error;
   }
 
   createChild() {

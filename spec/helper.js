@@ -6,11 +6,13 @@ chai.use(function(_chai, utils) {
 
     const obj = utils.flag(this, 'object');
 
-    const actualErrors = obj.errors;
+    let actualErrors = obj.errors;
     new chai.Assertion(actualErrors).to.be.an('array');
 
-    _.each(actualErrors, error => {
-      error.location = error.location.toString();
+    actualErrors = actualErrors.map(error => {
+      let tmp = _.extend({}, error, { message: error.message, location: error.location.toString() });
+      delete tmp.messageParameters;
+      return tmp;
     });
 
     expectedErrors = _.flatten(expectedErrors);
@@ -21,7 +23,7 @@ chai.use(function(_chai, utils) {
       const matchingError = _.find(extraErrors, error => _.isEqual(error, expectedError));
       if (matchingError) {
         extraErrors.splice(extraErrors.indexOf(matchingError), 1);
-        missingErrors.splice(missingErrors.indexOf(matchingError), 1);
+        missingErrors.splice(missingErrors.indexOf(expectedError), 1);
       }
     });
 

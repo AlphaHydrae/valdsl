@@ -54,48 +54,50 @@ describe('valdsl', function() {
       {
         type: 'header',
         location: 'Authorization',
-        code: 'validation.format.invalid',
-        message: 'Value does not match the expected format.',
+        validator: 'format',
+        message: 'does not match the expected format',
         value: 'foo',
         valueSet: true
       },
       {
         type: 'header',
         location: 'Pagination-Offset',
-        code: 'validation.presence.missing',
-        message: 'Value is required.',
+        validator: 'presence',
+        message: 'is required',
         value: undefined,
         valueSet: false
       },
       {
         type: 'json',
         location: '/name',
-        code: 'validation.presence.missing',
-        message: 'Value is required.',
+        validator: 'presence',
+        message: 'is required',
         value: undefined,
         valueSet: false
       },
       {
         type: 'json',
         location: '/name',
-        code: 'validation.stringLength.wrongType',
-        message: 'Value must be a string between 1 and 50 characters long. The supplied value is of the wrong type (undefined).',
+        validator: 'stringLength',
+        cause: 'wrongType',
+        message: 'must be a string between 1 and 50 characters long (the supplied value is of the wrong type)',
         value: undefined,
         valueSet: false
       },
       {
         type: 'json',
         location: '/password',
-        code: 'validation.stringLength.tooShort',
-        message: 'Value must be a string at least 8 characters long. The supplied string is too short (7 characters long).',
+        validator: 'stringLength',
+        cause: 'tooShort',
+        message: 'must be a string at least 8 characters long (the supplied string is too short: 7 characters long)',
         value: 'letmein',
         valueSet: true
       },
       {
         type: 'json',
         location: '/role',
-        code: 'validation.inclusion.notIncluded',
-        message: 'Value must be one of user, admin.',
+        validator: 'inclusion',
+        message: 'must be one of user, admin',
         value: 'god',
         valueSet: true
       }
@@ -132,8 +134,8 @@ describe('valdsl', function() {
       });
     }).then(fail).catch(expectValidationErrors(
       {
-        code: 'validation.inclusion.notIncluded',
-        message: 'Value must be one of user, admin.',
+        validator: 'inclusion',
+        message: 'must be one of user, admin',
         value: 'god',
         valueSet: true,
         type: 'json',
@@ -187,7 +189,7 @@ describe('valdsl', function() {
   function expectValidationErrors(...errors) {
     return function(err) {
 
-      if (!(err instanceof valdsl.ValidationError)) {
+      if (!(err instanceof valdsl.ValidationErrorBundle)) {
         throw err;
       }
 

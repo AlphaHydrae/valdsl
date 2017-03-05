@@ -1,10 +1,11 @@
 import _ from 'lodash';
 import Actions from './validation-actions';
 import Conditionals from './plugins/conditionals';
+import DefaultValidators from './plugins/default-validators';
 import Utils from './utils';
 import ValidationContext from './context';
 import ValidationError from './error';
-import Validators from './validators';
+import ValidationErrorBundle from './error-bundle';
 
 export default function() {
 
@@ -27,6 +28,7 @@ export default function() {
   valdsl.dsl = dsl;
   valdsl.ValidationContext = CustomValidationContext;
   valdsl.ValidationError = ValidationError;
+  valdsl.ValidationErrorBundle = ValidationErrorBundle;
 
   valdsl.plugin = function(callback) {
     callback(valdsl);
@@ -35,7 +37,7 @@ export default function() {
 
   _.extend(dsl, Actions);
   _.extend(dsl, Utils);
-  _.extend(dsl, Validators);
+  _.extend(dsl, DefaultValidators);
 
   valdsl.plugin(Conditionals);
 
