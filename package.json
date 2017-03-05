@@ -36,7 +36,8 @@
     "src:compile": "babel src -d lib",
     "src:lint": "jshint spec src",
     "src:watch": "onchange \"spec/**/*.js\" \"src/**/*.js\" -- npm run test:src",
-    "start": "concurrently \"npm run build\" \"npm run docs\" && npm run watch",
+    "start": "npm run build && npm run src:watch",
+    "start:all": "concurrently \"npm run build\" \"npm run docs\" && npm run watch",
     "test": "mocha --compilers js:babel-core/register spec",
     "test:src": "npm run build && npm test",
     "watch": "concurrently \"npm run src:watch\" \"npm run docs:serve\" \"npm run docs:watch\""
