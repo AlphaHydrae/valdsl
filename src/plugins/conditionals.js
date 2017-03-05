@@ -4,6 +4,60 @@ import { resolve } from '../utils';
 
 const CONDITIONS = Symbol('conditions');
 
+export default function conditionalsPlugin() {
+  return function(valdsl) {
+
+    // Attach an array of conditions to the validation context when it's created
+    valdsl.override('initialize', function(original) {
+      return function initialize() {
+        original.apply(this, arguments);
+        this[CONDITIONS] = [];
+      };
+    });
+
+    // Make a isolated copy of the conditions array when a new child context is created
+    // (each validation chain should have its own independent conditions)
+    valdsl.override('createChild', function(original) {
+      return function createChild() {
+        const newContext = original.apply(this, arguments);
+        newContext[CONDITIONS] = this[CONDITIONS].slice();
+        return newContext;
+      };
+    });
+
+    // Ensure all conditions are fulfilled at each step of a validation chain
+    valdsl.override('recursivelyValidate', function(original) {
+      return function recursivelyValidate(validators) {
+        if (!validators.length) {
+          return BPromise.resolve(this);
+        }
+
+        const pendingConditions = _.map(this[CONDITIONS], condition => resolve(condition, this));
+        return BPromise.all(pendingConditions).then(results => {
+          if (_.every(results)) {
+            return this.runValidator(validators.shift()).then(() => this.recursivelyValidate(validators));
+          } else {
+            return this;
+          }
+        });
+      };
+    });
+
+    valdsl.dsl.extend({
+      if: validateIf,
+      ifElse: validateIfElse,
+      break: breakValidation,
+      while: validateWhile,
+      until: validateUntil,
+      isSet: valueIsSet,
+      hasChanged: valueHasChanged,
+      previous: previousValue,
+      hasError: hasError,
+      hasNoError: hasNoError
+    });
+  };
+}
+
 export function validateIf(condition, ...handlers) {
   return function(context) {
     return resolve(condition, context).then(result => {
@@ -89,58 +143,5 @@ export function validateWhile(condition) {
 export function validateUntil(condition) {
   return function(context) {
     context[CONDITIONS].push(ctx => resolve(condition, ctx).then(result => !result));
-  };
-}
-
-export default function conditionalsPlugin() {
-  return function(valdsl) {
-
-    valdsl.override('initialize', function(original) {
-      return function initialize() {
-        original.apply(this, arguments);
-        this[CONDITIONS] = [];
-      };
-    });
-
-    valdsl.override('createChild', function(original) {
-      return function createChild() {
-        const newContext = original.apply(this, arguments);
-        newContext[CONDITIONS] = this[CONDITIONS].slice();
-        return newContext;
-      };
-    });
-
-    valdsl.override('shouldPerformNextAction', function(original) {
-      return function shouldPerformNextAction() {
-        return BPromise.resolve(original.apply(this, arguments)).then(yes => {
-          if (!yes) {
-            return false;
-          }
-
-          const pendingConditions = _.map(this[CONDITIONS] || [], condition => {
-            return _.isFunction(condition) ? condition(this) : condition;
-          });
-
-          return BPromise.all(pendingConditions).then(function(results) {
-            return _.reduce(results, function(memo, result) {
-              return memo && result;
-            }, true);
-          });
-        });
-      };
-    });
-
-    valdsl.dsl.extend({
-      if: validateIf,
-      ifElse: validateIfElse,
-      break: breakValidation,
-      while: validateWhile,
-      until: validateUntil,
-      isSet: valueIsSet,
-      hasChanged: valueHasChanged,
-      previous: previousValue,
-      hasError: hasError,
-      hasNoError: hasNoError
-    });
   };
 }

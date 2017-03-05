@@ -96,12 +96,13 @@ export default class ValidationContext {
     return _.find(this[ERRORS], predicate) !== undefined;
   }
 
-  validate(...actions) {
-    return recursivelyValidate(this.createChild(), _.flatten(actions));
+  validate(...validators) {
+    const child = this.createChild();
+    return child.recursivelyValidate(_.flatten(validators));
   }
 
-  ensureValid(...actions) {
-    return this.validate(actions).then(() => {
+  ensureValid(...validators) {
+    return this.validate(validators).then(() => {
       if (!this[ERRORS].length) {
         return this;
       }
@@ -110,33 +111,18 @@ export default class ValidationContext {
     });
   }
 
-  shouldPerformNextAction(action) {
-    return true;
-  }
-
   createChild() {
     const newContext = Object.create(this);
     newContext[STATE] = Object.create(this[STATE]);
     return newContext;
   }
-}
 
-function recursivelyValidate(context, actions, promise) {
-  if (!promise) {
-    return recursivelyValidate(context, actions, BPromise.resolve());
-  } else if (!actions.length) {
-    return promise;
+  recursivelyValidate(validators) {
+    return validators.length ? this.runValidator(validators.shift()).then(() => this.recursivelyValidate(validators)) : BPromise.resolve(this);
   }
 
-  const nextAction = actions.shift();
-  return BPromise.resolve(context.shouldPerformNextAction(nextAction)).then(function(yes) {
-    if (yes) {
-      const dsl = _.defaults({ validate: context.validate.bind(context) }, context[DSL]);
-      return promise.return(context).then(_.bind(nextAction, dsl)).then(function() {
-        return recursivelyValidate(context, actions);
-      });
-    } else {
-      return promise;
-    }
-  });
+  runValidator(validator) {
+    const dsl = _.defaults({ validate: this.validate.bind(this) }, this[DSL]);
+    return BPromise.resolve(this).then(validator.bind(dsl));
+  }
 }
