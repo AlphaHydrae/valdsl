@@ -37,15 +37,15 @@ describe('valdsl', function() {
 
           // Validate headers.
           this.validate(this.header('Authorization'), this.format(/^Bearer .+$/)),
-          this.validate(this.header('Pagination-Offset'), this.presence()),
+          this.validate(this.header('Pagination-Offset'), this.required()),
 
           // Validate the JSON request body.
           this.validate(this.get('body'), function() {
             return this.parallel(
               // Validate each property.
-              this.validate(this.json('/name'), this.presence(), this.string(1, 50)),
+              this.validate(this.json('/name'), this.required(), this.string(1, 50)),
               this.validate(this.json('/email'), this.email()),
-              this.validate(this.json('/password'), this.presence(), this.string(8)),
+              this.validate(this.json('/password'), this.required(), this.string(8)),
               this.validate(this.json('/role'), this.inclusion('user', 'admin')),
               this.validate(this.json('/cityId'), this.resource(_.noop))
             );
@@ -65,8 +65,7 @@ describe('valdsl', function() {
       {
         type: 'header',
         location: 'Pagination-Offset',
-        validator: 'presence',
-        cause: 'missing',
+        validator: 'required',
         message: 'is required',
         value: undefined,
         valueSet: false
@@ -74,8 +73,7 @@ describe('valdsl', function() {
       {
         type: 'json',
         location: '/name',
-        validator: 'presence',
-        cause: 'missing',
+        validator: 'required',
         message: 'is required',
         value: undefined,
         valueSet: false
@@ -154,11 +152,11 @@ describe('valdsl', function() {
       return this.validate(this.value(newUser), this.while(this.isSet()), this.while(this.hasChanged()), this.until(this.hasError(this.atCurrentLocation())), function() {
         return this.parallel(
           // The name is not validated because it's not in the object and `this.while(this.set())` was specified
-          this.validate(this.json('/name'), this.presence(), this.string(1, 50)),
+          this.validate(this.json('/name'), this.required(), this.string(1, 50)),
           // The e-mail is not validated because it hasn't changed compared to its previous value and `this.while(this.changed())` was specified
-          this.validate(this.json('/email'), this.previous(user.email), this.presence(), this.string(5)),
+          this.validate(this.json('/email'), this.previous(user.email), this.required(), this.string(5)),
           // The password is not validated because the condition around it is not fulfilled
-          this.validate(this.json('/password'), this.presence(), this.if(false, this.string(8))),
+          this.validate(this.json('/password'), this.required(), this.if(false, this.string(8))),
           // Only the type validation is performed because the if/else condition is fulfilled
           this.validate(this.json('/role'), this.ifElse(true, this.type('number'), this.inclusion('user', 'admin'))),
           // No validation is performed after this.break()
@@ -207,8 +205,8 @@ describe('valdsl', function() {
           this.validate(this.get('body'), function() {
             return this.parallel(
               // Validate each property.
-              this.validate(this.json('/street'), this.presence(), this.string(1, 50)),
-              this.validate(this.json('/cityId'), this.presence(), this.resource(findCity).replace(true).moveTo('/city'))
+              this.validate(this.json('/street'), this.required(), this.string(1, 50)),
+              this.validate(this.json('/cityId'), this.required(), this.resource(findCity).replace(true).moveTo('/city'))
             );
           })
         );

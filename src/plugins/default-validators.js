@@ -2,7 +2,7 @@ import _ from 'lodash';
 import email from '../validators/email';
 import format from '../validators/format';
 import inclusion from '../validators/inclusion';
-import presence from '../validators/presence';
+import required from '../validators/required';
 import resource from '../validators/resource';
 import string from '../validators/string';
 import type from '../validators/type';
@@ -13,7 +13,7 @@ export default function defaultValidatorsPlugin() {
       email: email,
       format: format,
       inclusion: inclusion,
-      presence: presence,
+      required: required,
       resource: resource,
       string: string,
       type: type
