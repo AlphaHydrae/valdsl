@@ -1,9 +1,11 @@
 import _ from 'lodash';
 import { expect } from 'chai';
 import requiredFactory from '../../src/validators/required';
-import { mockContext } from '../helper';
+import { expectErrorFactory, expectNoError, mockContext } from '../helper';
 
 require('../helper');
+
+const expectRequiredError = expectErrorFactory({ validator: 'required' });
 
 describe('required', function() {
 
@@ -23,9 +25,8 @@ describe('required', function() {
 
   _.each(invalidValues, (invalidValue, description) => {
     it(`should add an error for ${description}`, function() {
-      const context = mockContext({ value: invalidValue });
-      required(context);
-      expectPresenceError(context, { message: 'is required' });
+      const context = validate(invalidValue);
+      expectRequiredError(context, { message: 'is required' });
     });
   });
 
@@ -49,19 +50,14 @@ describe('required', function() {
 
   _.each(validValues, (validValue, description) => {
     it(`should not add any error for ${description}`, function() {
-      const context = mockContext({ value: validValue });
-      required(context);
+      const context = validate(validValue);
       expectNoError(context);
     });
   });
+
+  function validate(value) {
+    const context = mockContext({ value: value });
+    required(context);
+    return context;
+  }
 });
-
-function expectNoError(context) {
-  expect(context.addError.notCalled).to.equal(true);
-}
-
-function expectPresenceError(context, error) {
-  expect(context.addError.calledOnce).to.equal(true);
-  expect(context.addError.thisValues[0]).to.equal(context);
-  expect(context.addError.args[0]).to.eql([ _.extend(error, { validator: 'required' }) ]);
-}

@@ -1,6 +1,19 @@
 import _ from 'lodash';
 import chai from 'chai';
+import { expect } from 'chai';
 import sinon from 'sinon';
+
+export function expectNoError(context) {
+  expect(context.addError.args).to.eql([]);
+}
+
+export function expectErrorFactory(commonProperties) {
+  return function expectCustomError(context, error) {
+    expect(context.addError.called).to.equal(true, 'expected an error to have been added');
+    expect(context.addError.args).to.eql([ [ _.extend({}, commonProperties, error) ] ]);
+    expect(context.addError.thisValues[0]).to.equal(context);
+  };
+}
 
 export function mockContext(state) {
   const context = {};
