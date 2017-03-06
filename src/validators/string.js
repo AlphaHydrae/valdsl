@@ -13,7 +13,7 @@ const defaultMessage = dynamicMessage('must be a string ' +
   ' tooLong{the supplied string is too long: {actualLength} {actualLength, plural, one{character} other{characters}} long}' +
   ' other{the supplied value is of the wrong type}})');
 
-export default function stringLength(min, max, options) {
+export default function string(min, max, options) {
   if (_.isObject(min)) {
     options = min;
   } else {
@@ -55,7 +55,7 @@ export default function stringLength(min, max, options) {
 
     if (cause) {
       context.addError({
-        validator: 'stringLength',
+        validator: 'string',
         validation: validation,
         minLength: options.min,
         maxLength: options.max,
