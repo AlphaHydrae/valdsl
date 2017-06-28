@@ -102,12 +102,34 @@ export default class ValidationContext {
   }
 
   validate(...validators) {
-    const child = this.createChild();
-    return child.recursivelyValidate(_.flatten(validators));
+    _.each(validators, (validator, i) => {
+      if (!_.isFunction(validator)) {
+        throw new Error(`Validator ${i} must be a function, got ${typeof(validator)}`);
+      }
+    });
+
+    const execute = () => {
+      const child = this.createChild();
+      return child.recursivelyValidate(validators);
+    };
+
+    let promise;
+
+    const validatorChain = () => {
+      promise = promise || execute();
+      return promise;
+    };
+
+    validatorChain.then = function(resolve, reject) {
+      promise = promise || execute();
+      return promise.then(resolve, reject);
+    };
+
+    return validatorChain;
   }
 
   ensureValid(...validators) {
-    return this.validate(validators).then(() => {
+    return this.validate(...validators).then(() => {
       if (!this[ERRORS].length) {
         return this;
       }
@@ -134,6 +156,8 @@ export default class ValidationContext {
       }
     });
 
-    return BPromise.resolve([ proxy, this[DSL] ]).spread(validator.bind(proxy));
+    return BPromise.resolve(proxy).then(validator.bind(proxy)).then(result => {
+      return _.isFunction(result) ? this.runValidator(result) : result;
+    });
   }
 }
