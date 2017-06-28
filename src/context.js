@@ -127,7 +127,13 @@ export default class ValidationContext {
   }
 
   runValidator(validator) {
-    const dsl = _.defaults({ validate: this.validate.bind(this) }, this[DSL]);
-    return BPromise.resolve(this).then(validator.bind(dsl));
+
+    const proxy = new Proxy(this, {
+      get: (target, name) => {
+        return this[name] || this[DSL][name];
+      }
+    });
+
+    return BPromise.resolve([ proxy, this[DSL] ]).spread(validator.bind(proxy));
   }
 }
