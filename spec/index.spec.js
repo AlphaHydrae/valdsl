@@ -40,7 +40,7 @@ describe('valdsl', function() {
           this.validate(this.header('Pagination-Offset'), this.required()),
 
           // Validate the JSON request body.
-          this.validate(this.get('body'), function() {
+          this.validate(this.property('body'), function() {
             return this.parallel(
               // Validate each property.
               this.validate(this.json('/name'), this.required(), this.string(1, 50)),
@@ -149,7 +149,7 @@ describe('valdsl', function() {
     return valdsl(function() {
 
       // Validate an HTTP request.
-      return this.validate(this.value(newUser), this.while(this.isSet()), this.while(this.hasChanged()), this.until(this.hasError(this.atCurrentLocation())), function() {
+      return this.validate(this.value(newUser), this.while(this.isSet()), this.while(this.changed()), this.until(this.error(this.atCurrentLocation())), function() {
         return this.parallel(
           // The name is not validated because it's not in the object and `this.while(this.set())` was specified
           this.validate(this.json('/name'), this.required(), this.string(1, 50)),
@@ -202,7 +202,7 @@ describe('valdsl', function() {
         return this.parallel(
 
           // Validate the JSON request body.
-          this.validate(this.get('body'), function() {
+          this.validate(this.property('body'), function() {
             return this.parallel(
               // Validate each property.
               this.validate(this.json('/street'), this.required(), this.string(1, 50)),

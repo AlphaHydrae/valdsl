@@ -50,10 +50,10 @@ export default function conditionalsPlugin() {
       while: validateWhile,
       until: validateUntil,
       isSet: valueIsSet,
-      hasChanged: valueHasChanged,
+      changed: valueHasChanged,
       previous: previousValue,
-      hasError: hasError,
-      hasNoError: hasNoError
+      error: hasError,
+      noError: hasNoError
     });
   };
 }

@@ -3,13 +3,13 @@ import _ from 'lodash';
 export default function helpersPlugin() {
   return function(valdsl) {
     valdsl.dsl.extend({
-      get: getValuePath,
+      property: getValueProperty,
       value: setValue
     });
   };
 }
 
-export function getValuePath(path) {
+export function getValueProperty(path) {
   return function(context) {
     context.set({
       value: _.get(context.get('value'), path),
