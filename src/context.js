@@ -149,6 +149,7 @@ export default class ValidationContext {
 
   runValidator(validator) {
 
+    // FIXME: do not use proxy
     const proxy = new Proxy(this, {
       get: (target, name) => {
         return this[name] || this[DSL][name];
