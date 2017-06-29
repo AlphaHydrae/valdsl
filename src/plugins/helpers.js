@@ -1,4 +1,6 @@
 import _ from 'lodash';
+import BPromise from 'bluebird';
+import { resolve } from '../utils';
 
 export default function helpersPlugin() {
   return function(valdsl) {
@@ -9,20 +11,36 @@ export default function helpersPlugin() {
   };
 }
 
+export class ValidationValue {
+  constructor(value, valueSet) {
+    this.value = value;
+    this.valueSet = valueSet;
+  }
+}
+
 export function getValueProperty(path) {
   return function(context) {
-    context.set({
-      value: _.get(context.get('value'), path),
-      valueSet: _.has(context.get('value'), path)
+    return resolve(path, context).then(resolvedPath => {
+      context.set({
+        value: _.get(context.get('value'), resolvedPath),
+        valueSet: _.has(context.get('value'), resolvedPath)
+      });
     });
   };
 }
 
 export function setValue(value, valueSet) {
   return function(context) {
-    context.set({
-      value: value,
-      valueSet: valueSet !== undefined ? valueSet : value !== undefined
+    return BPromise.all([ resolve(value, context), resolve(valueSet, context) ]).spread((resolvedValue, resolvedValueSet) => {
+      if (resolvedValue instanceof ValidationValue) {
+        resolvedValueSet = resolvedValue.valueSet;
+        resolvedValue = resolvedValue.value;
+      }
+
+      context.set({
+        value: resolvedValue,
+        valueSet: resolvedValueSet !== undefined ? resolvedValueSet : resolvedValue !== undefined
+      });
     });
   };
 }

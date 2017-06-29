@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import conditionalsPlugin from './plugins/conditionals';
 import controlFlowPlugin from './plugins/control-flow';
+import dataPlugin from './plugins/data';
 import defaultValidatorsPlugin from './plugins/default-validators';
 import helpersPlugin from './plugins/helpers';
 import jsonPointerPlugin from './plugins/json-pointer';
@@ -46,6 +47,7 @@ export default function(options) {
   valdsl.plugins = {
     conditionals: conditionalsPlugin,
     controlFlow: controlFlowPlugin,
+    data: dataPlugin,
     defaultValidators: defaultValidatorsPlugin,
     helpers: helpersPlugin,
     jsonPointer: jsonPointerPlugin,
@@ -68,6 +70,7 @@ export default function(options) {
 
   valdsl.plugin('helpers');
   valdsl.plugin('controlFlow');
+  valdsl.plugin('data');
   valdsl.plugin('defaultValidators');
   valdsl.plugin('conditionals');
   valdsl.plugin('location');

@@ -8,7 +8,7 @@ export default function resource(loader, options) {
   options = _.extend({}, options);
 
   const action = function(context) {
-    return BPromise.resolve(loader(context.get('value'))).then(function(resource) {
+    return BPromise.resolve(loader(context.get('value'), context)).then(function(resource) {
       if (!resource) {
         return context.addError({
           validator: 'resource',

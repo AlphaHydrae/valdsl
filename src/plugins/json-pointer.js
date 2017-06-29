@@ -7,6 +7,7 @@ export default function jsonPointerPlugin() {
   };
 }
 
+// TODO: allow to remove pointer
 export class JsonPointerLocation {
   constructor(basePointer, relativePointer, source) {
     this.basePointer = basePointer || '';

@@ -53,22 +53,21 @@ export default function conditionalsPlugin() {
       changed: valueHasChanged,
       previous: previousValue,
       error: hasError,
-      noError: hasNoError
+      noError: hasNoError,
+      every: every,
+      some: some
     });
   };
 }
 
-export function validateIf(condition, ...handlers) {
+export function validateIf(condition, ...validators) {
   return function(context) {
     return resolve(condition, context).then(result => {
       if (!result) {
         return;
       }
 
-      let promise = BPromise.resolve();
-      handlers.forEach(handler => promise = promise.return(context).then(handler));
-
-      return promise;
+      return BPromise.mapSeries(validators, validator => validator(context));
     });
   };
 }
@@ -143,5 +142,17 @@ export function validateWhile(condition) {
 export function validateUntil(condition) {
   return function(context) {
     context[CONDITIONS].push(ctx => resolve(condition, ctx).then(result => !result));
+  };
+}
+
+export function every(conditions, predicate) {
+  return function(context) {
+    return BPromise.all(_.map(conditions, condition => resolve(condition, context))).then(results => _.every(results, predicate));
+  };
+}
+
+export function some(conditions, predicate) {
+  return function(context) {
+    return BPromise.all(_.map(conditions, condition => resolve(condition, context))).then(results => _.some(results, predicate));
   };
 }

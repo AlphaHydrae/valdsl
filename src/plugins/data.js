@@ -38,13 +38,15 @@ export default function dataPlugin() {
     });
 
     valdsl.dsl.extend({
-      data: setData
+      data: data
     });
   };
 }
 
-export function setData(...args) {
+export function data(key, value) {
   return function(context) {
-    return context.setData(...args);
+    return BPromise.all([ resolve(key, context), resolve(value, context) ]).spread((resolvedKey, resolvedValue) => {
+      return context.setData(resolvedKey, resolvedValue);
+    });
   };
 }

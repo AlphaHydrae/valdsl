@@ -108,21 +108,20 @@ export default class ValidationContext {
       }
     });
 
-    const execute = () => {
-      const child = this.createChild();
+    const execute = (context) => {
+      const child = context.createChild();
       return child.recursivelyValidate(validators);
     };
 
     let promise;
 
-    const validatorChain = () => {
-      promise = promise || execute();
+    const validatorChain = (context) => {
+      promise = promise || execute(context);
       return promise;
     };
 
-    validatorChain.then = function(resolve, reject) {
-      promise = promise || execute();
-      return promise.then(resolve, reject);
+    validatorChain.then = (resolve, reject) => {
+      return validatorChain(this).then(resolve, reject);
     };
 
     return validatorChain;

@@ -8,14 +8,14 @@ require('./helper');
 
 describe('valdsl', function() {
 
-  var valdsl;
+  let valdsl;
   beforeEach(function() {
     valdsl = valdslFactory();
   });
 
   it('should find errors in an HTTP request', function() {
 
-    var request = fakeHttpRequest({
+    const request = fakeHttpRequest({
       body: {
         email: 'foo',
         password: 'letmein',
@@ -32,26 +32,22 @@ describe('valdsl', function() {
     return valdsl(function() {
 
       // Validate an HTTP request.
-      return this.validate(this.value(request), function() {
-        return this.parallel(
+      return this.validate(this.value(request), this.parallel(
 
-          // Validate headers.
-          this.validate(this.header('Authorization'), this.format(/^Bearer .+$/)),
-          this.validate(this.header('Pagination-Offset'), this.required()),
+        // Validate headers.
+        this.validate(this.header('Authorization'), this.format(/^Bearer .+$/)),
+        this.validate(this.header('Pagination-Offset'), this.required()),
 
-          // Validate the JSON request body.
-          this.validate(this.property('body'), function() {
-            return this.parallel(
-              // Validate each property.
-              this.validate(this.json('/name'), this.required(), this.string(1, 50)),
-              this.validate(this.json('/email'), this.email()),
-              this.validate(this.json('/password'), this.required(), this.string(8)),
-              this.validate(this.json('/role'), this.inclusion('user', 'admin')),
-              this.validate(this.json('/cityId'), this.resource(_.noop))
-            );
-          })
-        );
-      });
+        // Validate the JSON request body.
+        this.validate(this.property('body'), this.parallel(
+          // Validate each property.
+          this.validate(this.json('/name'), this.required(), this.string(1, 50)),
+          this.validate(this.json('/email'), this.email()),
+          this.validate(this.json('/password'), this.required(), this.string(8)),
+          this.validate(this.json('/role'), this.inclusion('user', 'admin')),
+          this.validate(this.json('/cityId'), this.resource(_.noop))
+        ))
+      ));
     }).then(fail).catch(expectValidationErrors(
       {
         type: 'header',
@@ -135,11 +131,11 @@ describe('valdsl', function() {
 
   it('should validate conditionnally', function() {
 
-    var user = {
+    const user = {
       email: 'foo'
     };
 
-    var newUser = {
+    const newUser = {
       email: 'foo',
       password: 'letmein',
       role: 'god',
@@ -149,20 +145,18 @@ describe('valdsl', function() {
     return valdsl(function() {
 
       // Validate an HTTP request.
-      return this.validate(this.value(newUser), this.while(this.isSet()), this.while(this.changed()), this.until(this.error(this.atCurrentLocation())), function() {
-        return this.parallel(
-          // The name is not validated because it's not in the object and `this.while(this.set())` was specified
-          this.validate(this.json('/name'), this.required(), this.string(1, 50)),
-          // The e-mail is not validated because it hasn't changed compared to its previous value and `this.while(this.changed())` was specified
-          this.validate(this.json('/email'), this.previous(user.email), this.required(), this.string(5)),
-          // The password is not validated because the condition around it is not fulfilled
-          this.validate(this.json('/password'), this.required(), this.if(false, this.string(8))),
-          // Only the type validation is performed because the if/else condition is fulfilled
-          this.validate(this.json('/role'), this.ifElse(true, this.type('number'), this.inclusion('user', 'admin'))),
-          // No validation is performed after this.break()
-          this.validate(this.json('/cityId'), this.break(), this.type('string'))
-        );
-      });
+      return this.validate(this.value(newUser), this.while(this.isSet()), this.while(this.changed()), this.until(this.error(this.atCurrentLocation())), this.parallel(
+        // The name is not validated because it's not in the object and `this.while(this.set())` was specified
+        this.validate(this.json('/name'), this.required(), this.string(1, 50)),
+        // The e-mail is not validated because it hasn't changed compared to its previous value and `this.while(this.changed())` was specified
+        this.validate(this.json('/email'), this.previous(user.email), this.required(), this.string(5)),
+        // The password is not validated because the condition around it is not fulfilled
+        this.validate(this.json('/password'), this.required(), this.if(false, this.string(8))),
+        // Only the type validation is performed because the if/else condition is fulfilled
+        this.validate(this.json('/role'), this.ifElse(true, this.type('number'), this.inclusion('user', 'admin'))),
+        // No validation is performed after this.break()
+        this.validate(this.json('/cityId'), this.break(), this.type('string'))
+      ));
     }).then(fail).catch(expectValidationErrors(
       {
         validator: 'type',
@@ -178,14 +172,14 @@ describe('valdsl', function() {
 
   it('should help transform request data', function() {
 
-    var request = fakeHttpRequest({
+    const request = fakeHttpRequest({
       body: {
         street: 'Maple Street',
         cityId: 42
       }
     });
 
-    var city = {
+    const city = {
       id: 42,
       name: 'Hill Valley',
       population: 327103
@@ -198,24 +192,109 @@ describe('valdsl', function() {
     return valdsl(function() {
 
       // Validate an HTTP request.
-      return this.validate(this.value(request), function() {
-        return this.parallel(
+      return this.validate(this.value(request), this.parallel(
 
-          // Validate the JSON request body.
-          this.validate(this.property('body'), function() {
-            return this.parallel(
-              // Validate each property.
-              this.validate(this.json('/street'), this.required(), this.string(1, 50)),
-              this.validate(this.json('/cityId'), this.required(), this.resource(findCity).replace(true).moveTo('/city'))
-            );
-          })
-        );
-      });
+        // Validate the JSON request body.
+        this.validate(this.property('body'), function() {
+          return this.parallel(
+            // Validate each property.
+            this.validate(this.json('/street'), this.required(), this.string(1, 50)),
+            this.validate(this.json('/cityId'), this.required(), this.resource(findCity).replace(true).moveTo('/city'))
+          );
+        })
+      ));
     }).then(function() {
       expect(request.body.street).to.equal('Maple Street');
       expect(request.body.city).to.equal(city);
       expect(request.body).to.have.all.keys('street', 'city');
     });
+  });
+
+  it('should validate arrays', function() {
+
+    const user = {
+      name: 'jdoe',
+      roles: [ 'user', 'killjoy', 'manager', 'god' ]
+    };
+
+    return valdsl(function() {
+
+      // Validate an HTTP request.
+      return this.validate(this.value(user), this.parallel(
+        this.validate(this.json('/name'), this.required(), this.string()),
+        this.validate(this.json('/roles'), this.type('array'), this.each(function(context, role, i) {
+          return this.validate(this.json(`/${i}`), this.inclusion('user', 'manager', 'admin'));
+        }))
+      ));
+    }).then(fail).catch(expectValidationErrors(
+      {
+        message: 'must be one of user, manager, admin',
+        type: 'json',
+        location: '/roles/1',
+        validator: 'inclusion',
+        allowedValues: [ 'user', 'manager', 'admin' ],
+        allowedValuesDescription: 'user, manager, admin',
+        value: 'killjoy',
+        valueSet: true
+      },
+      {
+        message: 'must be one of user, manager, admin',
+        type: 'json',
+        location: '/roles/3',
+        validator: 'inclusion',
+        allowedValues: [ 'user', 'manager', 'admin' ],
+        allowedValuesDescription: 'user, manager, admin',
+        value: 'god',
+        valueSet: true
+      }
+    ));
+  });
+
+  it('should validate using provided data', function() {
+
+    const newspaper = {
+      title: 'The Daily Planet',
+      articles: [ 12, 24, 36 ]
+    };
+
+    const articlesPromise = Promise.resolve([
+      {
+        id: 12,
+        title: 'Lorem ipsum'
+      },
+      {
+        id: 36,
+        title: 'Eiusmod tempor'
+      },
+      {
+        id: 60,
+        title: 'Excepteur dolor'
+      }
+    ]);
+
+    function findArticle(id, context) {
+      return _.find(context.getData('articles'), { id: id });
+    }
+
+    return valdsl(function() {
+
+      // Validate an HTTP request.
+      return this.validate(this.value(newspaper), this.data('articles', articlesPromise), this.parallel(
+        this.validate(this.json('/title'), this.required(), this.string()),
+        this.validate(this.json('/articles'), this.each(function(context, value, i) {
+          return this.validate(this.json(`/${i}`), this.resource(findArticle));
+        }))
+      ));
+    }).then(fail).catch(expectValidationErrors(
+      {
+        message: '24 not found',
+        type: 'json',
+        location: '/articles/1',
+        validator: 'resource',
+        value: 24,
+        valueSet: true
+      }
+    ));
   });
 
   function expectValidationErrors(...errors) {
