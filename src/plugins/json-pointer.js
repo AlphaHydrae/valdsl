@@ -42,6 +42,10 @@ export class JsonPointerLocation {
     jsonPointer.set(this.source, this.relativePointer, value);
   }
 
+  remove() {
+    jsonPointer.remove(this.source, this.relativePointer);
+  }
+
   toString() {
     return this.pointer;
   }

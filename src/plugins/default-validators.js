@@ -2,6 +2,8 @@ import _ from 'lodash';
 import email from '../validators/email';
 import format from '../validators/format';
 import inclusion from '../validators/inclusion';
+import notBlank from '../validators/notBlank';
+import notEmpty from '../validators/notEmpty';
 import required from '../validators/required';
 import resource from '../validators/resource';
 import string from '../validators/string';
@@ -13,6 +15,8 @@ export default function defaultValidatorsPlugin() {
       email: email,
       format: format,
       inclusion: inclusion,
+      notBlank: notBlank,
+      notEmpty: notEmpty,
       required: required,
       resource: resource,
       string: string,
