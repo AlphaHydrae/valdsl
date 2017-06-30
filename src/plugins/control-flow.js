@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import BPromise from 'bluebird';
+import { resolve } from '../utils';
 
 export function parallel(...validators) {
   return function(context) {
@@ -23,7 +24,7 @@ export function each(...validators) {
       return BPromise.mapSeries(keys, (key) => {
         const keyValue = value[key];
         return BPromise.mapSeries(validators, validator => {
-          return validator.call(this, context, keyValue, key);
+          return resolve(validator.call(this, context, keyValue, key), context);
         });
       });
     }
