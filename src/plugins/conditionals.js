@@ -67,7 +67,7 @@ export function validateIf(condition, ...validators) {
         return;
       }
 
-      return BPromise.mapSeries(validators, validator => validator(context));
+      return BPromise.mapSeries(validators, validator => resolve(validator, context));
     });
   };
 }
