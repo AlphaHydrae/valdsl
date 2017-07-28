@@ -160,7 +160,7 @@ describe('valdsl', function() {
     }).then(fail).catch(expectValidationErrors(
       {
         validator: 'type',
-        typeDescription: 'number',
+        types: [ 'number' ],
         message: 'must be of type number',
         value: 'god',
         valueSet: true,
