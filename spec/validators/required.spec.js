@@ -7,7 +7,7 @@ require('../helper');
 
 const expectRequiredError = expectErrorFactory({ validator: 'required' });
 
-describe('required', function() {
+describe('required validator', function() {
 
   let required;
   beforeEach(function() {
