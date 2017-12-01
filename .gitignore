@@ -1,7 +1,9 @@
 /.nyc_output
 /*.log
+/.screenrc
 /config.js
 /coverage
-/docs
+/docs/*
+!/docs/index.html
 /lib
 /node_modules
