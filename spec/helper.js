@@ -1,7 +1,9 @@
-import _ from 'lodash';
 import chai from 'chai';
 import { expect } from 'chai';
+import _ from 'lodash';
 import sinon from 'sinon';
+
+chai.config.includeStack = true;
 
 export function expectNoError(context) {
   expect(context.addError.args).to.eql([]);

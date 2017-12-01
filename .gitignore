@@ -1,5 +1,7 @@
+/.nyc_output
 /*.log
 /config.js
+/coverage
 /docs
 /lib
 /node_modules

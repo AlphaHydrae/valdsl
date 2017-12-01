@@ -1,8 +1,16 @@
-const _ = require('lodash');
-const BPromise = require('bluebird');
-const chai = require('chai');
-const expect = chai.expect;
-const valdslFactory = require('../lib');
+import BPromise from 'bluebird';
+import chai from 'chai';
+import { expect } from 'chai';
+import _ from 'lodash';
+
+let valdslFactory;
+if (process.env.VALDSL_TEST_SRC == 'lib') {
+  valdslFactory = require('../lib');
+} else if (process.env.VALDSL_TEST_SRC == 'src' || !process.env.VALDSL_TEST_SRC) {
+  valdslFactory = require('../src');
+} else {
+  throw new Error(`Unknown valdsl test source "${process.env.VALDSL_TEST_SRC}"`);
+}
 
 require('./helper');
 
