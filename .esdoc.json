@@ -1,5 +1,9 @@
 {
   "destination": "./docs",
   "source": "./src",
-  "title": "valdsl"
+  "plugins": [
+    {
+      "name": "esdoc-standard-plugin"
+    }
+  ]
 }
