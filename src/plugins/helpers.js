@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import BPromise from 'bluebird';
-import { resolve } from '../utils';
+import { resolve, toNativePromise } from '../utils';
 
 export default function helpersPlugin() {
   return function(valdsl) {
@@ -31,7 +31,7 @@ export function getValueProperty(path) {
 
 export function setValue(value, valueSet) {
   return function(context) {
-    return BPromise.all([ resolve(value, context), resolve(valueSet, context) ]).spread((resolvedValue, resolvedValueSet) => {
+    return toNativePromise(BPromise.all([ resolve(value, context), resolve(valueSet, context) ]).spread((resolvedValue, resolvedValueSet) => {
       if (resolvedValue instanceof ValidationValue) {
         resolvedValueSet = resolvedValue.valueSet;
         resolvedValue = resolvedValue.value;
@@ -41,6 +41,6 @@ export function setValue(value, valueSet) {
         value: resolvedValue,
         valueSet: resolvedValueSet !== undefined ? resolvedValueSet : resolvedValue !== undefined
       });
-    });
+    }));
   };
 }

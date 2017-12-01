@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import BPromise from 'bluebird';
-import { resolve } from '../utils';
+import { resolve, toNativePromise } from '../utils';
 
 const DATA = Symbol('data');
 
@@ -22,7 +22,7 @@ export default function dataPlugin() {
             return resolved;
           });
         } else if (_.isObject(key)) {
-          return BPromise.all(_.map(_.keys(key), (property) => {
+          return Promise.all(_.map(_.keys(key), (property) => {
             return this.set(property, key[property]);
           }));
         } else {
@@ -45,8 +45,8 @@ export default function dataPlugin() {
 
 export function data(key, value) {
   return function(context) {
-    return BPromise.all([ resolve(key, context), resolve(value, context) ]).spread((resolvedKey, resolvedValue) => {
+    return toNativePromise(BPromise.all([ resolve(key, context), resolve(value, context) ]).spread((resolvedKey, resolvedValue) => {
       return context.setData(resolvedKey, resolvedValue);
-    });
+    }));
   };
 }

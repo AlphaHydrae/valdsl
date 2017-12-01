@@ -1,5 +1,4 @@
 import _ from 'lodash';
-import BPromise from 'bluebird';
 import MessageFormat from 'messageformat';
 
 const mf = {};
@@ -10,7 +9,11 @@ export function dynamicMessage(message, lang) {
 }
 
 export function resolve(value, ...args) {
-  return BPromise.resolve(_.isFunction(value) ? value.apply(undefined, args) : value);
+  return Promise.resolve(_.isFunction(value) ? value.apply(undefined, args) : value);
+}
+
+export function toNativePromise(promise) {
+  return new Promise((resolve, reject) => promise.then(resolve, reject));
 }
 
 function getMessageFormat(lang) {

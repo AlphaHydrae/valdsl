@@ -1,5 +1,4 @@
 import _ from 'lodash';
-import BPromise from 'bluebird';
 import ValidationError from './error';
 import ValidationErrorBundle from './error-bundle';
 
@@ -144,7 +143,7 @@ export default class ValidationContext {
   }
 
   recursivelyValidate(validators) {
-    return validators.length ? this.runValidator(validators.shift()).then(() => this.recursivelyValidate(validators)) : BPromise.resolve(this);
+    return validators.length ? this.runValidator(validators.shift()).then(() => this.recursivelyValidate(validators)) : Promise.resolve(this);
   }
 
   runValidator(validator) {
@@ -169,7 +168,7 @@ export default class ValidationContext {
       }
     }
 
-    return BPromise.resolve(proxy).then(validator.bind(proxy)).then(result => {
+    return Promise.resolve(proxy).then(validator.bind(proxy)).then(result => {
       return _.isFunction(result) ? this.runValidator(result) : result;
     });
   }

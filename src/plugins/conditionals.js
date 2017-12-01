@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import BPromise from 'bluebird';
-import { resolve } from '../utils';
+import { resolve, toNativePromise } from '../utils';
 
 const CONDITIONS = Symbol('conditions');
 
@@ -29,11 +29,11 @@ export default function conditionalsPlugin() {
     valdsl.override('recursivelyValidate', function(original) {
       return function recursivelyValidate(validators) {
         if (!validators.length) {
-          return BPromise.resolve(this);
+          return Promise.resolve(this);
         }
 
         const pendingConditions = _.map(this[CONDITIONS], condition => resolve(condition, this));
-        return BPromise.all(pendingConditions).then(results => {
+        return Promise.all(pendingConditions).then(results => {
           if (_.every(results)) {
             return this.runValidator(validators.shift()).then(() => this.recursivelyValidate(validators));
           } else {
@@ -67,7 +67,7 @@ export function validateIf(condition, ...validators) {
         return;
       }
 
-      return BPromise.mapSeries(validators, validator => resolve(validator, context));
+      return toNativePromise(BPromise.mapSeries(validators, validator => resolve(validator, context)));
     });
   };
 }
@@ -147,12 +147,12 @@ export function validateUntil(condition) {
 
 export function every(conditions, predicate) {
   return function(context) {
-    return BPromise.all(_.map(conditions, condition => resolve(condition, context))).then(results => _.every(results, predicate));
+    return Promise.all(_.map(conditions, condition => resolve(condition, context))).then(results => _.every(results, predicate));
   };
 }
 
 export function some(conditions, predicate) {
   return function(context) {
-    return BPromise.all(_.map(conditions, condition => resolve(condition, context))).then(results => _.some(results, predicate));
+    return Promise.all(_.map(conditions, condition => resolve(condition, context))).then(results => _.some(results, predicate));
   };
 }

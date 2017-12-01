@@ -1,5 +1,4 @@
 import _ from 'lodash';
-import BPromise from 'bluebird';
 import { dynamicMessage } from '../utils';
 
 const defaultMessage = dynamicMessage('{value} not found');
@@ -8,7 +7,7 @@ export default function resource(loader, options) {
   options = _.extend({}, options);
 
   const action = function(context) {
-    return BPromise.resolve(loader(context.get('value'), context)).then(function(resource) {
+    return Promise.resolve(loader(context.get('value'), context)).then(function(resource) {
       if (!resource) {
         return context.addError({
           validator: 'resource',
