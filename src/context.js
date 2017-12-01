@@ -149,12 +149,25 @@ export default class ValidationContext {
 
   runValidator(validator) {
 
-    // FIXME: do not use proxy
-    const proxy = new Proxy(this, {
-      get: (target, name) => {
-        return this[name] || this[DSL][name];
+    const dsl = this[DSL];
+
+    let proxy;
+    if (typeof(Proxy) != 'undefined') {
+      // Use ES6 Proxy if available.
+      proxy = new Proxy(this, {
+        get: (target, name) => {
+          return this[name] || dsl[name];
+        }
+      });
+    } else {
+      // Otherwise fall back to a prototype.
+      proxy = Object.create(this);
+      for (let dslMethod in dsl) {
+        if (!this[dslMethod]) {
+          proxy[dslMethod] = dsl[dslMethod];
+        }
       }
-    });
+    }
 
     return BPromise.resolve(proxy).then(validator.bind(proxy)).then(result => {
       return _.isFunction(result) ? this.runValidator(result) : result;
