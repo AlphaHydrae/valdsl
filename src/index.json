@@ -1,0 +1,3690 @@
+[
+  {
+    "__docId__": 1,
+    "kind": "external",
+    "name": "Infinity",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Infinity",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 2,
+    "kind": "external",
+    "name": "NaN",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~NaN",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 3,
+    "kind": "external",
+    "name": "undefined",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~undefined",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 4,
+    "kind": "external",
+    "name": "null",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~null",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 5,
+    "kind": "external",
+    "name": "Object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Object",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 6,
+    "kind": "external",
+    "name": "object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~object",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 7,
+    "kind": "external",
+    "name": "Function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Function",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 8,
+    "kind": "external",
+    "name": "function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~function",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 9,
+    "kind": "external",
+    "name": "Boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Boolean",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 10,
+    "kind": "external",
+    "name": "boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~boolean",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 11,
+    "kind": "external",
+    "name": "Symbol",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Symbol",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 12,
+    "kind": "external",
+    "name": "Error",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Error",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 13,
+    "kind": "external",
+    "name": "EvalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/EvalError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~EvalError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 14,
+    "kind": "external",
+    "name": "InternalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/InternalError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~InternalError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 15,
+    "kind": "external",
+    "name": "RangeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RangeError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~RangeError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 16,
+    "kind": "external",
+    "name": "ReferenceError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~ReferenceError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 17,
+    "kind": "external",
+    "name": "SyntaxError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~SyntaxError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 18,
+    "kind": "external",
+    "name": "TypeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~TypeError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 19,
+    "kind": "external",
+    "name": "URIError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/URIError",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~URIError",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 20,
+    "kind": "external",
+    "name": "Number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Number",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 21,
+    "kind": "external",
+    "name": "number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~number",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 22,
+    "kind": "external",
+    "name": "Date",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Date",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 23,
+    "kind": "external",
+    "name": "String",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~String",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 24,
+    "kind": "external",
+    "name": "string",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~string",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 25,
+    "kind": "external",
+    "name": "RegExp",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~RegExp",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 26,
+    "kind": "external",
+    "name": "Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 27,
+    "kind": "external",
+    "name": "Int8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int8Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Int8Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 28,
+    "kind": "external",
+    "name": "Uint8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint8Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 29,
+    "kind": "external",
+    "name": "Uint8ClampedArray",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint8ClampedArray",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 30,
+    "kind": "external",
+    "name": "Int16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int16Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Int16Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 31,
+    "kind": "external",
+    "name": "Uint16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint16Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint16Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 32,
+    "kind": "external",
+    "name": "Int32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int32Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Int32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 33,
+    "kind": "external",
+    "name": "Uint32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Uint32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 34,
+    "kind": "external",
+    "name": "Float32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float32Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Float32Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 35,
+    "kind": "external",
+    "name": "Float64Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float64Array",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Float64Array",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 36,
+    "kind": "external",
+    "name": "Map",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Map",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 37,
+    "kind": "external",
+    "name": "Set",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Set",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 38,
+    "kind": "external",
+    "name": "WeakMap",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~WeakMap",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 39,
+    "kind": "external",
+    "name": "WeakSet",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~WeakSet",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 40,
+    "kind": "external",
+    "name": "ArrayBuffer",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~ArrayBuffer",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 41,
+    "kind": "external",
+    "name": "DataView",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~DataView",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 42,
+    "kind": "external",
+    "name": "JSON",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~JSON",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 43,
+    "kind": "external",
+    "name": "Promise",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Promise",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 44,
+    "kind": "external",
+    "name": "Generator",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Generator",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 45,
+    "kind": "external",
+    "name": "GeneratorFunction",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/GeneratorFunction",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~GeneratorFunction",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 46,
+    "kind": "external",
+    "name": "Reflect",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Reflect",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 47,
+    "kind": "external",
+    "name": "Proxy",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy",
+    "memberof": "src/.external-ecmascript.js",
+    "static": true,
+    "longname": "src/.external-ecmascript.js~Proxy",
+    "access": "public",
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 48,
+    "kind": "file",
+    "name": "src/context.js",
+    "content": "import _ from 'lodash';\nimport ValidationError from './error';\nimport ValidationErrorBundle from './error-bundle';\n\nconst DSL = Symbol('dsl');\nconst ERRORS = Symbol('errors');\nconst STATE = Symbol('state');\nconst ERROR_CLASS = Symbol('error-class');\nconst ERROR_BUNDLE_CLASS = Symbol('error-bundle-class');\nconst INITIALIZED = Symbol('initialized');\n\nexport default class ValidationContext {\n\n  constructor(options) {\n    options = _.extend({}, options);\n    if (_.has(options, 'state') && !_.isObject(options.state)) {\n      throw new Error('Validation context `state` option must be an object');\n    }\n\n    this[ERRORS] = [];\n    this[DSL] = options.dsl ? Object.create(options.dsl) : {};\n    this[STATE] = options.state ? Object.create(options.state) : {};\n    this[ERROR_CLASS] = options.ValidationError || ValidationError;\n    this[ERROR_BUNDLE_CLASS] = options.ValidationErrorBundle || ValidationErrorBundle;\n\n    this.initialize();\n    if (!this[INITIALIZED]) {\n      throw new Error('A plugin overrode initialize but did not call the original function');\n    }\n  }\n\n  initialize() {\n    this[INITIALIZED] = true;\n  }\n\n  set(key, value) {\n    if (_.isString(key) || _.isArray(key)) {\n      _.set(this[STATE], key, value);\n    } else if (_.isObject(key)) {\n      for (let property in key) {\n        this.set(property, key[property]);\n      }\n    } else {\n      throw new Error('First argument must be a string, array or object');\n    }\n\n    return this;\n  }\n\n  get(key) {\n    return _.get(this[STATE], key);\n  }\n\n  has(key) {\n    return _.has(this[STATE], key);\n  }\n\n  pick(...properties) {\n    return _.pick(this[STATE], properties);\n  }\n\n  remove(key) {\n    _.unset(this[STATE], key);\n    return this;\n  }\n\n  addError(properties) {\n    this[ERRORS].push(this.createError(properties, Object.create(this[STATE])));\n    return this;\n  }\n\n  createError(properties, state) {\n    return new this[ERROR_CLASS](this.createErrorMessage(properties, state));\n  }\n\n  createErrorMessage(properties, state) {\n\n    let message = properties.message || state.message || 'A validation error occurred';\n    if (_.isFunction(message)) {\n      message = message(_.merge({}, properties, state));\n    }\n\n    return message;\n  }\n\n  hasError(filter) {\n    if (!this[ERRORS].length) {\n      return false;\n    }\n\n    let predicate;\n    if (_.isFunction(filter)) {\n      predicate = error => filter(error, this);\n    } else if (filter) {\n      predicate = filter;\n    } else {\n      predicate = _.constant(true);\n    }\n\n    return _.find(this[ERRORS], predicate) !== undefined;\n  }\n\n  validate(...validators) {\n    _.each(validators, (validator, i) => {\n      if (!_.isFunction(validator)) {\n        throw new Error(`Validator ${i} must be a function, got ${typeof(validator)}`);\n      }\n    });\n\n    const execute = (context) => {\n      const child = context.createChild();\n      return child.recursivelyValidate(validators);\n    };\n\n    let promise;\n\n    const validatorChain = (context) => {\n      promise = promise || execute(context);\n      return promise;\n    };\n\n    validatorChain.then = (resolve, reject) => {\n      return validatorChain(this).then(resolve, reject);\n    };\n\n    return validatorChain;\n  }\n\n  ensureValid(...validators) {\n    return this.validate(...validators).then(() => {\n      if (!this[ERRORS].length) {\n        return this;\n      }\n\n      throw new this[ERROR_BUNDLE_CLASS]('A validation error occurred.', this[ERRORS].slice());\n    });\n  }\n\n  createChild() {\n    const newContext = Object.create(this);\n    newContext[STATE] = Object.create(this[STATE]);\n    return newContext;\n  }\n\n  recursivelyValidate(validators) {\n    return validators.length ? this.runValidator(validators.shift()).then(() => this.recursivelyValidate(validators)) : Promise.resolve(this);\n  }\n\n  runValidator(validator) {\n\n    const dsl = this[DSL];\n\n    let proxy;\n    if (typeof(Proxy) != 'undefined') {\n      // Use ES6 Proxy if available.\n      proxy = new Proxy(this, {\n        get: (target, name) => {\n          return this[name] || dsl[name];\n        }\n      });\n    } else {\n      // Otherwise fall back to a prototype.\n      proxy = Object.create(this);\n      for (let dslMethod in dsl) {\n        if (!this[dslMethod]) {\n          proxy[dslMethod] = dsl[dslMethod];\n        }\n      }\n    }\n\n    return Promise.resolve(proxy).then(validator.bind(proxy)).then(result => {\n      return _.isFunction(result) ? this.runValidator(result) : result;\n    });\n  }\n}\n",
+    "static": true,
+    "longname": "/Users/unknow/Projects/valdsl/src/context.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 49,
+    "kind": "variable",
+    "name": "DSL",
+    "memberof": "src/context.js",
+    "static": true,
+    "longname": "src/context.js~DSL",
+    "access": "public",
+    "export": false,
+    "importPath": "valdsl/src/context.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 5,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 50,
+    "kind": "variable",
+    "name": "ERRORS",
+    "memberof": "src/context.js",
+    "static": true,
+    "longname": "src/context.js~ERRORS",
+    "access": "public",
+    "export": false,
+    "importPath": "valdsl/src/context.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 6,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 51,
+    "kind": "variable",
+    "name": "STATE",
+    "memberof": "src/context.js",
+    "static": true,
+    "longname": "src/context.js~STATE",
+    "access": "public",
+    "export": false,
+    "importPath": "valdsl/src/context.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 7,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 52,
+    "kind": "variable",
+    "name": "ERROR_CLASS",
+    "memberof": "src/context.js",
+    "static": true,
+    "longname": "src/context.js~ERROR_CLASS",
+    "access": "public",
+    "export": false,
+    "importPath": "valdsl/src/context.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 8,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 53,
+    "kind": "variable",
+    "name": "ERROR_BUNDLE_CLASS",
+    "memberof": "src/context.js",
+    "static": true,
+    "longname": "src/context.js~ERROR_BUNDLE_CLASS",
+    "access": "public",
+    "export": false,
+    "importPath": "valdsl/src/context.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 9,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 54,
+    "kind": "variable",
+    "name": "INITIALIZED",
+    "memberof": "src/context.js",
+    "static": true,
+    "longname": "src/context.js~INITIALIZED",
+    "access": "public",
+    "export": false,
+    "importPath": "valdsl/src/context.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 10,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 55,
+    "kind": "class",
+    "name": "ValidationContext",
+    "memberof": "src/context.js",
+    "static": true,
+    "longname": "src/context.js~ValidationContext",
+    "access": "public",
+    "export": true,
+    "importPath": "valdsl/src/context.js",
+    "importStyle": "ValidationContext",
+    "description": null,
+    "lineNumber": 12,
+    "undocument": true,
+    "interface": false
+  },
+  {
+    "__docId__": 56,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/context.js~ValidationContext",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/context.js~ValidationContext#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 14,
+    "undocument": true
+  },
+  {
+    "__docId__": 57,
+    "kind": "member",
+    "name": "[ERRORS]",
+    "memberof": "src/context.js~ValidationContext",
+    "static": false,
+    "longname": "src/context.js~ValidationContext#[ERRORS]",
+    "access": "public",
+    "description": null,
+    "lineNumber": 20,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*[]"
+      ]
+    }
+  },
+  {
+    "__docId__": 58,
+    "kind": "member",
+    "name": "[DSL]",
+    "memberof": "src/context.js~ValidationContext",
+    "static": false,
+    "longname": "src/context.js~ValidationContext#[DSL]",
+    "access": "public",
+    "description": null,
+    "lineNumber": 21,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 59,
+    "kind": "member",
+    "name": "[STATE]",
+    "memberof": "src/context.js~ValidationContext",
+    "static": false,
+    "longname": "src/context.js~ValidationContext#[STATE]",
+    "access": "public",
+    "description": null,
+    "lineNumber": 22,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 60,
+    "kind": "member",
+    "name": "[ERROR_CLASS]",
+    "memberof": "src/context.js~ValidationContext",
+    "static": false,
+    "longname": "src/context.js~ValidationContext#[ERROR_CLASS]",
+    "access": "public",
+    "description": null,
+    "lineNumber": 23,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 61,
+    "kind": "member",
+    "name": "[ERROR_BUNDLE_CLASS]",
+    "memberof": "src/context.js~ValidationContext",
+    "static": false,
+    "longname": "src/context.js~ValidationContext#[ERROR_BUNDLE_CLASS]",
+    "access": "public",
+    "description": null,
+    "lineNumber": 24,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 62,
+    "kind": "method",
+    "name": "initialize",
+    "memberof": "src/context.js~ValidationContext",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/context.js~ValidationContext#initialize",
+    "access": "public",
+    "description": null,
+    "lineNumber": 32,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 63,
+    "kind": "member",
+    "name": "[INITIALIZED]",
+    "memberof": "src/context.js~ValidationContext",
+    "static": false,
+    "longname": "src/context.js~ValidationContext#[INITIALIZED]",
+    "access": "public",
+    "description": null,
+    "lineNumber": 33,
+    "undocument": true,
+    "type": {
+      "types": [
+        "boolean"
+      ]
+    }
+  },
+  {
+    "__docId__": 64,
+    "kind": "method",
+    "name": "set",
+    "memberof": "src/context.js~ValidationContext",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/context.js~ValidationContext#set",
+    "access": "public",
+    "description": null,
+    "lineNumber": 36,
+    "undocument": true,
+    "params": [
+      {
+        "name": "key",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "value",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 65,
+    "kind": "method",
+    "name": "get",
+    "memberof": "src/context.js~ValidationContext",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/context.js~ValidationContext#get",
+    "access": "public",
+    "description": null,
+    "lineNumber": 50,
+    "undocument": true,
+    "params": [
+      {
+        "name": "key",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 66,
+    "kind": "method",
+    "name": "has",
+    "memberof": "src/context.js~ValidationContext",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/context.js~ValidationContext#has",
+    "access": "public",
+    "description": null,
+    "lineNumber": 54,
+    "undocument": true,
+    "params": [
+      {
+        "name": "key",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 67,
+    "kind": "method",
+    "name": "pick",
+    "memberof": "src/context.js~ValidationContext",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/context.js~ValidationContext#pick",
+    "access": "public",
+    "description": null,
+    "lineNumber": 58,
+    "undocument": true,
+    "params": [
+      {
+        "name": "properties",
+        "types": [
+          "...*"
+        ],
+        "spread": true
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 68,
+    "kind": "method",
+    "name": "remove",
+    "memberof": "src/context.js~ValidationContext",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/context.js~ValidationContext#remove",
+    "access": "public",
+    "description": null,
+    "lineNumber": 62,
+    "undocument": true,
+    "params": [
+      {
+        "name": "key",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 69,
+    "kind": "method",
+    "name": "addError",
+    "memberof": "src/context.js~ValidationContext",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/context.js~ValidationContext#addError",
+    "access": "public",
+    "description": null,
+    "lineNumber": 67,
+    "undocument": true,
+    "params": [
+      {
+        "name": "properties",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 70,
+    "kind": "method",
+    "name": "createError",
+    "memberof": "src/context.js~ValidationContext",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/context.js~ValidationContext#createError",
+    "access": "public",
+    "description": null,
+    "lineNumber": 72,
+    "undocument": true,
+    "params": [
+      {
+        "name": "properties",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "state",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 71,
+    "kind": "method",
+    "name": "createErrorMessage",
+    "memberof": "src/context.js~ValidationContext",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/context.js~ValidationContext#createErrorMessage",
+    "access": "public",
+    "description": null,
+    "lineNumber": 76,
+    "undocument": true,
+    "params": [
+      {
+        "name": "properties",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "state",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 72,
+    "kind": "method",
+    "name": "hasError",
+    "memberof": "src/context.js~ValidationContext",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/context.js~ValidationContext#hasError",
+    "access": "public",
+    "description": null,
+    "lineNumber": 86,
+    "undocument": true,
+    "params": [
+      {
+        "name": "filter",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 73,
+    "kind": "method",
+    "name": "validate",
+    "memberof": "src/context.js~ValidationContext",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/context.js~ValidationContext#validate",
+    "access": "public",
+    "description": null,
+    "lineNumber": 103,
+    "undocument": true,
+    "params": [
+      {
+        "name": "validators",
+        "types": [
+          "...*"
+        ],
+        "spread": true
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 74,
+    "kind": "method",
+    "name": "ensureValid",
+    "memberof": "src/context.js~ValidationContext",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/context.js~ValidationContext#ensureValid",
+    "access": "public",
+    "description": null,
+    "lineNumber": 129,
+    "undocument": true,
+    "params": [
+      {
+        "name": "validators",
+        "types": [
+          "...*"
+        ],
+        "spread": true
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 75,
+    "kind": "method",
+    "name": "createChild",
+    "memberof": "src/context.js~ValidationContext",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/context.js~ValidationContext#createChild",
+    "access": "public",
+    "description": null,
+    "lineNumber": 139,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 76,
+    "kind": "method",
+    "name": "recursivelyValidate",
+    "memberof": "src/context.js~ValidationContext",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/context.js~ValidationContext#recursivelyValidate",
+    "access": "public",
+    "description": null,
+    "lineNumber": 145,
+    "undocument": true,
+    "params": [
+      {
+        "name": "validators",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 77,
+    "kind": "method",
+    "name": "runValidator",
+    "memberof": "src/context.js~ValidationContext",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/context.js~ValidationContext#runValidator",
+    "access": "public",
+    "description": null,
+    "lineNumber": 149,
+    "undocument": true,
+    "params": [
+      {
+        "name": "validator",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 78,
+    "kind": "file",
+    "name": "src/dsl.js",
+    "content": "import _ from 'lodash';\n\nexport default class ValidationDsl {\n  extend(key, value) {\n    if (_.isString(key)) {\n      this[key] = checkDslProperty(this, key, value);\n    } else if (_.isObject(key)) {\n      for (let property in key) {\n        this.extend(property, key[property]);\n      }\n    } else {\n      throw new Error('First argument must be a string or an object');\n    }\n  }\n}\n\nfunction checkDslProperty(dsl, name, value) {\n  if (dsl[name]) {\n    throw new Error(`DSL property \"${name}\" is already taken`);\n  } else if (!_.isFunction(value)) {\n    throw new Error(`DSL property \"${name}\" must be a function (got ${typeof(value)})`);\n  }\n\n  return value;\n}\n",
+    "static": true,
+    "longname": "/Users/unknow/Projects/valdsl/src/dsl.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 79,
+    "kind": "class",
+    "name": "ValidationDsl",
+    "memberof": "src/dsl.js",
+    "static": true,
+    "longname": "src/dsl.js~ValidationDsl",
+    "access": "public",
+    "export": true,
+    "importPath": "valdsl/src/dsl.js",
+    "importStyle": "ValidationDsl",
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "interface": false
+  },
+  {
+    "__docId__": 80,
+    "kind": "method",
+    "name": "extend",
+    "memberof": "src/dsl.js~ValidationDsl",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/dsl.js~ValidationDsl#extend",
+    "access": "public",
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true,
+    "params": [
+      {
+        "name": "key",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "value",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 81,
+    "kind": "member",
+    "name": "[key]",
+    "memberof": "src/dsl.js~ValidationDsl",
+    "static": false,
+    "longname": "src/dsl.js~ValidationDsl#[key]",
+    "access": "public",
+    "description": null,
+    "lineNumber": 6,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 82,
+    "kind": "function",
+    "name": "checkDslProperty",
+    "memberof": "src/dsl.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/dsl.js~checkDslProperty",
+    "access": "public",
+    "export": false,
+    "importPath": "valdsl/src/dsl.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 17,
+    "undocument": true,
+    "params": [
+      {
+        "name": "dsl",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "name",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "value",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 83,
+    "kind": "file",
+    "name": "src/error-bundle.js",
+    "content": "import ExtendableError from 'es6-error';\n\nclass ValidationErrorBundle extends ExtendableError {\n  constructor(message, errors) {\n    super(message || 'A validation error occurred');\n    this.errors = errors;\n  }\n}\n\nexport default ValidationErrorBundle;\n",
+    "static": true,
+    "longname": "/Users/unknow/Projects/valdsl/src/error-bundle.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 84,
+    "kind": "class",
+    "name": "ValidationErrorBundle",
+    "memberof": "src/error-bundle.js",
+    "static": true,
+    "longname": "src/error-bundle.js~ValidationErrorBundle",
+    "access": "public",
+    "export": true,
+    "importPath": "valdsl/src/error-bundle.js",
+    "importStyle": "ValidationErrorBundle",
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "es6-error~ExtendableError"
+    ]
+  },
+  {
+    "__docId__": 85,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/error-bundle.js~ValidationErrorBundle",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/error-bundle.js~ValidationErrorBundle#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true
+  },
+  {
+    "__docId__": 86,
+    "kind": "member",
+    "name": "errors",
+    "memberof": "src/error-bundle.js~ValidationErrorBundle",
+    "static": false,
+    "longname": "src/error-bundle.js~ValidationErrorBundle#errors",
+    "access": "public",
+    "description": null,
+    "lineNumber": 6,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 87,
+    "kind": "file",
+    "name": "src/error.js",
+    "content": "import ExtendableError from 'es6-error';\n\nclass ValidationError extends ExtendableError {\n  constructor(message) {\n    super(message);\n\n    Object.defineProperty(this, 'message', {\n      enumerable: true\n    });\n  }\n}\n\nexport default ValidationError;\n",
+    "static": true,
+    "longname": "/Users/unknow/Projects/valdsl/src/error.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 88,
+    "kind": "class",
+    "name": "ValidationError",
+    "memberof": "src/error.js",
+    "static": true,
+    "longname": "src/error.js~ValidationError",
+    "access": "public",
+    "export": true,
+    "importPath": "valdsl/src/error.js",
+    "importStyle": "ValidationError",
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "es6-error~ExtendableError"
+    ]
+  },
+  {
+    "__docId__": 89,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/error.js~ValidationError",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/error.js~ValidationError#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true
+  },
+  {
+    "__docId__": 90,
+    "kind": "file",
+    "name": "src/index.js",
+    "content": "import _ from 'lodash';\nimport conditionalsPlugin from './plugins/conditionals';\nimport controlFlowPlugin from './plugins/control-flow';\nimport dataPlugin from './plugins/data';\nimport defaultValidatorsPlugin from './plugins/default-validators';\nimport helpersPlugin from './plugins/helpers';\nimport jsonPointerPlugin from './plugins/json-pointer';\nimport locationPlugin from './plugins/location';\nimport requestHeaderPlugin from './plugins/request-header';\nimport serializePlugin from './plugins/serialize';\nimport ValidationContext from './context';\nimport ValidationDsl from './dsl';\nimport ValidationError from './error';\nimport ValidationErrorBundle from './error-bundle';\n\nexport default function(options) {\n  options = _.defaults({}, options, {\n    plugins: {}\n  });\n\n  class CustomValidationContext extends ValidationContext {}\n  class CustomValidationError extends ValidationError {}\n  class CustomValidationErrorBundle extends ValidationErrorBundle {}\n\n  const valdsl = {\n    dsl: new ValidationDsl(),\n    ValidationContext: CustomValidationContext,\n    ValidationError: CustomValidationError,\n    ValidationErrorBundle: CustomValidationErrorBundle\n  };\n\n  valdsl.override = function(contextMethod, callback) {\n\n    const proto = valdsl.ValidationContext.prototype;\n    const functionToOverride = proto[contextMethod];\n\n    const newMethod = callback(functionToOverride);\n    if (!_.isFunction(newMethod)) {\n      throw new Error('Callback passed to override must return a function');\n    }\n\n    proto[contextMethod] = newMethod;\n\n    return valdsl;\n  };\n\n  valdsl.plugins = {\n    conditionals: conditionalsPlugin,\n    controlFlow: controlFlowPlugin,\n    data: dataPlugin,\n    defaultValidators: defaultValidatorsPlugin,\n    helpers: helpersPlugin,\n    jsonPointer: jsonPointerPlugin,\n    location: locationPlugin,\n    requestHeader: requestHeaderPlugin,\n    serialize: serializePlugin\n  };\n\n  valdsl.plugin = function(nameOrFunc, ...args) {\n    if (_.isFunction(nameOrFunc)) {\n      nameOrFunc(valdsl);\n    } else if (_.isString(nameOrFunc) && valdsl.plugins[nameOrFunc]) {\n      valdsl.plugins[nameOrFunc].apply(undefined, args)(valdsl);\n    } else {\n      throw new Error('Plugin must either be a function or the name of a core plugin');\n    }\n\n    return valdsl;\n  };\n\n  valdsl.plugin('helpers');\n  valdsl.plugin('controlFlow');\n  valdsl.plugin('data');\n  valdsl.plugin('defaultValidators');\n  valdsl.plugin('conditionals');\n  valdsl.plugin('location');\n  valdsl.plugin('jsonPointer');\n  valdsl.plugin('requestHeader');\n  valdsl.plugin('serialize');\n\n  const valdslFunc = function validate(options, callback) {\n    if (_.isFunction(options)) {\n      callback = options;\n      options = {};\n    }\n\n    options = _.defaults({}, options, _.pick(valdsl, 'dsl', 'ValidationError', 'ValidationErrorBundle'));\n\n    return new valdsl.ValidationContext(options).ensureValid(callback);\n  };\n\n  _.extend(valdslFunc, valdsl);\n\n  return valdslFunc;\n}\n",
+    "static": true,
+    "longname": "/Users/unknow/Projects/valdsl/src/index.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 91,
+    "kind": "function",
+    "name": "index",
+    "memberof": "src/index.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/index.js~index",
+    "access": "public",
+    "export": true,
+    "importPath": "valdsl/src/index.js",
+    "importStyle": "index",
+    "description": null,
+    "lineNumber": 16,
+    "undocument": true,
+    "params": [
+      {
+        "name": "options",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 92,
+    "kind": "file",
+    "name": "src/plugins/conditionals.js",
+    "content": "import _ from 'lodash';\nimport BPromise from 'bluebird';\nimport { resolve, toNativePromise } from '../utils';\n\nconst CONDITIONS = Symbol('conditions');\n\nexport default function conditionalsPlugin() {\n  return function(valdsl) {\n\n    // Attach an array of conditions to the validation context when it's created\n    valdsl.override('initialize', function(original) {\n      return function initialize() {\n        original.apply(this, arguments);\n        this[CONDITIONS] = [];\n      };\n    });\n\n    // Make a isolated copy of the conditions array when a new child context is created\n    // (each validation chain should have its own independent conditions)\n    valdsl.override('createChild', function(original) {\n      return function createChild() {\n        const newContext = original.apply(this, arguments);\n        newContext[CONDITIONS] = this[CONDITIONS].slice();\n        return newContext;\n      };\n    });\n\n    // Ensure all conditions are fulfilled at each step of a validation chain\n    valdsl.override('recursivelyValidate', function(original) {\n      return function recursivelyValidate(validators) {\n        if (!validators.length) {\n          return Promise.resolve(this);\n        }\n\n        const pendingConditions = _.map(this[CONDITIONS], condition => resolve(condition, this));\n        return Promise.all(pendingConditions).then(results => {\n          if (_.every(results)) {\n            return this.runValidator(validators.shift()).then(() => this.recursivelyValidate(validators));\n          } else {\n            return this;\n          }\n        });\n      };\n    });\n\n    valdsl.dsl.extend({\n      if: validateIf,\n      ifElse: validateIfElse,\n      break: breakValidation,\n      while: validateWhile,\n      until: validateUntil,\n      isSet: valueIsSet,\n      changed: valueHasChanged,\n      previous: previousValue,\n      error: hasError,\n      noError: hasNoError,\n      every: every,\n      some: some\n    });\n  };\n}\n\nexport function validateIf(condition, ...validators) {\n  return function(context) {\n    return resolve(condition, context).then(result => {\n      if (!result) {\n        return;\n      }\n\n      return toNativePromise(BPromise.mapSeries(validators, validator => resolve(validator, context)));\n    });\n  };\n}\n\nexport function validateIfElse(condition, ifHandler, elseHandler) {\n  if (ifHandler !== undefined && ifHandler !== null && ifHandler !== false && !_.isFunction(ifHandler)) {\n    throw new Error('If handler must be a function');\n  } else if (elseHandler !== undefined && elseHandler !== null && elseHandler !== false && !_.isFunction(elseHandler)) {\n    throw new Error('Else handler must be a function');\n  }\n\n  return function(context) {\n    return resolve(condition, context).then(result => {\n      if (result && ifHandler) {\n        return ifHandler(context);\n      } else if (!result && elseHandler) {\n        return elseHandler(context);\n      }\n    });\n  };\n}\n\nexport function hasError(filter) {\n  return function(context) {\n    return context.hasError(filter);\n  };\n}\n\nexport function hasNoError(filter) {\n  return function(context) {\n    return !context.hasError(filter);\n  };\n}\n\nexport function valueIsSet() {\n  return function(context) {\n    return context.get('valueSet');\n  };\n}\n\nexport function previousValue(value) {\n  return function(context) {\n    context.set('previousValue', value);\n  };\n}\n\nexport function valueHasChanged(changed) {\n  if (!_.isFunction(changed)) {\n    const previousValue = changed;\n    changed = function(value, context) {\n      return value !== (previousValue !== undefined ? previousValue : context.get('previousValue'));\n    };\n  }\n\n  return function(context) {\n    return changed(context.get('value'), context);\n  };\n}\n\nexport function breakValidation() {\n  return function(context) {\n    context[CONDITIONS].push(() => false);\n  };\n}\n\nexport function validateWhile(condition) {\n  return function(context) {\n    context[CONDITIONS].push(ctx => resolve(condition, ctx));\n  };\n}\n\nexport function validateUntil(condition) {\n  return function(context) {\n    context[CONDITIONS].push(ctx => resolve(condition, ctx).then(result => !result));\n  };\n}\n\nexport function every(conditions, predicate) {\n  return function(context) {\n    return Promise.all(_.map(conditions, condition => resolve(condition, context))).then(results => _.every(results, predicate));\n  };\n}\n\nexport function some(conditions, predicate) {\n  return function(context) {\n    return Promise.all(_.map(conditions, condition => resolve(condition, context))).then(results => _.some(results, predicate));\n  };\n}\n",
+    "static": true,
+    "longname": "/Users/unknow/Projects/valdsl/src/plugins/conditionals.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 93,
+    "kind": "variable",
+    "name": "CONDITIONS",
+    "memberof": "src/plugins/conditionals.js",
+    "static": true,
+    "longname": "src/plugins/conditionals.js~CONDITIONS",
+    "access": "public",
+    "export": false,
+    "importPath": "valdsl/src/plugins/conditionals.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 5,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 94,
+    "kind": "function",
+    "name": "conditionalsPlugin",
+    "memberof": "src/plugins/conditionals.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/plugins/conditionals.js~conditionalsPlugin",
+    "access": "public",
+    "export": true,
+    "importPath": "valdsl/src/plugins/conditionals.js",
+    "importStyle": "conditionalsPlugin",
+    "description": null,
+    "lineNumber": 7,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 95,
+    "kind": "function",
+    "name": "validateIf",
+    "memberof": "src/plugins/conditionals.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/plugins/conditionals.js~validateIf",
+    "access": "public",
+    "export": true,
+    "importPath": "valdsl/src/plugins/conditionals.js",
+    "importStyle": "{validateIf}",
+    "description": null,
+    "lineNumber": 63,
+    "undocument": true,
+    "params": [
+      {
+        "name": "condition",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "validators",
+        "types": [
+          "...*"
+        ],
+        "spread": true
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 96,
+    "kind": "function",
+    "name": "validateIfElse",
+    "memberof": "src/plugins/conditionals.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/plugins/conditionals.js~validateIfElse",
+    "access": "public",
+    "export": true,
+    "importPath": "valdsl/src/plugins/conditionals.js",
+    "importStyle": "{validateIfElse}",
+    "description": null,
+    "lineNumber": 75,
+    "undocument": true,
+    "params": [
+      {
+        "name": "condition",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "ifHandler",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "elseHandler",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 97,
+    "kind": "function",
+    "name": "hasError",
+    "memberof": "src/plugins/conditionals.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/plugins/conditionals.js~hasError",
+    "access": "public",
+    "export": true,
+    "importPath": "valdsl/src/plugins/conditionals.js",
+    "importStyle": "{hasError}",
+    "description": null,
+    "lineNumber": 93,
+    "undocument": true,
+    "params": [
+      {
+        "name": "filter",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 98,
+    "kind": "function",
+    "name": "hasNoError",
+    "memberof": "src/plugins/conditionals.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/plugins/conditionals.js~hasNoError",
+    "access": "public",
+    "export": true,
+    "importPath": "valdsl/src/plugins/conditionals.js",
+    "importStyle": "{hasNoError}",
+    "description": null,
+    "lineNumber": 99,
+    "undocument": true,
+    "params": [
+      {
+        "name": "filter",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 99,
+    "kind": "function",
+    "name": "valueIsSet",
+    "memberof": "src/plugins/conditionals.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/plugins/conditionals.js~valueIsSet",
+    "access": "public",
+    "export": true,
+    "importPath": "valdsl/src/plugins/conditionals.js",
+    "importStyle": "{valueIsSet}",
+    "description": null,
+    "lineNumber": 105,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 100,
+    "kind": "function",
+    "name": "previousValue",
+    "memberof": "src/plugins/conditionals.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/plugins/conditionals.js~previousValue",
+    "access": "public",
+    "export": true,
+    "importPath": "valdsl/src/plugins/conditionals.js",
+    "importStyle": "{previousValue}",
+    "description": null,
+    "lineNumber": 111,
+    "undocument": true,
+    "params": [
+      {
+        "name": "value",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 101,
+    "kind": "function",
+    "name": "valueHasChanged",
+    "memberof": "src/plugins/conditionals.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/plugins/conditionals.js~valueHasChanged",
+    "access": "public",
+    "export": true,
+    "importPath": "valdsl/src/plugins/conditionals.js",
+    "importStyle": "{valueHasChanged}",
+    "description": null,
+    "lineNumber": 117,
+    "undocument": true,
+    "params": [
+      {
+        "name": "changed",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 102,
+    "kind": "function",
+    "name": "breakValidation",
+    "memberof": "src/plugins/conditionals.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/plugins/conditionals.js~breakValidation",
+    "access": "public",
+    "export": true,
+    "importPath": "valdsl/src/plugins/conditionals.js",
+    "importStyle": "{breakValidation}",
+    "description": null,
+    "lineNumber": 130,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 103,
+    "kind": "function",
+    "name": "validateWhile",
+    "memberof": "src/plugins/conditionals.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/plugins/conditionals.js~validateWhile",
+    "access": "public",
+    "export": true,
+    "importPath": "valdsl/src/plugins/conditionals.js",
+    "importStyle": "{validateWhile}",
+    "description": null,
+    "lineNumber": 136,
+    "undocument": true,
+    "params": [
+      {
+        "name": "condition",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 104,
+    "kind": "function",
+    "name": "validateUntil",
+    "memberof": "src/plugins/conditionals.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/plugins/conditionals.js~validateUntil",
+    "access": "public",
+    "export": true,
+    "importPath": "valdsl/src/plugins/conditionals.js",
+    "importStyle": "{validateUntil}",
+    "description": null,
+    "lineNumber": 142,
+    "undocument": true,
+    "params": [
+      {
+        "name": "condition",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 105,
+    "kind": "function",
+    "name": "every",
+    "memberof": "src/plugins/conditionals.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/plugins/conditionals.js~every",
+    "access": "public",
+    "export": true,
+    "importPath": "valdsl/src/plugins/conditionals.js",
+    "importStyle": "{every}",
+    "description": null,
+    "lineNumber": 148,
+    "undocument": true,
+    "params": [
+      {
+        "name": "conditions",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "predicate",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 106,
+    "kind": "function",
+    "name": "some",
+    "memberof": "src/plugins/conditionals.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/plugins/conditionals.js~some",
+    "access": "public",
+    "export": true,
+    "importPath": "valdsl/src/plugins/conditionals.js",
+    "importStyle": "{some}",
+    "description": null,
+    "lineNumber": 154,
+    "undocument": true,
+    "params": [
+      {
+        "name": "conditions",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "predicate",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 107,
+    "kind": "file",
+    "name": "src/plugins/control-flow.js",
+    "content": "import _ from 'lodash';\nimport BPromise from 'bluebird';\nimport { resolve, toNativePromise } from '../utils';\n\nexport function parallel(...validators) {\n  return function(context) {\n    return Promise.all(_.map(validators, (validator) => validator(context)));\n  };\n}\n\nexport function series(...validators) {\n  return function(context) {\n    return toNativePromise(BPromise.mapSeries(validators, function(validator) {\n      return validator(context);\n    }));\n  };\n}\n\nexport function each(...validators) {\n  return function(context) {\n    const value = context.get('value');\n    if (_.isArray(value) || _.isObject(value)) {\n      const keys = _.isArray(value) ? _.map(value, (v, i) => i) : _.keys(value);\n      return toNativePromise(BPromise.mapSeries(keys, (key) => {\n        const keyValue = value[key];\n        return BPromise.mapSeries(validators, validator => {\n          return resolve(validator.call(this, context, keyValue, key), context);\n        });\n      }));\n    }\n  };\n}\n\nexport function eachParallel(...validators) {\n  return function(context) {\n    const value = context.get('value');\n    if (_.isArray(value) || _.isObject(value)) {\n      return Promise.all(_.map(value, (value, key) => {\n        return toNativePromise(BPromise.mapSeries(validators, validator => {\n          return validator.call(this, context, value, key);\n        }));\n      }));\n    }\n  };\n}\n\nexport default function defaultValidatorsPlugin() {\n  return function(valdsl) {\n    valdsl.dsl.extend({\n      each: each,\n      parallel: parallel,\n      series: series\n    });\n  };\n}\n",
+    "static": true,
+    "longname": "/Users/unknow/Projects/valdsl/src/plugins/control-flow.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 108,
+    "kind": "function",
+    "name": "parallel",
+    "memberof": "src/plugins/control-flow.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/plugins/control-flow.js~parallel",
+    "access": "public",
+    "export": true,
+    "importPath": "valdsl/src/plugins/control-flow.js",
+    "importStyle": "{parallel}",
+    "description": null,
+    "lineNumber": 5,
+    "undocument": true,
+    "params": [
+      {
+        "name": "validators",
+        "types": [
+          "...*"
+        ],
+        "spread": true
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 109,
+    "kind": "function",
+    "name": "series",
+    "memberof": "src/plugins/control-flow.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/plugins/control-flow.js~series",
+    "access": "public",
+    "export": true,
+    "importPath": "valdsl/src/plugins/control-flow.js",
+    "importStyle": "{series}",
+    "description": null,
+    "lineNumber": 11,
+    "undocument": true,
+    "params": [
+      {
+        "name": "validators",
+        "types": [
+          "...*"
+        ],
+        "spread": true
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 110,
+    "kind": "function",
+    "name": "each",
+    "memberof": "src/plugins/control-flow.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/plugins/control-flow.js~each",
+    "access": "public",
+    "export": true,
+    "importPath": "valdsl/src/plugins/control-flow.js",
+    "importStyle": "{each}",
+    "description": null,
+    "lineNumber": 19,
+    "undocument": true,
+    "params": [
+      {
+        "name": "validators",
+        "types": [
+          "...*"
+        ],
+        "spread": true
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 111,
+    "kind": "function",
+    "name": "eachParallel",
+    "memberof": "src/plugins/control-flow.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/plugins/control-flow.js~eachParallel",
+    "access": "public",
+    "export": true,
+    "importPath": "valdsl/src/plugins/control-flow.js",
+    "importStyle": "{eachParallel}",
+    "description": null,
+    "lineNumber": 34,
+    "undocument": true,
+    "params": [
+      {
+        "name": "validators",
+        "types": [
+          "...*"
+        ],
+        "spread": true
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 112,
+    "kind": "function",
+    "name": "defaultValidatorsPlugin",
+    "memberof": "src/plugins/control-flow.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/plugins/control-flow.js~defaultValidatorsPlugin",
+    "access": "public",
+    "export": true,
+    "importPath": "valdsl/src/plugins/control-flow.js",
+    "importStyle": "defaultValidatorsPlugin",
+    "description": null,
+    "lineNumber": 47,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 113,
+    "kind": "file",
+    "name": "src/plugins/data.js",
+    "content": "import _ from 'lodash';\nimport BPromise from 'bluebird';\nimport { resolve, toNativePromise } from '../utils';\n\nconst DATA = Symbol('data');\n\nexport default function dataPlugin() {\n  return function(valdsl) {\n\n    valdsl.override('initialize', function(original) {\n      return function initialize() {\n        original.apply(this, arguments);\n        this[DATA] = {};\n      };\n    });\n\n    valdsl.override('setData', function() {\n      return function setData(key, value) {\n        if (_.isString(key) || _.isArray(key)) {\n          return resolve(value).then((resolved) => {\n            _.set(this[DATA], key, resolved);\n            return resolved;\n          });\n        } else if (_.isObject(key)) {\n          return Promise.all(_.map(_.keys(key), (property) => {\n            return this.set(property, key[property]);\n          }));\n        } else {\n          throw new Error('First argument must be a string, array or object');\n        }\n      };\n    });\n\n    valdsl.override('getData', function() {\n      return function getData(...args) {\n        return _.get(this[DATA], ...args);\n      };\n    });\n\n    valdsl.dsl.extend({\n      data: data\n    });\n  };\n}\n\nexport function data(key, value) {\n  return function(context) {\n    return toNativePromise(BPromise.all([ resolve(key, context), resolve(value, context) ]).spread((resolvedKey, resolvedValue) => {\n      return context.setData(resolvedKey, resolvedValue);\n    }));\n  };\n}\n",
+    "static": true,
+    "longname": "/Users/unknow/Projects/valdsl/src/plugins/data.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 114,
+    "kind": "variable",
+    "name": "DATA",
+    "memberof": "src/plugins/data.js",
+    "static": true,
+    "longname": "src/plugins/data.js~DATA",
+    "access": "public",
+    "export": false,
+    "importPath": "valdsl/src/plugins/data.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 5,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 115,
+    "kind": "function",
+    "name": "dataPlugin",
+    "memberof": "src/plugins/data.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/plugins/data.js~dataPlugin",
+    "access": "public",
+    "export": true,
+    "importPath": "valdsl/src/plugins/data.js",
+    "importStyle": "dataPlugin",
+    "description": null,
+    "lineNumber": 7,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 116,
+    "kind": "function",
+    "name": "data",
+    "memberof": "src/plugins/data.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/plugins/data.js~data",
+    "access": "public",
+    "export": true,
+    "importPath": "valdsl/src/plugins/data.js",
+    "importStyle": "{data}",
+    "description": null,
+    "lineNumber": 46,
+    "undocument": true,
+    "params": [
+      {
+        "name": "key",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "value",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 117,
+    "kind": "file",
+    "name": "src/plugins/default-validators.js",
+    "content": "import _ from 'lodash';\nimport email from '../validators/email';\nimport format from '../validators/format';\nimport inclusion from '../validators/inclusion';\nimport notBlank from '../validators/notBlank';\nimport notEmpty from '../validators/notEmpty';\nimport required from '../validators/required';\nimport resource from '../validators/resource';\nimport string from '../validators/string';\nimport type from '../validators/type';\n\nexport default function defaultValidatorsPlugin() {\n  return function(valdsl) {\n    valdsl.dsl.extend({\n      email: email,\n      format: format,\n      inclusion: inclusion,\n      notBlank: notBlank,\n      notEmpty: notEmpty,\n      required: required,\n      resource: resource,\n      string: string,\n      type: type\n    });\n  };\n}\n",
+    "static": true,
+    "longname": "/Users/unknow/Projects/valdsl/src/plugins/default-validators.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 118,
+    "kind": "function",
+    "name": "defaultValidatorsPlugin",
+    "memberof": "src/plugins/default-validators.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/plugins/default-validators.js~defaultValidatorsPlugin",
+    "access": "public",
+    "export": true,
+    "importPath": "valdsl/src/plugins/default-validators.js",
+    "importStyle": "defaultValidatorsPlugin",
+    "description": null,
+    "lineNumber": 12,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 119,
+    "kind": "file",
+    "name": "src/plugins/helpers.js",
+    "content": "import _ from 'lodash';\nimport BPromise from 'bluebird';\nimport { resolve, toNativePromise } from '../utils';\n\nexport default function helpersPlugin() {\n  return function(valdsl) {\n    valdsl.dsl.extend({\n      property: getValueProperty,\n      value: setValue\n    });\n  };\n}\n\nexport class ValidationValue {\n  constructor(value, valueSet) {\n    this.value = value;\n    this.valueSet = valueSet;\n  }\n}\n\nexport function getValueProperty(path) {\n  return function(context) {\n    return resolve(path, context).then(resolvedPath => {\n      context.set({\n        value: _.get(context.get('value'), resolvedPath),\n        valueSet: _.has(context.get('value'), resolvedPath)\n      });\n    });\n  };\n}\n\nexport function setValue(value, valueSet) {\n  return function(context) {\n    return toNativePromise(BPromise.all([ resolve(value, context), resolve(valueSet, context) ]).spread((resolvedValue, resolvedValueSet) => {\n      if (resolvedValue instanceof ValidationValue) {\n        resolvedValueSet = resolvedValue.valueSet;\n        resolvedValue = resolvedValue.value;\n      }\n\n      context.set({\n        value: resolvedValue,\n        valueSet: resolvedValueSet !== undefined ? resolvedValueSet : resolvedValue !== undefined\n      });\n    }));\n  };\n}\n",
+    "static": true,
+    "longname": "/Users/unknow/Projects/valdsl/src/plugins/helpers.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 120,
+    "kind": "function",
+    "name": "helpersPlugin",
+    "memberof": "src/plugins/helpers.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/plugins/helpers.js~helpersPlugin",
+    "access": "public",
+    "export": true,
+    "importPath": "valdsl/src/plugins/helpers.js",
+    "importStyle": "helpersPlugin",
+    "description": null,
+    "lineNumber": 5,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 121,
+    "kind": "class",
+    "name": "ValidationValue",
+    "memberof": "src/plugins/helpers.js",
+    "static": true,
+    "longname": "src/plugins/helpers.js~ValidationValue",
+    "access": "public",
+    "export": true,
+    "importPath": "valdsl/src/plugins/helpers.js",
+    "importStyle": "{ValidationValue}",
+    "description": null,
+    "lineNumber": 14,
+    "undocument": true,
+    "interface": false
+  },
+  {
+    "__docId__": 122,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/plugins/helpers.js~ValidationValue",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/plugins/helpers.js~ValidationValue#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 15,
+    "undocument": true
+  },
+  {
+    "__docId__": 123,
+    "kind": "member",
+    "name": "value",
+    "memberof": "src/plugins/helpers.js~ValidationValue",
+    "static": false,
+    "longname": "src/plugins/helpers.js~ValidationValue#value",
+    "access": "public",
+    "description": null,
+    "lineNumber": 16,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 124,
+    "kind": "member",
+    "name": "valueSet",
+    "memberof": "src/plugins/helpers.js~ValidationValue",
+    "static": false,
+    "longname": "src/plugins/helpers.js~ValidationValue#valueSet",
+    "access": "public",
+    "description": null,
+    "lineNumber": 17,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 125,
+    "kind": "function",
+    "name": "getValueProperty",
+    "memberof": "src/plugins/helpers.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/plugins/helpers.js~getValueProperty",
+    "access": "public",
+    "export": true,
+    "importPath": "valdsl/src/plugins/helpers.js",
+    "importStyle": "{getValueProperty}",
+    "description": null,
+    "lineNumber": 21,
+    "undocument": true,
+    "params": [
+      {
+        "name": "path",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 126,
+    "kind": "function",
+    "name": "setValue",
+    "memberof": "src/plugins/helpers.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/plugins/helpers.js~setValue",
+    "access": "public",
+    "export": true,
+    "importPath": "valdsl/src/plugins/helpers.js",
+    "importStyle": "{setValue}",
+    "description": null,
+    "lineNumber": 32,
+    "undocument": true,
+    "params": [
+      {
+        "name": "value",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "valueSet",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 127,
+    "kind": "file",
+    "name": "src/plugins/json-pointer.js",
+    "content": "import _ from 'lodash';\nimport jsonPointer from 'json-pointer';\n\nexport default function jsonPointerPlugin() {\n  return function(valdsl) {\n    valdsl.dsl.extend('json', navigateToJsonPointer);\n  };\n}\n\n// TODO: allow to remove pointer\nexport class JsonPointerLocation {\n  constructor(basePointer, relativePointer, source) {\n    this.basePointer = basePointer || '';\n    this.relativePointer = relativePointer;\n    this.source = source;\n    this.type = 'jsonPointer';\n  }\n\n  get pointer() {\n    return this.basePointer + this.relativePointer;\n  }\n\n  move(newPointer) {\n    if (jsonPointer.has(this.source, this.relativePointer)) {\n      const value = jsonPointer.get(this.source, this.relativePointer);\n      jsonPointer.remove(this.source, this.relativePointer);\n      jsonPointer.set(this.source, newPointer, value);\n    }\n\n    return new JsonPointerLocation(this.basePointer, newPointer, this.source);\n  }\n\n  isValueSet() {\n    return jsonPointer.has(this.source, this.relativePointer);\n  }\n\n  getValue() {\n    return jsonPointer.get(this.source, this.relativePointer);\n  }\n\n  setValue(value) {\n    jsonPointer.set(this.source, this.relativePointer, value);\n  }\n\n  remove() {\n    jsonPointer.remove(this.source, this.relativePointer);\n  }\n\n  toString() {\n    return this.pointer;\n  }\n}\n\nexport function navigateToJsonPointer(pointer, options) {\n  options = _.extend({}, options);\n\n  return function(context) {\n\n    let basePointer;\n    if (context.get('location.type') == 'jsonPointer') {\n      basePointer = context.get('location.pointer');\n    } else {\n      basePointer = '';\n    }\n\n    const location = new JsonPointerLocation(basePointer, pointer, context.get('value'));\n\n    const valueSet = _.has(options, 'valueSet') ? options.valueSet : location.isValueSet();\n\n    let value = options.value;\n    if (!_.has(options, 'value') && valueSet) {\n      value = location.getValue();\n    }\n\n    context.set({\n      type: 'json',\n      location: location,\n      value: value,\n      valueSet: valueSet\n    });\n  };\n}\n",
+    "static": true,
+    "longname": "/Users/unknow/Projects/valdsl/src/plugins/json-pointer.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 128,
+    "kind": "function",
+    "name": "jsonPointerPlugin",
+    "memberof": "src/plugins/json-pointer.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/plugins/json-pointer.js~jsonPointerPlugin",
+    "access": "public",
+    "export": true,
+    "importPath": "valdsl/src/plugins/json-pointer.js",
+    "importStyle": "jsonPointerPlugin",
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 129,
+    "kind": "class",
+    "name": "JsonPointerLocation",
+    "memberof": "src/plugins/json-pointer.js",
+    "static": true,
+    "longname": "src/plugins/json-pointer.js~JsonPointerLocation",
+    "access": "public",
+    "export": true,
+    "importPath": "valdsl/src/plugins/json-pointer.js",
+    "importStyle": "{JsonPointerLocation}",
+    "description": null,
+    "lineNumber": 11,
+    "undocument": true,
+    "interface": false
+  },
+  {
+    "__docId__": 130,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/plugins/json-pointer.js~JsonPointerLocation",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/plugins/json-pointer.js~JsonPointerLocation#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 12,
+    "undocument": true
+  },
+  {
+    "__docId__": 131,
+    "kind": "member",
+    "name": "basePointer",
+    "memberof": "src/plugins/json-pointer.js~JsonPointerLocation",
+    "static": false,
+    "longname": "src/plugins/json-pointer.js~JsonPointerLocation#basePointer",
+    "access": "public",
+    "description": null,
+    "lineNumber": 13,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 132,
+    "kind": "member",
+    "name": "relativePointer",
+    "memberof": "src/plugins/json-pointer.js~JsonPointerLocation",
+    "static": false,
+    "longname": "src/plugins/json-pointer.js~JsonPointerLocation#relativePointer",
+    "access": "public",
+    "description": null,
+    "lineNumber": 14,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 133,
+    "kind": "member",
+    "name": "source",
+    "memberof": "src/plugins/json-pointer.js~JsonPointerLocation",
+    "static": false,
+    "longname": "src/plugins/json-pointer.js~JsonPointerLocation#source",
+    "access": "public",
+    "description": null,
+    "lineNumber": 15,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 134,
+    "kind": "member",
+    "name": "type",
+    "memberof": "src/plugins/json-pointer.js~JsonPointerLocation",
+    "static": false,
+    "longname": "src/plugins/json-pointer.js~JsonPointerLocation#type",
+    "access": "public",
+    "description": null,
+    "lineNumber": 16,
+    "undocument": true,
+    "type": {
+      "types": [
+        "string"
+      ]
+    }
+  },
+  {
+    "__docId__": 135,
+    "kind": "get",
+    "name": "pointer",
+    "memberof": "src/plugins/json-pointer.js~JsonPointerLocation",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/plugins/json-pointer.js~JsonPointerLocation#pointer",
+    "access": "public",
+    "description": null,
+    "lineNumber": 19,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 136,
+    "kind": "method",
+    "name": "move",
+    "memberof": "src/plugins/json-pointer.js~JsonPointerLocation",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/plugins/json-pointer.js~JsonPointerLocation#move",
+    "access": "public",
+    "description": null,
+    "lineNumber": 23,
+    "undocument": true,
+    "params": [
+      {
+        "name": "newPointer",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 137,
+    "kind": "method",
+    "name": "isValueSet",
+    "memberof": "src/plugins/json-pointer.js~JsonPointerLocation",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/plugins/json-pointer.js~JsonPointerLocation#isValueSet",
+    "access": "public",
+    "description": null,
+    "lineNumber": 33,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 138,
+    "kind": "method",
+    "name": "getValue",
+    "memberof": "src/plugins/json-pointer.js~JsonPointerLocation",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/plugins/json-pointer.js~JsonPointerLocation#getValue",
+    "access": "public",
+    "description": null,
+    "lineNumber": 37,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 139,
+    "kind": "method",
+    "name": "setValue",
+    "memberof": "src/plugins/json-pointer.js~JsonPointerLocation",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/plugins/json-pointer.js~JsonPointerLocation#setValue",
+    "access": "public",
+    "description": null,
+    "lineNumber": 41,
+    "undocument": true,
+    "params": [
+      {
+        "name": "value",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 140,
+    "kind": "method",
+    "name": "remove",
+    "memberof": "src/plugins/json-pointer.js~JsonPointerLocation",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/plugins/json-pointer.js~JsonPointerLocation#remove",
+    "access": "public",
+    "description": null,
+    "lineNumber": 45,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 141,
+    "kind": "method",
+    "name": "toString",
+    "memberof": "src/plugins/json-pointer.js~JsonPointerLocation",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/plugins/json-pointer.js~JsonPointerLocation#toString",
+    "access": "public",
+    "description": null,
+    "lineNumber": 49,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 142,
+    "kind": "function",
+    "name": "navigateToJsonPointer",
+    "memberof": "src/plugins/json-pointer.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/plugins/json-pointer.js~navigateToJsonPointer",
+    "access": "public",
+    "export": true,
+    "importPath": "valdsl/src/plugins/json-pointer.js",
+    "importStyle": "{navigateToJsonPointer}",
+    "description": null,
+    "lineNumber": 54,
+    "undocument": true,
+    "params": [
+      {
+        "name": "pointer",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "options",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 143,
+    "kind": "file",
+    "name": "src/plugins/location.js",
+    "content": "import _ from 'lodash';\n\nexport default function locationPlugin() {\n  return function(valdsl) {\n\n    const proto = valdsl.ValidationContext.prototype;\n    const createError = proto.createError;\n\n    proto.createError = function(properties, state) {\n\n      const error = createError.apply(this, arguments);\n      if (state.type && state.location) {\n        error.type = state.type.toString();\n        error.location = state.location.toString();\n      }\n\n      return error;\n    };\n\n    valdsl.dsl.extend('atCurrentLocation', atCurrentLocationFilter);\n  };\n}\n\nexport function atCurrentLocationFilter() {\n  return function(error, context) {\n    if (!context.has('type') || !context.has('location')) {\n      return false;\n    }\n\n    return error.type == context.get('type') && error.location == context.get('location').toString();\n  };\n}\n\n// TODO: atFilter with strict equality or type-specific comparison\n// TODO: move/remove dsl functions\n",
+    "static": true,
+    "longname": "/Users/unknow/Projects/valdsl/src/plugins/location.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 144,
+    "kind": "function",
+    "name": "locationPlugin",
+    "memberof": "src/plugins/location.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/plugins/location.js~locationPlugin",
+    "access": "public",
+    "export": true,
+    "importPath": "valdsl/src/plugins/location.js",
+    "importStyle": "locationPlugin",
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 145,
+    "kind": "function",
+    "name": "atCurrentLocationFilter",
+    "memberof": "src/plugins/location.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/plugins/location.js~atCurrentLocationFilter",
+    "access": "public",
+    "export": true,
+    "importPath": "valdsl/src/plugins/location.js",
+    "importStyle": "{atCurrentLocationFilter}",
+    "description": null,
+    "lineNumber": 24,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 146,
+    "kind": "file",
+    "name": "src/plugins/request-header.js",
+    "content": "import _ from 'lodash';\n\nexport default function requestHeaderPlugin(options) {\n  options = _.extend({}, options);\n  if (_.has(options, 'get') && !_.isFunction(options.get)) {\n    throw new Error('Get option must be a function');\n  } else if (_.has(options, 'has') && !_.isFunction(options.has)) {\n    throw new Error('Has option must be a function');\n  }\n\n  let getHeader = options.get;\n  if (!getHeader) {\n    getHeader = (req, header) => req.get(header);\n  }\n\n  let hasHeader = options.has;\n  if (!hasHeader) {\n    hasHeader = (req, header) => req.get(header) !== undefined;\n  }\n\n  return function(valdsl) {\n    valdsl.dsl.extend('header', navigateToRequestHeaderFactory(getHeader, hasHeader));\n  };\n}\n\nfunction navigateToRequestHeaderFactory(getHeader, hasHeader) {\n  return function(headerName) {\n    return function(context) {\n\n      const request = context.get('value');\n\n      context.set({\n        type: 'header',\n        location: headerName,\n        value: getHeader(request, headerName),\n        valueSet: hasHeader(request, headerName)\n      });\n    };\n  };\n}\n",
+    "static": true,
+    "longname": "/Users/unknow/Projects/valdsl/src/plugins/request-header.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 147,
+    "kind": "function",
+    "name": "requestHeaderPlugin",
+    "memberof": "src/plugins/request-header.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/plugins/request-header.js~requestHeaderPlugin",
+    "access": "public",
+    "export": true,
+    "importPath": "valdsl/src/plugins/request-header.js",
+    "importStyle": "requestHeaderPlugin",
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "params": [
+      {
+        "name": "options",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 148,
+    "kind": "function",
+    "name": "navigateToRequestHeaderFactory",
+    "memberof": "src/plugins/request-header.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/plugins/request-header.js~navigateToRequestHeaderFactory",
+    "access": "public",
+    "export": false,
+    "importPath": "valdsl/src/plugins/request-header.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 26,
+    "undocument": true,
+    "params": [
+      {
+        "name": "getHeader",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "hasHeader",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 149,
+    "kind": "file",
+    "name": "src/plugins/serialize.js",
+    "content": "import _ from 'lodash';\n\n// TODO: allow only/except/function\nexport default function serializePlugin(...keys) {\n  return function(valdsl) {\n    valdsl.override('createError', function(original) {\n      return function createError(properties, state) {\n\n        const error = original.apply(this, arguments);\n        if (keys.length == 1 && _.isFunction(keys[0])) {\n          keys[0](error, properties, state);\n          return error;\n        }\n\n        const allProperties = _.merge({}, properties, state);\n        delete allProperties.message;\n\n        if (keys.length) {\n          return _.defaults(error, _.pick(allProperties, keys));\n        } else {\n          return _.defaults(error, allProperties);\n        }\n      };\n    });\n  };\n}\n",
+    "static": true,
+    "longname": "/Users/unknow/Projects/valdsl/src/plugins/serialize.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 150,
+    "kind": "function",
+    "name": "serializePlugin",
+    "memberof": "src/plugins/serialize.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/plugins/serialize.js~serializePlugin",
+    "access": "public",
+    "export": true,
+    "importPath": "valdsl/src/plugins/serialize.js",
+    "importStyle": "serializePlugin",
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true,
+    "params": [
+      {
+        "name": "keys",
+        "types": [
+          "...*"
+        ],
+        "spread": true
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 151,
+    "kind": "file",
+    "name": "src/utils.js",
+    "content": "import _ from 'lodash';\nimport MessageFormat from 'messageformat';\n\nconst mf = {};\nconst defaultLang = 'en';\n\nexport function dynamicMessage(message, lang) {\n  return getMessageFormat(lang || defaultLang).compile(message);\n}\n\nexport function resolve(value, ...args) {\n  return Promise.resolve(_.isFunction(value) ? value.apply(undefined, args) : value);\n}\n\nexport function toNativePromise(promise) {\n  return new Promise((resolve, reject) => promise.then(resolve, reject));\n}\n\nfunction getMessageFormat(lang) {\n  if (!mf[lang]) {\n    mf[lang] = new MessageFormat(lang);\n  }\n\n  return mf[lang];\n}\n",
+    "static": true,
+    "longname": "/Users/unknow/Projects/valdsl/src/utils.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 152,
+    "kind": "variable",
+    "name": "mf",
+    "memberof": "src/utils.js",
+    "static": true,
+    "longname": "src/utils.js~mf",
+    "access": "public",
+    "export": false,
+    "importPath": "valdsl/src/utils.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true,
+    "type": {
+      "types": [
+        "{}"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 153,
+    "kind": "variable",
+    "name": "defaultLang",
+    "memberof": "src/utils.js",
+    "static": true,
+    "longname": "src/utils.js~defaultLang",
+    "access": "public",
+    "export": false,
+    "importPath": "valdsl/src/utils.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 5,
+    "undocument": true,
+    "type": {
+      "types": [
+        "string"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 154,
+    "kind": "function",
+    "name": "dynamicMessage",
+    "memberof": "src/utils.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/utils.js~dynamicMessage",
+    "access": "public",
+    "export": true,
+    "importPath": "valdsl/src/utils.js",
+    "importStyle": "{dynamicMessage}",
+    "description": null,
+    "lineNumber": 7,
+    "undocument": true,
+    "params": [
+      {
+        "name": "message",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "lang",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 155,
+    "kind": "function",
+    "name": "resolve",
+    "memberof": "src/utils.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/utils.js~resolve",
+    "access": "public",
+    "export": true,
+    "importPath": "valdsl/src/utils.js",
+    "importStyle": "{resolve}",
+    "description": null,
+    "lineNumber": 11,
+    "undocument": true,
+    "params": [
+      {
+        "name": "value",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "args",
+        "types": [
+          "...*"
+        ],
+        "spread": true
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 156,
+    "kind": "function",
+    "name": "toNativePromise",
+    "memberof": "src/utils.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/utils.js~toNativePromise",
+    "access": "public",
+    "export": true,
+    "importPath": "valdsl/src/utils.js",
+    "importStyle": "{toNativePromise}",
+    "description": null,
+    "lineNumber": 15,
+    "undocument": true,
+    "params": [
+      {
+        "name": "promise",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 157,
+    "kind": "function",
+    "name": "getMessageFormat",
+    "memberof": "src/utils.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/utils.js~getMessageFormat",
+    "access": "public",
+    "export": false,
+    "importPath": "valdsl/src/utils.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 19,
+    "undocument": true,
+    "params": [
+      {
+        "name": "lang",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 158,
+    "kind": "file",
+    "name": "src/validators/email.js",
+    "content": "import _ from 'lodash';\nimport valib from 'valib';\n\nconst defaultMessage = 'must be a valid e-mail address';\n\nexport default function email() {\n  return function(context) {\n    const value = context.get('value');\n    if (!_.isString(value) || !valib.String.isEmailLike(value)) {\n      context.addError({\n        validator: 'email',\n        message: defaultMessage\n      });\n    }\n  };\n}\n",
+    "static": true,
+    "longname": "/Users/unknow/Projects/valdsl/src/validators/email.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 159,
+    "kind": "variable",
+    "name": "defaultMessage",
+    "memberof": "src/validators/email.js",
+    "static": true,
+    "longname": "src/validators/email.js~defaultMessage",
+    "access": "public",
+    "export": false,
+    "importPath": "valdsl/src/validators/email.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true,
+    "type": {
+      "types": [
+        "string"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 160,
+    "kind": "function",
+    "name": "email",
+    "memberof": "src/validators/email.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/validators/email.js~email",
+    "access": "public",
+    "export": true,
+    "importPath": "valdsl/src/validators/email.js",
+    "importStyle": "email",
+    "description": null,
+    "lineNumber": 6,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 161,
+    "kind": "file",
+    "name": "src/validators/format.js",
+    "content": "import _ from 'lodash';\nimport { dynamicMessage } from '../utils';\n\nconst defaultMessage = dynamicMessage('does not match the expected format{format, select, undefined{} other{: {format}}}');\n\nexport default function format(regexp, formatDescription) {\n  return function(context) {\n    const value = context.get('value');\n    if (!_.isString(value) || !value.match(regexp)) {\n      context.addError({\n        validator: 'format',\n        format: formatDescription,\n        message: defaultMessage\n      });\n    }\n  };\n}\n",
+    "static": true,
+    "longname": "/Users/unknow/Projects/valdsl/src/validators/format.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 162,
+    "kind": "variable",
+    "name": "defaultMessage",
+    "memberof": "src/validators/format.js",
+    "static": true,
+    "longname": "src/validators/format.js~defaultMessage",
+    "access": "public",
+    "export": false,
+    "importPath": "valdsl/src/validators/format.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 163,
+    "kind": "function",
+    "name": "format",
+    "memberof": "src/validators/format.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/validators/format.js~format",
+    "access": "public",
+    "export": true,
+    "importPath": "valdsl/src/validators/format.js",
+    "importStyle": "format",
+    "description": null,
+    "lineNumber": 6,
+    "undocument": true,
+    "params": [
+      {
+        "name": "regexp",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "formatDescription",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 164,
+    "kind": "file",
+    "name": "src/validators/inclusion.js",
+    "content": "import _ from 'lodash';\nimport { dynamicMessage } from '../utils';\n\nconst defaultMessage = dynamicMessage('must be one of {allowedValuesDescription}');\n\nexport default function inclusion(options) {\n\n  let allowedValues;\n  if (_.isObject(options)) {\n    allowedValues = options.in;\n  } else {\n    allowedValues = _.toArray(arguments);\n  }\n\n  return function(context) {\n    if (!_.includes(allowedValues, context.get('value'))) {\n      context.addError({\n        validator: 'inclusion',\n        allowedValues: allowedValues,\n        allowedValuesDescription: allowedValues.join(', '),\n        message: defaultMessage\n      });\n    }\n  };\n}\n",
+    "static": true,
+    "longname": "/Users/unknow/Projects/valdsl/src/validators/inclusion.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 165,
+    "kind": "variable",
+    "name": "defaultMessage",
+    "memberof": "src/validators/inclusion.js",
+    "static": true,
+    "longname": "src/validators/inclusion.js~defaultMessage",
+    "access": "public",
+    "export": false,
+    "importPath": "valdsl/src/validators/inclusion.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 166,
+    "kind": "function",
+    "name": "inclusion",
+    "memberof": "src/validators/inclusion.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/validators/inclusion.js~inclusion",
+    "access": "public",
+    "export": true,
+    "importPath": "valdsl/src/validators/inclusion.js",
+    "importStyle": "inclusion",
+    "description": null,
+    "lineNumber": 6,
+    "undocument": true,
+    "params": [
+      {
+        "name": "options",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 167,
+    "kind": "file",
+    "name": "src/validators/notBlank.js",
+    "content": "import _ from 'lodash';\n\nconst defaultMessage = 'must not be blank';\n\nexport default function notBlank() {\n  return function(context) {\n    const value = context.get('value');\n    if (_.isString(value) && value.match(/^\\s*$/)) {\n      context.addError({\n        validator: 'notBlank',\n        message: defaultMessage\n      });\n    }\n  };\n}\n",
+    "static": true,
+    "longname": "/Users/unknow/Projects/valdsl/src/validators/notBlank.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 168,
+    "kind": "variable",
+    "name": "defaultMessage",
+    "memberof": "src/validators/notBlank.js",
+    "static": true,
+    "longname": "src/validators/notBlank.js~defaultMessage",
+    "access": "public",
+    "export": false,
+    "importPath": "valdsl/src/validators/notBlank.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "type": {
+      "types": [
+        "string"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 169,
+    "kind": "function",
+    "name": "notBlank",
+    "memberof": "src/validators/notBlank.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/validators/notBlank.js~notBlank",
+    "access": "public",
+    "export": true,
+    "importPath": "valdsl/src/validators/notBlank.js",
+    "importStyle": "notBlank",
+    "description": null,
+    "lineNumber": 5,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 170,
+    "kind": "file",
+    "name": "src/validators/notEmpty.js",
+    "content": "const defaultMessage = 'must not be empty';\n\nexport default function notEmpty() {\n  return function(context) {\n    const value = context.get('value');\n    if (value.length === 0) {\n      context.addError({\n        validator: 'notEmpty',\n        message: defaultMessage\n      });\n    }\n  };\n}\n",
+    "static": true,
+    "longname": "/Users/unknow/Projects/valdsl/src/validators/notEmpty.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 171,
+    "kind": "variable",
+    "name": "defaultMessage",
+    "memberof": "src/validators/notEmpty.js",
+    "static": true,
+    "longname": "src/validators/notEmpty.js~defaultMessage",
+    "access": "public",
+    "export": false,
+    "importPath": "valdsl/src/validators/notEmpty.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "type": {
+      "types": [
+        "string"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 172,
+    "kind": "function",
+    "name": "notEmpty",
+    "memberof": "src/validators/notEmpty.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/validators/notEmpty.js~notEmpty",
+    "access": "public",
+    "export": true,
+    "importPath": "valdsl/src/validators/notEmpty.js",
+    "importStyle": "notEmpty",
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 173,
+    "kind": "file",
+    "name": "src/validators/required.js",
+    "content": "const defaultMessage = 'is required';\n\nexport default function required() {\n  return function(context) {\n    const value = context.get('value');\n    if (value === undefined || value === null) {\n      context.addError({\n        validator: 'required',\n        message: defaultMessage\n      });\n    }\n  };\n}\n",
+    "static": true,
+    "longname": "/Users/unknow/Projects/valdsl/src/validators/required.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 174,
+    "kind": "variable",
+    "name": "defaultMessage",
+    "memberof": "src/validators/required.js",
+    "static": true,
+    "longname": "src/validators/required.js~defaultMessage",
+    "access": "public",
+    "export": false,
+    "importPath": "valdsl/src/validators/required.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "type": {
+      "types": [
+        "string"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 175,
+    "kind": "function",
+    "name": "required",
+    "memberof": "src/validators/required.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/validators/required.js~required",
+    "access": "public",
+    "export": true,
+    "importPath": "valdsl/src/validators/required.js",
+    "importStyle": "required",
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 176,
+    "kind": "file",
+    "name": "src/validators/resource.js",
+    "content": "import _ from 'lodash';\nimport { dynamicMessage } from '../utils';\n\nconst defaultMessage = dynamicMessage('{value} not found');\n\nexport default function resource(loader, options) {\n  options = _.extend({}, options);\n\n  const action = function(context) {\n    return Promise.resolve(loader(context.get('value'), context)).then(function(resource) {\n      if (!resource) {\n        return context.addError({\n          validator: 'resource',\n          message: defaultMessage\n        });\n      }\n\n      if (options.replace && _.isFunction(context.get('location').setValue)) {\n        context.get('location').setValue(_.isFunction(options.replace) ? options.replace(resource) : resource);\n      }\n\n      if (options.moveTo) {\n        if (!context.has('location')) {\n          throw new Error('Moving the value requires a location');\n        } else if (!_.isFunction(context.get('location').move)) {\n          throw new Error('Moving the value requires the location to provide a `move` function');\n        }\n\n        context.set('location', context.get('location').move(options.moveTo));\n      }\n    });\n  };\n\n  action.replace = function(by) {\n    options.replace = by;\n    return action;\n  };\n\n  action.moveTo = function(to) {\n    options.moveTo = to;\n    return action;\n  };\n\n  return action;\n}\n",
+    "static": true,
+    "longname": "/Users/unknow/Projects/valdsl/src/validators/resource.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 177,
+    "kind": "variable",
+    "name": "defaultMessage",
+    "memberof": "src/validators/resource.js",
+    "static": true,
+    "longname": "src/validators/resource.js~defaultMessage",
+    "access": "public",
+    "export": false,
+    "importPath": "valdsl/src/validators/resource.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 178,
+    "kind": "function",
+    "name": "resource",
+    "memberof": "src/validators/resource.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/validators/resource.js~resource",
+    "access": "public",
+    "export": true,
+    "importPath": "valdsl/src/validators/resource.js",
+    "importStyle": "resource",
+    "description": null,
+    "lineNumber": 6,
+    "undocument": true,
+    "params": [
+      {
+        "name": "loader",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "options",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 179,
+    "kind": "file",
+    "name": "src/validators/string.js",
+    "content": "import _ from 'lodash';\nimport { dynamicMessage } from '../utils';\n\nconst defaultMessage = dynamicMessage('must be a string ' +\n  '{validation, select,' +\n  ' exactly{exactly {minLength} {minLength, plural, one{character} other{characters}} long}' +\n  ' atLeast{at least {minLength} {minLength, plural, one{character} other{characters}} long}' +\n  ' atMost{at most {maxLength} {maxLength, plural, one{character} other{characters}} long}' +\n  ' other{between {minLength} and {maxLength} {maxLength, plural, one{character} other{characters}} long}}' +\n  ' ' +\n  '({cause, select,' +\n  ' tooShort{the supplied string is too short: {actualLength} {actualLength, plural, one{character} other{characters}} long}' +\n  ' tooLong{the supplied string is too long: {actualLength} {actualLength, plural, one{character} other{characters}} long}' +\n  ' other{the supplied value is of the wrong type}})');\n\nexport default function string(min, max, options) {\n  if (_.isObject(min)) {\n    options = min;\n  } else {\n    options = _.defaults({}, options, {\n      min: min,\n      max: max\n    });\n  }\n\n  if (options.min !== undefined && !_.isNumber(options.min)) {\n    throw new Error('String length validator `min` option must be a number, got ' + typeof(options.min));\n  } else if (options.max !== undefined && !_.isNumber(options.max)) {\n    throw new Error('String length validator `max` option must be a number, got ' + typeof(options.max));\n  }\n\n  let validation;\n  if (options.min !== undefined && options.min === options.max) {\n    validation = 'exactly';\n  } else if (options.min !== undefined && options.max !== undefined) {\n    validation = 'between';\n  } else if (options.min !== undefined) {\n    validation = 'atLeast';\n  } else {\n    validation = 'atMost';\n  }\n\n  return function(context) {\n\n    const value = context.get('value');\n\n    let cause;\n    if (!_.isString(value)) {\n      cause = 'wrongType';\n    } else if (options.min !== undefined && value.length < options.min) {\n      cause = 'tooShort';\n    } else if (options.max !== undefined && value.length > options.max) {\n      cause = 'tooLong';\n    }\n\n    if (cause) {\n      context.addError({\n        validator: 'string',\n        validation: validation,\n        minLength: options.min,\n        maxLength: options.max,\n        actualLength: _.isString(value) ? value.length : undefined,\n        cause: cause,\n        message: defaultMessage\n      });\n    }\n  };\n}\n",
+    "static": true,
+    "longname": "/Users/unknow/Projects/valdsl/src/validators/string.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 180,
+    "kind": "variable",
+    "name": "defaultMessage",
+    "memberof": "src/validators/string.js",
+    "static": true,
+    "longname": "src/validators/string.js~defaultMessage",
+    "access": "public",
+    "export": false,
+    "importPath": "valdsl/src/validators/string.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 181,
+    "kind": "function",
+    "name": "string",
+    "memberof": "src/validators/string.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/validators/string.js~string",
+    "access": "public",
+    "export": true,
+    "importPath": "valdsl/src/validators/string.js",
+    "importStyle": "string",
+    "description": null,
+    "lineNumber": 16,
+    "undocument": true,
+    "params": [
+      {
+        "name": "min",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "max",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "options",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 182,
+    "kind": "file",
+    "name": "src/validators/type.js",
+    "content": "import _ from 'lodash';\nimport { dynamicMessage } from '../utils';\n\nconst defaultMessage = dynamicMessage('must be of type {typeDescription}');\nconst availableTypes = [ 'string', 'number', 'object', 'array', 'boolean' ];\n\nexport default function type(...types) {\n\n  types = _.uniq(types);\n  _.each(types, function(type) {\n    if (!_.includes(availableTypes, type)) {\n      throw new Error('Unknown type ' + JSON.stringify(type));\n    }\n  });\n\n  const typeDescription = _.reduce(types, function(memo, type, i) {\n    if (i > 0 && i == types.length - 1) {\n      return memo + ' or ' + type;\n    } else if (i !== 0) {\n      return memo + ', ' + type;\n    } else {\n      return type;\n    }\n  }, '');\n\n  return function(context) {\n\n    const value = context.get('value');\n\n    const valid = _.some(types, type => isOfType(value, type));\n    if (!valid) {\n      context.addError({\n        validator: 'type',\n        types: types,\n        message: defaultMessage({ typeDescription: typeDescription })\n      });\n    }\n  };\n}\n\nfunction isOfType(value, type) {\n  if (type == 'array') {\n    return _.isArray(value);\n  } else if (type == 'object') {\n    return _.isPlainObject(value);\n  } else {\n    return typeof(value) == type;\n  }\n}\n",
+    "static": true,
+    "longname": "/Users/unknow/Projects/valdsl/src/validators/type.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 183,
+    "kind": "variable",
+    "name": "defaultMessage",
+    "memberof": "src/validators/type.js",
+    "static": true,
+    "longname": "src/validators/type.js~defaultMessage",
+    "access": "public",
+    "export": false,
+    "importPath": "valdsl/src/validators/type.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 184,
+    "kind": "variable",
+    "name": "availableTypes",
+    "memberof": "src/validators/type.js",
+    "static": true,
+    "longname": "src/validators/type.js~availableTypes",
+    "access": "public",
+    "export": false,
+    "importPath": "valdsl/src/validators/type.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 5,
+    "undocument": true,
+    "type": {
+      "types": [
+        "string[]"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 185,
+    "kind": "function",
+    "name": "type",
+    "memberof": "src/validators/type.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/validators/type.js~type",
+    "access": "public",
+    "export": true,
+    "importPath": "valdsl/src/validators/type.js",
+    "importStyle": "type",
+    "description": null,
+    "lineNumber": 7,
+    "undocument": true,
+    "params": [
+      {
+        "name": "types",
+        "types": [
+          "...*"
+        ],
+        "spread": true
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 186,
+    "kind": "function",
+    "name": "isOfType",
+    "memberof": "src/validators/type.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/validators/type.js~isOfType",
+    "access": "public",
+    "export": false,
+    "importPath": "valdsl/src/validators/type.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 41,
+    "undocument": true,
+    "params": [
+      {
+        "name": "value",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "type",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "kind": "index",
+    "content": "# ValDSL\n\n**Node.js extensible, promise-based validation DSL**\n\n[![npm version](https://badge.fury.io/js/valdsl.svg)](https://badge.fury.io/js/valdsl)\n[![Dependency Status](https://gemnasium.com/badges/github.com/AlphaHydrae/valdsl.svg)](https://gemnasium.com/github.com/AlphaHydrae/valdsl)\n[![Build Status](https://travis-ci.org/AlphaHydrae/valdsl.svg)](https://travis-ci.org/AlphaHydrae/valdsl)\n[![Coverage Status](https://coveralls.io/repos/github/AlphaHydrae/valdsl/badge.svg?branch=master)](https://coveralls.io/github/AlphaHydrae/valdsl?branch=master)\n[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE.txt)\n\n\n\n## Requirements\n\n* [Node.js][node] 4+\n\n\n\n## Installation\n\n```bash\n$> npm install --save valdsl\n```\n\n\n\n## Usage\n\nSee [spec/index.spec.js](spec/index.spec.js).\n\n\n\n[node]: https://nodejs.org/en/\n",
+    "longname": "/Users/unknow/Projects/valdsl/README.md",
+    "name": "./README.md",
+    "static": true,
+    "access": "public"
+  },
+  {
+    "kind": "packageJSON",
+    "content": "{\n  \"name\": \"valdsl\",\n  \"version\": \"0.4.5\",\n  \"description\": \"Extensible, promise-based validation DSL\",\n  \"keywords\": [\n    \"dsl\",\n    \"messageformat\",\n    \"valid\",\n    \"validate\",\n    \"validation\"\n  ],\n  \"license\": \"MIT\",\n  \"author\": {\n    \"name\": \"Simon Oulevay (Alpha Hydrae)\",\n    \"email\": \"npm@alphahydrae.com\"\n  },\n  \"repository\": {\n    \"type\": \"git\",\n    \"url\": \"https://github.com/AlphaHydrae/valdsl.git\"\n  },\n  \"homepage\": \"https://github.com/AlphaHydrae/valdsl\",\n  \"bugs\": \"https://github.com/AlphaHydrae/valdsl/issues\",\n  \"main\": \"./lib\",\n  \"files\": [\n    \"lib\"\n  ],\n  \"scripts\": {\n    \"build\": \"rimraf lib && npm run lint && babel src -d lib\",\n    \"dev\": \"concurrently \\\"npm run build\\\" \\\"npm run docs\\\" && concurrently \\\"npm run docs:serve\\\" \\\"npm run docs:watch\\\" \\\"npm run test:watch\\\"\",\n    \"dev:docs\": \"npm run docs && concurrently \\\"npm run docs:serve\\\" \\\"npm run docs:watch\\\"\",\n    \"dev:test\": \"npm test && npm run test:watch\",\n    \"dev:test:lib\": \"npm run test:lib && npm run test:lib:watch\",\n    \"docs\": \"npm run docs:clean && concurrently \\\"npm run docs:gen\\\" \\\"npm test\\\"\",\n    \"docs:clean\": \"concurrently \\\"rimraf docs/coverage\\\" \\\"rimraf docs/src\\\"\",\n    \"docs:gen\": \"esdoc && rimraf docs/ast\",\n    \"docs:publish\": \"npm run docs && gh-pages -d docs\",\n    \"docs:serve\": \"node serve-docs.js\",\n    \"docs:watch\": \"onchange README.md \\\"src/**/*.js\\\" -- npm run docs:gen\",\n    \"lint\": \"jshint spec src\",\n    \"prepublishOnly\": \"npm run build\",\n    \"start\": \"npm run dev\",\n    \"test\": \"npm run lint && cross-env NODE_ENV=test nyc --reporter=html --reporter=text mocha --require babel-register --recursive spec\",\n    \"test:coveralls\": \"nyc report --reporter=text-lcov | coveralls\",\n    \"test:lib\": \"npm run build && cross-env VALDSL_TEST_SRC=lib mocha --require babel-register --recursive spec\",\n    \"test:lib:watch\": \"onchange \\\"spec/**/*.js\\\" \\\"src/**/*.js\\\" -- npm run test:lib\",\n    \"test:watch\": \"onchange \\\"spec/**/*.js\\\" \\\"src/**/*.js\\\" -- npm run test\",\n    \"watch\": \"concurrently \\\"npm run test:watch\\\" \\\"npm run docs:serve\\\" \\\"npm run docs:watch\\\"\"\n  },\n  \"dependencies\": {\n    \"bluebird\": \"^3.5.1\",\n    \"es6-error\": \"^4.0.0\",\n    \"json-pointer\": \"^0.6.0\",\n    \"lodash\": \"^4.16.2\",\n    \"messageformat\": \"^1.1.0\",\n    \"valib\": \"^2.0.0\"\n  },\n  \"devDependencies\": {\n    \"babel-cli\": \"^6.26.0\",\n    \"babel-core\": \"^6.26.0\",\n    \"babel-plugin-add-module-exports\": \"^0.2.1\",\n    \"babel-plugin-istanbul\": \"^4.1.5\",\n    \"babel-preset-env\": \"^1.6.1\",\n    \"babel-register\": \"^6.26.0\",\n    \"chai\": \"^4.1.2\",\n    \"concurrently\": \"^3.5.1\",\n    \"coveralls\": \"^3.0.0\",\n    \"cross-env\": \"^5.1.1\",\n    \"esdoc\": \"^1.0.4\",\n    \"esdoc-standard-plugin\": \"^1.0.0\",\n    \"gh-pages\": \"^1.1.0\",\n    \"jshint\": \"^2.9.3\",\n    \"live-server\": \"^1.2.0\",\n    \"mocha\": \"^4.0.1\",\n    \"nyc\": \"^11.4.0\",\n    \"onchange\": \"^3.2.1\",\n    \"rimraf\": \"^2.6.2\",\n    \"sinon\": \"^4.1.2\",\n    \"through2\": \"^2.0.1\"\n  },\n  \"engines\": {\n    \"node\": \">= 4.0.0\"\n  }\n}\n",
+    "longname": "/Users/unknow/Projects/valdsl/package.json",
+    "name": "package.json",
+    "static": true,
+    "access": "public"
+  }
+]

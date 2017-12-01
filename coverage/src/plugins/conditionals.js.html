@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/plugins/conditionals.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">All files</a> / <a href="index.html">src/plugins</a> conditionals.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">77.46% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>55/71</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">66.67% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>20/30</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">76.6% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>36/47</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">81.67% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>49/60</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">37x</span>
+<span class="cline-any cline-yes">37x</span>
+<span class="cline-any cline-yes">37x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">117x</span>
+<span class="cline-any cline-yes">34x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">83x</span>
+<span class="cline-any cline-yes">83x</span>
+<span class="cline-any cline-yes">83x</span>
+<span class="cline-any cline-yes">80x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">31x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import _ from 'lodash';
+import BPromise from 'bluebird';
+import { resolve, toNativePromise } from '../utils';
+&nbsp;
+const CONDITIONS = Symbol('conditions');
+&nbsp;
+export default function conditionalsPlugin() {
+  return function(valdsl) {
+&nbsp;
+    // Attach an array of conditions to the validation context when it's created
+    valdsl.override('initialize', function(original) {
+      return function initialize() {
+        original.apply(this, arguments);
+        this[CONDITIONS] = [];
+      };
+    });
+&nbsp;
+    // Make a isolated copy of the conditions array when a new child context is created
+    // (each validation chain should have its own independent conditions)
+    valdsl.override('createChild', function(original) {
+      return function createChild() {
+        const newContext = original.apply(this, arguments);
+        newContext[CONDITIONS] = this[CONDITIONS].slice();
+        return newContext;
+      };
+    });
+&nbsp;
+    // Ensure all conditions are fulfilled at each step of a validation chain
+    valdsl.override('recursivelyValidate', function(original) {
+      return function recursivelyValidate(validators) {
+        if (!validators.length) {
+          return Promise.resolve(this);
+        }
+&nbsp;
+        const pendingConditions = _.map(this[CONDITIONS], condition =&gt; resolve(condition, this));
+        return Promise.all(pendingConditions).then(results =&gt; {
+          if (_.every(results)) {
+            return this.runValidator(validators.shift()).then(() =&gt; this.recursivelyValidate(validators));
+          } else {
+            return this;
+          }
+        });
+      };
+    });
+&nbsp;
+    valdsl.dsl.extend({
+      if: validateIf,
+      ifElse: validateIfElse,
+      break: breakValidation,
+      while: validateWhile,
+      until: validateUntil,
+      isSet: valueIsSet,
+      changed: valueHasChanged,
+      previous: previousValue,
+      error: hasError,
+      noError: hasNoError,
+      every: every,
+      some: some
+    });
+  };
+}
+&nbsp;
+export function validateIf(condition, ...validators) {
+  return function(context) {
+    return resolve(condition, context).then(result =&gt; {
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (!result) {
+        return;
+      }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      return toNativePromise(BPromise.mapSeries(validators, <span class="fstat-no" title="function not covered" >va</span>lidator =&gt; <span class="cstat-no" title="statement not covered" >resolve(validator, context))</span>);</span>
+    });
+  };
+}
+&nbsp;
+export function validateIfElse(condition, ifHandler, elseHandler) {
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (ifHandler !== undefined &amp;&amp; ifHandler !== null &amp;&amp; ifHandler !== false &amp;&amp; !_.isFunction(ifHandler)) {
+<span class="cstat-no" title="statement not covered" >    throw new Error('If handler must be a function');</span>
+  } else <span class="missing-if-branch" title="if path not taken" >I</span>if (elseHandler !== undefined &amp;&amp; elseHandler !== null &amp;&amp; elseHandler !== false &amp;&amp; !_.isFunction(elseHandler)) {
+<span class="cstat-no" title="statement not covered" >    throw new Error('Else handler must be a function');</span>
+  }
+&nbsp;
+  return function(context) {
+    return resolve(condition, context).then(result =&gt; {
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (result &amp;&amp; ifHandler) {
+        return ifHandler(context);
+      } else <span class="cstat-no" title="statement not covered" >if (!result &amp;&amp; elseHandler) {</span>
+<span class="cstat-no" title="statement not covered" >        return elseHandler(context);</span>
+      }
+    });
+  };
+}
+&nbsp;
+export function hasError(filter) {
+  return function(context) {
+    return context.hasError(filter);
+  };
+}
+&nbsp;
+export function <span class="fstat-no" title="function not covered" >hasNoError(</span>filter) {
+<span class="cstat-no" title="statement not covered" >  return <span class="fstat-no" title="function not covered" >fu</span>nction(context) {</span>
+<span class="cstat-no" title="statement not covered" >    return !context.hasError(filter);</span>
+  };
+}
+&nbsp;
+export function valueIsSet() {
+  return function(context) {
+    return context.get('valueSet');
+  };
+}
+&nbsp;
+export function previousValue(value) {
+  return function(context) {
+    context.set('previousValue', value);
+  };
+}
+&nbsp;
+export function valueHasChanged(changed) {
+  <span class="missing-if-branch" title="else path not taken" >E</span>if (!_.isFunction(changed)) {
+    const previousValue = changed;
+    changed = function(value, context) {
+      return value !== (previousValue !== undefined ? <span class="branch-0 cbranch-no" title="branch not covered" >previousValue </span>: context.get('previousValue'));
+    };
+  }
+&nbsp;
+  return function(context) {
+    return changed(context.get('value'), context);
+  };
+}
+&nbsp;
+export function breakValidation() {
+  return function(context) {
+    context[CONDITIONS].push(() =&gt; false);
+  };
+}
+&nbsp;
+export function validateWhile(condition) {
+  return function(context) {
+    context[CONDITIONS].push(ctx =&gt; resolve(condition, ctx));
+  };
+}
+&nbsp;
+export function validateUntil(condition) {
+  return function(context) {
+    context[CONDITIONS].push(ctx =&gt; resolve(condition, ctx).then(result =&gt; !result));
+  };
+}
+&nbsp;
+export function <span class="fstat-no" title="function not covered" >every(</span>conditions, predicate) {
+<span class="cstat-no" title="statement not covered" >  return <span class="fstat-no" title="function not covered" >fu</span>nction(context) {</span>
+<span class="cstat-no" title="statement not covered" >    return Promise.all(_.map(conditions, <span class="fstat-no" title="function not covered" >co</span>ndition =&gt; <span class="cstat-no" title="statement not covered" >resolve(condition, context))</span>).then(<span class="fstat-no" title="function not covered" >re</span>sults =&gt; <span class="cstat-no" title="statement not covered" >_.every(results, predicate))</span>;</span>
+  };
+}
+&nbsp;
+export function <span class="fstat-no" title="function not covered" >some(</span>conditions, predicate) {
+<span class="cstat-no" title="statement not covered" >  return <span class="fstat-no" title="function not covered" >fu</span>nction(context) {</span>
+<span class="cstat-no" title="statement not covered" >    return Promise.all(_.map(conditions, <span class="fstat-no" title="function not covered" >co</span>ndition =&gt; <span class="cstat-no" title="statement not covered" >resolve(condition, context))</span>).then(<span class="fstat-no" title="function not covered" >re</span>sults =&gt; <span class="cstat-no" title="statement not covered" >_.some(results, predicate))</span>;</span>
+  };
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Dec 01 2017 22:10:52 GMT+0100 (CET)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

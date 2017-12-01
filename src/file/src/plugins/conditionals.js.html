@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">src/plugins/conditionals.js | valdsl</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="Extensible, promise-based validation DSL"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="valdsl"><meta property="twitter:description" content="Extensible, promise-based validation DSL"></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+<a style="position:relative; top:3px;" href="https://github.com/AlphaHydrae/valdsl.git"><img width="20px" src="./image/github.png"></a></header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/context.js~ValidationContext.html">ValidationContext</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/dsl.js~ValidationDsl.html">ValidationDsl</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/error-bundle.js~ValidationErrorBundle.html">ValidationErrorBundle</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/error.js~ValidationError.html">ValidationError</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-index">index</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-dynamicMessage">dynamicMessage</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-resolve">resolve</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-toNativePromise">toNativePromise</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#plugins">plugins</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/plugins/helpers.js~ValidationValue.html">ValidationValue</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/plugins/json-pointer.js~JsonPointerLocation.html">JsonPointerLocation</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-breakValidation">breakValidation</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-conditionalsPlugin">conditionalsPlugin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-every">every</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-hasError">hasError</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-hasNoError">hasNoError</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-previousValue">previousValue</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-some">some</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-validateIf">validateIf</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-validateIfElse">validateIfElse</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-validateUntil">validateUntil</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-validateWhile">validateWhile</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-valueHasChanged">valueHasChanged</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-valueIsSet">valueIsSet</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-defaultValidatorsPlugin">defaultValidatorsPlugin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-each">each</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-eachParallel">eachParallel</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-parallel">parallel</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-series">series</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-data">data</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-dataPlugin">dataPlugin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-defaultValidatorsPlugin">defaultValidatorsPlugin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getValueProperty">getValueProperty</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-helpersPlugin">helpersPlugin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-setValue">setValue</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-jsonPointerPlugin">jsonPointerPlugin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-navigateToJsonPointer">navigateToJsonPointer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-atCurrentLocationFilter">atCurrentLocationFilter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-locationPlugin">locationPlugin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-requestHeaderPlugin">requestHeaderPlugin</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-serializePlugin">serializePlugin</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#validators">validators</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-email">email</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-format">format</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-inclusion">inclusion</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-notBlank">notBlank</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-notEmpty">notEmpty</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-required">required</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-resource">resource</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-string">string</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-type">type</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/plugins/conditionals.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import _ from &apos;lodash&apos;;
+import BPromise from &apos;bluebird&apos;;
+import { resolve, toNativePromise } from &apos;../utils&apos;;
+
+const CONDITIONS = Symbol(&apos;conditions&apos;);
+
+export default function conditionalsPlugin() {
+  return function(valdsl) {
+
+    // Attach an array of conditions to the validation context when it&apos;s created
+    valdsl.override(&apos;initialize&apos;, function(original) {
+      return function initialize() {
+        original.apply(this, arguments);
+        this[CONDITIONS] = [];
+      };
+    });
+
+    // Make a isolated copy of the conditions array when a new child context is created
+    // (each validation chain should have its own independent conditions)
+    valdsl.override(&apos;createChild&apos;, function(original) {
+      return function createChild() {
+        const newContext = original.apply(this, arguments);
+        newContext[CONDITIONS] = this[CONDITIONS].slice();
+        return newContext;
+      };
+    });
+
+    // Ensure all conditions are fulfilled at each step of a validation chain
+    valdsl.override(&apos;recursivelyValidate&apos;, function(original) {
+      return function recursivelyValidate(validators) {
+        if (!validators.length) {
+          return Promise.resolve(this);
+        }
+
+        const pendingConditions = _.map(this[CONDITIONS], condition =&gt; resolve(condition, this));
+        return Promise.all(pendingConditions).then(results =&gt; {
+          if (_.every(results)) {
+            return this.runValidator(validators.shift()).then(() =&gt; this.recursivelyValidate(validators));
+          } else {
+            return this;
+          }
+        });
+      };
+    });
+
+    valdsl.dsl.extend({
+      if: validateIf,
+      ifElse: validateIfElse,
+      break: breakValidation,
+      while: validateWhile,
+      until: validateUntil,
+      isSet: valueIsSet,
+      changed: valueHasChanged,
+      previous: previousValue,
+      error: hasError,
+      noError: hasNoError,
+      every: every,
+      some: some
+    });
+  };
+}
+
+export function validateIf(condition, ...validators) {
+  return function(context) {
+    return resolve(condition, context).then(result =&gt; {
+      if (!result) {
+        return;
+      }
+
+      return toNativePromise(BPromise.mapSeries(validators, validator =&gt; resolve(validator, context)));
+    });
+  };
+}
+
+export function validateIfElse(condition, ifHandler, elseHandler) {
+  if (ifHandler !== undefined &amp;&amp; ifHandler !== null &amp;&amp; ifHandler !== false &amp;&amp; !_.isFunction(ifHandler)) {
+    throw new Error(&apos;If handler must be a function&apos;);
+  } else if (elseHandler !== undefined &amp;&amp; elseHandler !== null &amp;&amp; elseHandler !== false &amp;&amp; !_.isFunction(elseHandler)) {
+    throw new Error(&apos;Else handler must be a function&apos;);
+  }
+
+  return function(context) {
+    return resolve(condition, context).then(result =&gt; {
+      if (result &amp;&amp; ifHandler) {
+        return ifHandler(context);
+      } else if (!result &amp;&amp; elseHandler) {
+        return elseHandler(context);
+      }
+    });
+  };
+}
+
+export function hasError(filter) {
+  return function(context) {
+    return context.hasError(filter);
+  };
+}
+
+export function hasNoError(filter) {
+  return function(context) {
+    return !context.hasError(filter);
+  };
+}
+
+export function valueIsSet() {
+  return function(context) {
+    return context.get(&apos;valueSet&apos;);
+  };
+}
+
+export function previousValue(value) {
+  return function(context) {
+    context.set(&apos;previousValue&apos;, value);
+  };
+}
+
+export function valueHasChanged(changed) {
+  if (!_.isFunction(changed)) {
+    const previousValue = changed;
+    changed = function(value, context) {
+      return value !== (previousValue !== undefined ? previousValue : context.get(&apos;previousValue&apos;));
+    };
+  }
+
+  return function(context) {
+    return changed(context.get(&apos;value&apos;), context);
+  };
+}
+
+export function breakValidation() {
+  return function(context) {
+    context[CONDITIONS].push(() =&gt; false);
+  };
+}
+
+export function validateWhile(condition) {
+  return function(context) {
+    context[CONDITIONS].push(ctx =&gt; resolve(condition, ctx));
+  };
+}
+
+export function validateUntil(condition) {
+  return function(context) {
+    context[CONDITIONS].push(ctx =&gt; resolve(condition, ctx).then(result =&gt; !result));
+  };
+}
+
+export function every(conditions, predicate) {
+  return function(context) {
+    return Promise.all(_.map(conditions, condition =&gt; resolve(condition, context))).then(results =&gt; _.every(results, predicate));
+  };
+}
+
+export function some(conditions, predicate) {
+  return function(context) {
+    return Promise.all(_.map(conditions, condition =&gt; resolve(condition, context))).then(results =&gt; _.some(results, predicate));
+  };
+}
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.0.4)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

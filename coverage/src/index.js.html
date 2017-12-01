@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/index.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">All files</a> / <a href="index.html">src</a> index.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">91.43% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>32/35</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">60% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>6/10</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>4/4</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">91.43% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>32/35</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">35x</span>
+<span class="cline-any cline-yes">35x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">35x</span>
+<span class="cline-any cline-yes">35x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">35x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">35x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">45x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">45x</span>
+<span class="cline-any cline-yes">45x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">45x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import _ from 'lodash';
+import conditionalsPlugin from './plugins/conditionals';
+import controlFlowPlugin from './plugins/control-flow';
+import dataPlugin from './plugins/data';
+import defaultValidatorsPlugin from './plugins/default-validators';
+import helpersPlugin from './plugins/helpers';
+import jsonPointerPlugin from './plugins/json-pointer';
+import locationPlugin from './plugins/location';
+import requestHeaderPlugin from './plugins/request-header';
+import serializePlugin from './plugins/serialize';
+import ValidationContext from './context';
+import ValidationDsl from './dsl';
+import ValidationError from './error';
+import ValidationErrorBundle from './error-bundle';
+&nbsp;
+export default function(options) {
+  options = _.defaults({}, options, {
+    plugins: {}
+  });
+&nbsp;
+  class CustomValidationContext extends ValidationContext {}
+  class CustomValidationError extends ValidationError {}
+  class CustomValidationErrorBundle extends ValidationErrorBundle {}
+&nbsp;
+  const valdsl = {
+    dsl: new ValidationDsl(),
+    ValidationContext: CustomValidationContext,
+    ValidationError: CustomValidationError,
+    ValidationErrorBundle: CustomValidationErrorBundle
+  };
+&nbsp;
+  valdsl.override = function(contextMethod, callback) {
+&nbsp;
+    const proto = valdsl.ValidationContext.prototype;
+    const functionToOverride = proto[contextMethod];
+&nbsp;
+    const newMethod = callback(functionToOverride);
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (!_.isFunction(newMethod)) {
+<span class="cstat-no" title="statement not covered" >      throw new Error('Callback passed to override must return a function');</span>
+    }
+&nbsp;
+    proto[contextMethod] = newMethod;
+&nbsp;
+    return valdsl;
+  };
+&nbsp;
+  valdsl.plugins = {
+    conditionals: conditionalsPlugin,
+    controlFlow: controlFlowPlugin,
+    data: dataPlugin,
+    defaultValidators: defaultValidatorsPlugin,
+    helpers: helpersPlugin,
+    jsonPointer: jsonPointerPlugin,
+    location: locationPlugin,
+    requestHeader: requestHeaderPlugin,
+    serialize: serializePlugin
+  };
+&nbsp;
+  valdsl.plugin = function(nameOrFunc, ...args) {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (_.isFunction(nameOrFunc)) {
+<span class="cstat-no" title="statement not covered" >      nameOrFunc(valdsl);</span>
+    } else <span class="missing-if-branch" title="else path not taken" >E</span>if (_.isString(nameOrFunc) &amp;&amp; valdsl.plugins[nameOrFunc]) {
+      valdsl.plugins[nameOrFunc].apply(undefined, args)(valdsl);
+    } else {
+<span class="cstat-no" title="statement not covered" >      throw new Error('Plugin must either be a function or the name of a core plugin');</span>
+    }
+&nbsp;
+    return valdsl;
+  };
+&nbsp;
+  valdsl.plugin('helpers');
+  valdsl.plugin('controlFlow');
+  valdsl.plugin('data');
+  valdsl.plugin('defaultValidators');
+  valdsl.plugin('conditionals');
+  valdsl.plugin('location');
+  valdsl.plugin('jsonPointer');
+  valdsl.plugin('requestHeader');
+  valdsl.plugin('serialize');
+&nbsp;
+  const valdslFunc = function validate(options, callback) {
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (_.isFunction(options)) {
+      callback = options;
+      options = {};
+    }
+&nbsp;
+    options = _.defaults({}, options, _.pick(valdsl, 'dsl', 'ValidationError', 'ValidationErrorBundle'));
+&nbsp;
+    return new valdsl.ValidationContext(options).ensureValid(callback);
+  };
+&nbsp;
+  _.extend(valdslFunc, valdsl);
+&nbsp;
+  return valdslFunc;
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Dec 01 2017 22:10:52 GMT+0100 (CET)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>
